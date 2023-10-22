@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor NhanVien as "Nhân Viên"
+actor QuanLy as "Quản Lý"
+actor NguoiThamGiaUngTuyen as "Người Tham Gia Ứng Tuyển"
+actor CongTyTuyenDung as "Công Ty Tuyển Dụng"
+QuanLy --^ NhanVien
+rectangle "Quản lý hồ sơ công ty tuyển dụng"{
+    (Tạo hồ sơ công ty tuyển dụng) -- CongTyTuyenDung
+    (Chỉnh sửa hồ sơ công ty tuyển dụng) -- CongTyTuyenDung
+    NhanVien -- (Xoá hồ sơ công ty tuyển dụng)
+    (Xoá hồ sơ công ty tuyển dụng) -- CongTyTuyenDung
+    (Xem hồ sơ công ty tuyển dụng) -- CongTyTuyenDung
+    NhanVien -- (Xem hồ sơ công ty tuyển dụng)
+    NguoiThamGiaUngTuyen -- (Xem hồ sơ công ty tuyển dụng)
+    (Tìm kiếm hồ sơ công ty tuyển dụng) -- CongTyTuyenDung
+    NhanVien -- (Tìm kiếm hồ sơ công ty tuyển dụng)
+    NguoiThamGiaUngTuyen -- (Tìm kiếm hồ sơ công ty tuyển dụng)
+    NguoiThamGiaUngTuyen -- (Đánh giá hồ sơ tuyển dụng)
+    NhanVien -- (Kiểm duyệt hồ sơ công ty tuyển dụng)
+    NguoiThamGiaUngTuyen -- (Báo cáo hồ sơ công ty)
+}
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+actor NhanVien as "Nhân Viên"
+actor QuanLy as "Quản Lý"
+actor NguoiThamGiaUngTuyen as "Người Tham Gia Ứng Tuyển"
+actor CongTyTuyenDung as "Công Ty Tuyển Dụng"
+QuanLy --^ NhanVien
+rectangle "Đăng nhập/Đăng ký" {
+  NguoiThamGiaUngTuyen -- (Đăng nhập vào hệ thống)
+  CongTyTuyenDung -- (Đăng nhập vào hệ thống)
+  NhanVien -- (Đăng nhập vào hệ thống)
+  (Đăng ký tài khoản) -- NguoiThamGiaUngTuyen
+  CongTyTuyenDung -- (Đăng ký tài khoản)
+  (Quên mật khẩu) -- NguoiThamGiaUngTuyen
+  CongTyTuyenDung -- (Quên mật khẩu)
+}
+
+@enduml
