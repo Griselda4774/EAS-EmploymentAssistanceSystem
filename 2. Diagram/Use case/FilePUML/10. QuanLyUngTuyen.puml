@@ -1,0 +1,17 @@
+@startuml QuanLyUngTuyen
+left to right direction
+
+actor "Công ty\ntuyển dụng" as congTyTuyenDung
+
+rectangle "Quản lý ứng tuyển" {
+    usecase "Xem danh sách hồ sơ ứng tuyển" as xemDanhSachHoSoUngTuyen
+    usecase "Cập nhật trạng thái yêu cầu ứng tuyển" as capNhatTrangThaiYeuCauUngTuyen
+    usecase "Thông báo kết quả ứng tuyển" as thongBaoKetQuaUngTuyen
+}
+
+congTyTuyenDung -- xemDanhSachHoSoUngTuyen
+congTyTuyenDung -- capNhatTrangThaiYeuCauUngTuyen
+congTyTuyenDung -- thongBaoKetQuaUngTuyen
+
+@enduml
+```

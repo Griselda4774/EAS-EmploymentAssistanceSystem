@@ -1,0 +1,34 @@
+@startuml NhanTin
+left to right direction
+
+actor "Người dùng" as nguoiDung
+actor "Người ứng tuyển" as nguoiUngTuyen
+actor "Công ty\ntuyển dụng" as congTyTuyenDung
+actor "Nhân viên" as nhanVien
+actor "Quản lý" as quanLy
+
+rectangle "Nhắn tin" {
+    usecase "Gửi tin nhắn" as guiTinNhan
+    usecase "Đọc tin nhắn" as docTinNhan
+    usecase "Thu hồi tin nhắn" as thuHoiTinNhan
+    usecase "Xóa tin nhắn" as xoaTinNhan
+    usecase "Chặn tin nhắn" as chanTinNhan
+    usecase "Bỏ chặn tin nhắn" as boChanTinNhan
+}
+
+nguoiDung -- guiTinNhan
+nguoiDung -- docTinNhan
+nguoiDung -- thuHoiTinNhan
+nguoiDung -- xoaTinNhan
+nguoiDung -- chanTinNhan
+nguoiDung -- boChanTinNhan
+
+nguoiUngTuyen --^ nguoiDung
+
+congTyTuyenDung --^ nguoiDung
+
+nhanVien --^ nguoiDung
+
+quanLy --^ nhanVien
+
+@enduml

@@ -1,4 +1,4 @@
-@startuml
+@startuml UsecaseTongQuat
 left to right direction
 
 actor "Nhân viên" as nhanVien
@@ -9,7 +9,7 @@ actor "Công ty\ntuyển dụng" as congTy
 rectangle "Employment assistance system" {
     usecase "Đăng nhập" as dangNhap
     usecase "Đăng ký" as dangKy
-    usecase "Quản lý bài đăng tuyển dụng (CRUD)" as quanLyBaiDang
+    usecase "Quản lý bài đăng tuyển dụng" as quanLyBaiDang <<crud>>
     usecase "Theo dõi" as theoDoi
     usecase "Báo cáo" as baoCao
     usecase "Đánh giá công ty tuyển dụng" as danhGiaCongTyTuyenDung
@@ -37,7 +37,6 @@ quanLyTaiKhoanAdmin ---- nhanVien
 
 nhanVien ^-- quanLy
 quanLyTruyCap -- quanLy
-
 
 nguoiUngTuyen ----- dangNhap
 nguoiUngTuyen ----- dangKy

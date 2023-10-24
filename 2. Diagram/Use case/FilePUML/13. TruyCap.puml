@@ -1,0 +1,28 @@
+@startuml TruyCap
+left to right direction
+
+actor "Người dùng" as nguoiDung
+actor "Quản lý" as quanLy
+actor "Nhân viên" as nhanVien
+actor "Người ứng tuyển" as nguoiUngTuyen
+actor "Công ty\ntuyển dụng" as congTyTuyenDung
+
+rectangle "Truy cập" {
+    usecase "Truy cập bài đăng" as truyCapBaiDang
+    usecase "Truy cập hồ sơ công ty tuyển dụng" as truyCapHoSoCongTy
+    usecase "Truy cập hồ sơ người tuyển dụng" as truyCapHoSoNguoiTuyenDung
+}
+
+nguoiDung -- truyCapBaiDang
+nguoiDung -- truyCapHoSoCongTy
+nguoiDung -- truyCapHoSoNguoiTuyenDung
+
+nguoiUngTuyen --^ nguoiDung
+
+congTyTuyenDung --^ nguoiDung
+
+nhanVien --^ nguoiDung
+
+quanLy --^ nhanVien
+
+@enduml

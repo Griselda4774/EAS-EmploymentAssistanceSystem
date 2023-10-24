@@ -1,0 +1,28 @@
+@startuml TimKiem
+left to right direction
+
+actor "Người dùng" as nguoiDung
+actor "Người ứng tuyển" as nguoiUngTuyen
+actor "Công ty\ntuyển dụng" as congTyTuyenDung
+actor "Nhân viên" as nhanVien
+actor "Quản lý" as quanLy
+
+rectangle "Tìm kiếm" {
+    usecase "Tìm kiếm công việc" as timKiemCongViec
+    usecase "Tìm kiếm người dùng" as timKiemNguoiDung
+    usecase "Tìm kiếm công ty tuyển dụng" as timKiemCongTyTuyenDung
+}
+
+nguoiDung -- timKiemCongViec
+nguoiDung -- timKiemNguoiDung
+nguoiDung -- timKiemCongTyTuyenDung
+
+nguoiUngTuyen --^ nguoiDung
+
+congTyTuyenDung --^ nguoiDung
+
+nhanVien --^ nguoiDung
+
+quanLy --^ nhanVien
+
+@enduml

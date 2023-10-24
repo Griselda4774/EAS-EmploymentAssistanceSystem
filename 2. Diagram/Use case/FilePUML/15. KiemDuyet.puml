@@ -1,0 +1,19 @@
+@startuml KiemDuyet
+left to right direction
+
+actor "Quản lý" as quanLy
+actor "Nhân viên" as nhanVien
+
+rectangle "Kiểm duyệt" {
+    usecase "Kiểm duyệt hồ sơ người dùng" as kiemDuyetHoSoNguoiDung
+    usecase "Kiểm duyệt hồ sơ công ty tuyển dụng" as kiemDuyetHoSoCongTyTuyenDung
+    usecase "Kiểm duyệt bài đăng tuyển dụng" as kiemDuyetBaiDangTuyenDung
+}
+
+nhanVien -- kiemDuyetHoSoNguoiDung
+nhanVien -- kiemDuyetHoSoCongTyTuyenDung
+nhanVien -- kiemDuyetBaiDangTuyenDung
+
+quanLy --^ nhanVien
+
+@enduml
