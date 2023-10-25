@@ -1,0 +1,11 @@
+@startuml DanhGia
+left to right direction
+actor nguoiUngTuyen as "Người Ứng Tuyển"
+actor congTy as "Công Ty Tuyển Dụng"
+rectangle "Đánh giá"{
+    usecase danhGiaCongTyTuyenDung as "Đánh giá công ty tuyển dụng"
+    usecase danhGiaNguoiTuyenDung as "Đánh giá người tuyển dụng"
+}
+nguoiUngTuyen -- danhGiaCongTyTuyenDung
+
+congTy -- danhGiaNguoiTuyenDung

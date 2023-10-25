@@ -1,0 +1,9 @@
+@startuml QuanLyTaiKhoanCongTy
+left to right direction
+actor congTy as "Công Ty Tuyển Dụng"
+rectangle "Quản lý tài khoản công ty"{
+    usecase quanLyHoSoCongTy as "Quản lý hồ sơ công ty"
+    usecase doiMatKhau as "Đổi mật khẩu"
+}
+congTy -- quanLyHoSoCongTy
+congTy -- doiMatKhau

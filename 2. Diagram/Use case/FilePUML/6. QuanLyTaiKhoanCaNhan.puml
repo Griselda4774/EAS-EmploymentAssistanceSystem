@@ -1,0 +1,12 @@
+@startuml QuanLyTaiKhoanCaNhan
+left to right direction
+actor nguoiUngTuyen as "Người Ứng Tuyển"
+rectangle "Quản lý tài khoản cá nhân"{
+    usecase quanLyHoSoCaNhan as "Quản lý hồ sơ cá nhân"
+    usecase quanLyHoSoXinViecCRUD as "Quản lý hồ sơ xin việc (CRUD)"
+    usecase doiMatKhau as "Đổi mật khẩu"
+}
+nguoiUngTuyen -- quanLyHoSoCaNhan
+nguoiUngTuyen -- quanLyHoSoXinViecCRUD
+nguoiUngTuyen -- doiMatKhau
+@enduml

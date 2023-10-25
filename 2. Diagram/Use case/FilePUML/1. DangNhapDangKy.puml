@@ -1,18 +1,24 @@
-@startuml
+@startuml DangNhap/DangKy
 left to right direction
-actor NhanVien as "Nhân Viên"
-actor QuanLy as "Quản Lý"
-actor NguoiThamGiaUngTuyen as "Người Tham Gia Ứng Tuyển"
-actor CongTyTuyenDung as "Công Ty Tuyển Dụng"
-QuanLy --^ NhanVien
+actor nhanVien as "Nhân Viên"
+actor quanLy as "Quản Lý"
+actor nguoiUngTuyen as "Người Ứng Tuyển"
+actor congTy as "Công Ty Tuyển Dụng"
+quanLy --^ nhanVien
 rectangle "Đăng nhập/Đăng ký" {
-  NguoiThamGiaUngTuyen -- (Đăng nhập vào hệ thống)
-  CongTyTuyenDung -- (Đăng nhập vào hệ thống)
-  NhanVien -- (Đăng nhập vào hệ thống)
-  (Đăng ký tài khoản) -- NguoiThamGiaUngTuyen
-  CongTyTuyenDung -- (Đăng ký tài khoản)
-  (Quên mật khẩu) -- NguoiThamGiaUngTuyen
-  CongTyTuyenDung -- (Quên mật khẩu)
+    usecase "Đăng nhập vào hệ thống" as dangNhap
+    usecase "Đăng ký tài khoản" as dangKyTaiKhoan
+    usecase "Quên mật khẩu" as quenMatKhau
 }
+nhanVien -- dangNhap
+
+congTy -- dangNhap
+congTy -- dangKyTaiKhoan
+congTy -- quenMatKhau
+
+
+dangNhap -- nguoiUngTuyen
+dangKyTaiKhoan -- nguoiUngTuyen
+quenMatKhau -- nguoiUngTuyen
 
 @enduml
