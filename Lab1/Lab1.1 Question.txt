@@ -1,0 +1,45 @@
+1) What criteria should be used in choosing an appropriate requirements engineering tool?
+=>
+- Requirements traceability mechanism
+- Requirements analysis mechanism
+- Security and accessibility mechanism
+- Portability and backend compatibility
+- Configuration management approach
+- Communication and collaboration mechanism
+- Change management support
+- Online publishing support
+- Usability features such as word processor compatibility
+- SRS documentation format
+
+
+2) Are there any drawbacks to using certain tools in requirements engineering activities?
+=>
+- Cost: Requirements engineering tools can be expensive, especially commercial tools. This can be a barrier for small organizations or projects with limited budgets.
+- Complexity: Requirements engineering tools can be complex to learn and use. This can require a significant investment of time and resources for training and support.
+- Lack of flexibility: Some requirements engineering tools are not very flexible and may not be able to meet the specific needs of a project. This can lead to frustration and inefficiency.
+- Vendor lock-in: Once you have invested in a requirements engineering tool, it can be difficult to switch to another tool. This is because vendor lock-in can make it difficult and expensive to export your data from one tool and import it into another.
+- Document-centric tools: Document-centric tools can be difficult to use for collaborative requirements engineering activities. This is because they can make it difficult to track changes and manage multiple versions of a requirements specification.
+- Model-based tools: Model-based tools can be complex and difficult to learn and use. They can also be time-consuming to use for eliciting and analyzing requirements.
+- Hybrid tools: Hybrid tools combine elements of document-centric and model-based tools. However, they can be more difficult to use and manage than either type of tool on its own.
+
+3) When selecting an open-source tool, what characteristics should you look for?
+=>
+- License: Make sure the tool is licensed under a permissive open-source license.
+- Features: Make sure the tool has the features I need.
+- Community: Make sure the tool has a large and active community of users and developers.
+- Maturity: Make sure the tool is mature and stable.
+- Security: Make sure the tool is secure.
+
+
+4) How can tools enable distributed, global requirements engineering activities? What are the drawbacks in this regard?
+=>
+Tools can enable distributed, global RE activities in a number of ways. For example, tools can be used to:
+- Facilitate communication and collaboration: Tools such as video conferencing, chat, and instant messaging can help RE stakeholders to communicate and collaborate effectively, regardless of where they are located.
+- Manage requirements: Requirements management tools can help RE stakeholders to track and manage requirements, even when they are working on different parts of the same system.
+- Automate tasks: Some RE tasks, such as requirements elicitation and analysis, can be automated to some extent. This can free up RE stakeholders to focus on more complex tasks.
+
+However, there are also some drawbacks to using tools for distributed, global RE activities. Some of the most common drawbacks include:
+- Cost: RE tools can be expensive, especially commercial tools. This can be a barrier for small organizations or projects with limited budgets.
+- Complexity: RE tools can be complex to learn and use. This can require a significant investment of time and resources for training and support.
+- Cultural differences: Cultural differences can make it difficult for RE stakeholders from different cultures to communicate and collaborate effectively.
+- Time zones: Time zone differences can make it difficult to schedule meetings and collaborate in real time.
