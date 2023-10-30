@@ -37,6 +37,7 @@ opt Actor choice: Khóa quyền truy cập hệ thống
 end
 
 opt Actor choice: Mở khóa quyền truy cập hệ thống
+    autonumber 9
     quanLy -> userInterface++ : Chọn chức năng mở khóa quyền truy cập hệ thống
     userInterface -> quanLy : Gửi yêu cầu xác nhận hành động
     alt Không xác nhận
