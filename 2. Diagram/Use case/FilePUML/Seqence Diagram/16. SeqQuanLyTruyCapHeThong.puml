@@ -1,0 +1,57 @@
+@startuml SeqQuanLyTruyCapHeThong
+
+skin rose
+hide footbox
+
+actor "Quản lý" as quanLy
+boundary ":User Interface\nClass" as userInterface
+control ": Manage User\nClass" as manageUser
+entity ": User\nClass" as user
+
+autonumber
+quanLy++
+quanLy -> userInterface++ : Truy cập giao điện quản lý người dùng
+userInterface -> manageUser++ : Yêu cầu danh sách người dùng
+manageUser -> user++ : Lấy danh sách người dùng
+user -> manageUser-- : Trả về danh sách người dùng
+manageUser -> userInterface-- : Trả về danh sách người dùng
+userInterface -> quanLy-- : Hiển thị danh sách người dùng
+quanLy -> userInterface++ : Truy cập giao diện thông tin người dùng
+userInterface -> quanLy-- : Hiển thị giao diện thông tin người dùng
+
+opt Actor choice: Khóa quyền truy cập hệ thống
+    quanLy -> userInterface++ : Chọn chức năng khóa quyền truy cập hệ thống
+    userInterface -> quanLy : Gửi yêu cầu xác nhận hành động
+    alt Không xác nhận
+        quanLy -> userInterface : Không xác nhận
+        userInterface -> quanLy-- : Hiển thị giao diện thông tin người dùng cũ
+    else xác nhận
+        autonumber 11
+        quanLy -> userInterface++ : Xác nhận
+        userInterface -> manageUser++ : Yêu cầu khóa quyền truy cập hệ thống
+        manageUser -> user++ : Khóa quyền truy cập hệ thống
+        user -> manageUser-- : Trả về kết quả khóa quyền truy cập hệ thống
+        manageUser -> userInterface-- : Trả về kết quả khóa quyền truy cập hệ thống
+        userInterface -> quanLy-- : Hiển thị thông báo kết quả khóa quyền truy cập hệ thống
+    end
+end
+
+opt Actor choice: Mở khóa quyền truy cập hệ thống
+    quanLy -> userInterface++ : Chọn chức năng mở khóa quyền truy cập hệ thống
+    userInterface -> quanLy : Gửi yêu cầu xác nhận hành động
+    alt Không xác nhận
+        quanLy -> userInterface : Không xác nhận
+        userInterface -> quanLy-- : Hiển thị giao diện thông tin người dùng cũ
+    else xác nhận
+        autonumber 11
+        quanLy -> userInterface++ : Xác nhận
+        userInterface -> manageUser++ : Yêu cầu mở khóa quyền truy cập hệ thống
+        manageUser -> user++ : Mở khóa quyền truy cập hệ thống
+        user -> manageUser-- : Trả về kết quả mở khóa quyền truy cập hệ thống
+        manageUser -> userInterface-- : Trả về kết quả mở khóa quyền truy cập hệ thống
+        userInterface -> quanLy-- : Hiển thị thông báo kết quả mở khóa quyền truy cập hệ thống
+    end
+end
+
+
+@enduml
