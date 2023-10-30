@@ -1,0 +1,32 @@
+@startuml SeqDangNhap
+skin rose
+hide footbox
+
+actor user as "User"
+boundary loginInterface as ":Login Interface\nClass"
+boundary mainInterface as ":Main Interface\nClass"
+control loginControl as ":Login controller\nClass"
+entity User as ": User\nClass"
+autonumber
+user++
+user -> loginInterface++: Truy cập vào trang đăng nhập
+loginInterface -> loginInterface--: Hiển thị trang đăng nhập
+user -> loginInterface++: Nhập thông tin đăng nhập
+loginInterface -> loginInterface--: Kiểm tra thông tin format\n thông tin đăng nhập
+alt Invalid data
+    loginInterface -> loginInterface: Gửi thông báo thông tin\n đăng nhập sai format
+else Valid data
+    loginInterface -> loginControl++: Gửi thông tin đăng nhập
+    loginControl -> User++: Gửi thông tin đăng nhập
+    User -> User--: Kiểm tra thông tin đăng nhập
+    alt Invalid data
+        User -> loginControl: Thông báo sai\n thông tin đăng nhập
+        loginControl -> loginInterface: Hiển thị thông báo \n"Sai thông tin đăng nhập"
+    else Valid data
+        User -> loginControl: Thông báo đúng\n thông tin đăng nhập
+        loginControl -> loginInterface++: Hiển thị thông báo\n"Đăng nhập thành công"
+        loginControl -> loginInterface: Đóng page đăng nhập
+        loginControl -> mainInterface: Hiển thị trang chủ người dùng
+    end
+end
+@enduml

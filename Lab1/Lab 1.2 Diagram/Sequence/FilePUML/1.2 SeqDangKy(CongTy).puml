@@ -1,0 +1,40 @@
+@startuml SeqDangKyCongTy
+skin rose
+hide footbox
+actor admin as "Admin"
+actor congTy as "Công ty tuyển dụng"
+boundary ":Signup Interface\nClass" as signupInterface
+boundary ":Admin Interface\nClass" as adminInteface
+control ": Signup Controller\nClass" as signupControl
+entity ": User\nClass" as user
+autonumber
+congTy++
+congTy -> signupInterface++ : Người dùng chọn đăng ký dưới dạng người tuyển dụng 
+signupInterface -> signupInterface-- : Hiển thị trang đăng ký cho\n công ty tuyển dụng
+congTy -> signupInterface++: Nhập thông tin người dùng
+signupInterface -> signupInterface: Kiểm tra format thông tin công ty
+
+alt Invalid Data
+    signupInterface ->signupInterface--: Thông báo sai thông tin người dùng
+else
+    signupInterface -> signupControl++: Gửi thông tin công ty
+    signupControl -> signupInterface++: Gửi mã xác thực về cho công ty
+    congTy -> signupInterface: Nhập mã xác thực 
+    signupInterface -> signupControl: Kiểm tra mã xác thực
+    alt Invalid OTP
+        signupControl -> signupInterface : Thông báo sai mã OTP
+    else
+        signupControl -> user: Tạo tài khoản người tuyển dụng
+        signupControl -> signupInterface: Thông báo tạo tài khoản thành công và đợi xác thực của admin 
+        signupControl -> adminInteface: Gửi thông báo xác thức\n công ty đến admin
+        admin -> adminInteface: Xác thực công ty
+        alt Không xác thực công ty
+        admin -> adminInteface: Không duyệt cho\n công ty tuyển dụng
+        signupControl -> signupInterface: Gửi thông báo về việc\n công ty không được duyệt
+        else
+        admin -> adminInteface: Duyệt thành công cho\n công ty tuyển dụng
+        signupControl -> signupInterface: Gửi thông báo về việc\n công ty đã được duyệt    
+        end
+    end
+end
+@enduml

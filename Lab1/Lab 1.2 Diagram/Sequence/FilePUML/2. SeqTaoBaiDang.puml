@@ -1,0 +1,7 @@
+@startuml seqTaoBaiDang
+skin rose
+hide footbox
+actor congTy as "Công ty\ntuyển dụng"
+boundary createPostInterface as "Create Post Interface\nClass"
+
+@enduml
