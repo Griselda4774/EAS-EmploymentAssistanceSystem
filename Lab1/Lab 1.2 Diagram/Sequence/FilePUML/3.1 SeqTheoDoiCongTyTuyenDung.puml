@@ -1,0 +1,33 @@
+@startuml SeqTheoDoiCongTyTuyenDung
+skin rose 
+hide footbox
+actor nguoiUngTuyen as "Người ứng tuyển"
+boundary informationOfCompanyInterface as ": Information Of Company Interface\nClass"
+control manageCompanyController as ": Manage Company Controller\nClass"
+entity Company as ": Company\nClass"
+entity User as ": User\nClass"
+nguoiUngTuyen++
+autonumber
+nguoiUngTuyen -> informationOfCompanyInterface++: Truy cập hồ sơ công ty
+informationOfCompanyInterface -> manageCompanyController++: Gửi yêu cầu truy cập \nhồ sơ công ty tuyển dụng
+manageCompanyController -> Company++: Gửi thông tin công ty
+Company -> Company: Kiểm tra thông tin công ty 
+alt Invalid Data
+Company -> manageCompanyController: Thông báo sai thông tin
+manageCompanyController-> informationOfCompanyInterface: Thông báo không tìm thấy\nthông tin công ty tuyển dụng
+else Valid Data
+Company -> manageCompanyController: Gửi toàn bộ thông tin \ncông ty tuyển dụng
+manageCompanyController -> informationOfCompanyInterface: Hiển thị trang với các \nthông tin công ty tuyển dụng được gửi về
+nguoiUngTuyen -> informationOfCompanyInterface: Nhấn nút follow công ty
+informationOfCompanyInterface -> manageCompanyController: Gửi yêu cầu follow công ty
+manageCompanyController -> User++: Gửi thông tin follow công ty
+User -> User: Kiểm tra thông tin công ty đã follow
+    alt Unfollow Company
+        User -> manageCompanyController: thông báo đã follow\n công ty tuyển dụng
+        manageCompanyController->informationOfCompanyInterface: Hiển thị đã follow \ncông ty tuyển dụng
+    else Follow Company
+        User -> manageCompanyController: thông báo đã huỷ follow\n công ty tuyển dụng
+        manageCompanyController->informationOfCompanyInterface: Hiển thị không follow \ncông ty tuyển dụng
+    end
+end
+@enduml

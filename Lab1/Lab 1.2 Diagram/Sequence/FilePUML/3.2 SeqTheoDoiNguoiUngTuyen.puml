@@ -1,0 +1,32 @@
+@startuml SeqTheoDoiCongTyTuyenDung
+skin rose 
+hide footbox
+actor nguoiUngTuyen as "Người ứng tuyển"
+boundary informationOfUserInterface as ": Information Of User Interface\nClass"
+control manageUserController as ": Manage User Controller\nClass"
+entity User as ": User\nClass"
+nguoiUngTuyen++
+autonumber
+nguoiUngTuyen -> informationOfUserInterface++: Truy cập hồ sơ Người ứng tuyển
+informationOfUserInterface -> manageUserController++: Gửi yêu cầu truy cập \nhồ sơ Người ứng tuyển 
+manageUserController -> User++: Gửi thông tin Người ứng tuyển
+User -> User: Kiểm tra thông tin Người ứng tuyển 
+alt Invalid Data
+User -> manageUserController: Thông báo sai thông tin
+manageUserController-> informationOfUserInterface: Thông báo không tìm thấy\nthông tin Người ứng tuyển
+else Valid Data
+User -> manageUserController: Gửi toàn bộ thông tin \nNgười ứng tuyển
+manageUserController -> informationOfUserInterface: Hiển thị trang với các \nthông tin Người ứng tuyển được gửi về
+nguoiUngTuyen -> informationOfUserInterface: Nhấn nút follow Người ứng tuyển
+informationOfUserInterface -> manageUserController: Gửi yêu cầu follow Người ứng tuyển
+manageUserController -> User++: Gửi thông tin follow Người ứng tuyển
+User -> User: Kiểm tra thông tin Người ứng tuyển đã follow
+    alt Unfollow User
+        User -> manageUserController: Thông báo đã follow\n Người ứng tuyển
+        manageUserController->informationOfUserInterface: Hiển thị đã follow \nNgười ứng tuyển 
+    else Follow User
+        User -> manageUserController: Thông báo đã huỷ follow\n Người ứng tuyển 
+        manageUserController->informationOfUserInterface: Hiển thị không follow \nNgười ứng tuyển 
+    end
+end
+@enduml
