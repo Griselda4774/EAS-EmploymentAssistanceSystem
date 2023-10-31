@@ -1,0 +1,31 @@
+@startuml seqTaoBaiDang
+skin rose
+hide footbox
+actor congTy as "Công ty\ntuyển dụng"
+boundary createPostInterface as ": Create Post Interface\nClass"
+control managePostController as ": Manage Post Controller\nClass"
+entity Post as ": Post\nClass"
+
+autonumber
+congTy++
+congTy -> createPostInterface++: Truy cập trang tạo bài đăng
+createPostInterface -> createPostInterface--: Hiển thị trang tạo bài đăng\nvới thông tin rỗng
+congTy -> createPostInterface++: Nhập thông tin bài bài đăng
+createPostInterface -> createPostInterface: Kiểm tra thông tin\n bài đăng nhập vào
+alt Invalid data
+    createPostInterface-> createPostInterface: Hiển thị thông báo \nthiếu thông tin bài đăng    
+else Valid data
+    createPostInterface-> managePostController: Gửi yêu cầu tạo bài đăng
+    managePostController-> Post++: Gửi thông tin bài đăng
+    Post->Post: Kiểm tra thông tin bài đăng
+    alt Invalid data
+        Post->managePostController: Thông báo lỗi 
+        managePostController -> createPostInterface: Hiển thị thông báo\nlỗi ra cho người dùng
+    else
+        Post->Post: Lưu thông tin bài đăng mới
+        Post-> managePostController: Thông báo tạo bài đăng thành công
+        managePostController->createPostInterface: Hiển thị thông báo\n"Tạo bài đăng thành công"
+        createPostInterface->congTy: Thông báo cho công ty tạo bài đăng thành công
+    end
+end
+@enduml

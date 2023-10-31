@@ -1,14 +1,19 @@
 @startuml QuanLyBaiDangTuyenDungCRUD
 left to right direction
 actor congTy as "Công Ty Tuyển Dụng"
+actor nhanVien as "Nhân viên"
+actor quanLy as "Quản lý"
+actor nguoiUngTuyen as "Người ứng tuyển"
 rectangle "Quản lý bài đăng tuyển dụng (CRUD)"{
     usecase "Tạo bài đăng tuyển dụng" as taoBaiDangTuyenDung
     usecase "Truy cập bài đăng" as truyCapBaiDang
     usecase "Chỉnh sửa bài đăng" as chinhSuaBaiDang
     usecase "Xoá thông tin bài đăng" as xoaThongTinBaiDang
 }
-
+nhanVien ^-- quanLy
 congTy -- taoBaiDangTuyenDung
 congTy -- truyCapBaiDang
 congTy -- chinhSuaBaiDang
 congTy -- xoaThongTinBaiDang 
+nguoiUngTuyen -- truyCapBaiDang
+truyCapBaiDang -- nhanVien

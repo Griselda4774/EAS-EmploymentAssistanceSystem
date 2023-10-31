@@ -1,0 +1,24 @@
+@startuml SeqTruyCapBaiDang
+skin rose
+hide footbox
+
+actor user
+boundary postInformatinoInterface as ": Post Information Interface\nClass"
+control managePostController as ": Manage Post Controller\nClass"
+entity Post as ": Post\nClass"
+autonumber 
+user++
+user -> postInformatinoInterface++: Truy cập vào trang bài đăng
+postInformatinoInterface-> managePostController++: Yêu cầu truy cập bài đăng
+managePostController -> Post++:Gửi thông tin bài đăng cần truy cập
+Post -> Post: Kiểm tra bài đăng trong dữ liệu
+alt Post not exist
+    Post-> managePostController: Thông báo không có\n bài đăng đó
+    managePostController -> postInformatinoInterface: Hiển thị trang \nbài đăng không tồn tại 
+    postInformatinoInterface -> user: Thông báo không có bài đăng này
+else Post existed
+    Post-> managePostController: Gửi toàn bộ thông tin bài đăng
+    managePostController -> postInformatinoInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
+    postInformatinoInterface -> postInformatinoInterface: Hiển thị trang web cho người dùng
+end
+@enduml

@@ -7,7 +7,7 @@ boundary loginInterface as ": Login Interface\n Class"
 boundary authenticationInterface as ": Authentication Interface\n Class"
 boundary changePassInterface as ": ChangePassword Interface\n Class"
 boundary mainInterface as ": Main Interface\n Class"
-
+control changePassController as ": Change password controller\nClass"
 control forgotPassController as ": ForgotPassword Controller\nClass"
 entity User as ": User\nClass"
 user++
@@ -33,6 +33,11 @@ else Valid Data
         else
         authenticationInterface -> changePassInterface++: Hiển thị trang đổi mật khẩu
         user -> changePassInterface: Nhập mật khẩu mới
+        changePassInterface -> changePassController: Gửi mật khẩu mới
+        changePassController -> User: Đổi mật khẩu
+        User -> changePassController: Đổi mật khẩu thành công
+        changePassController -> changePassInterface: Hiển thị thông báo \n"đổi mật khẩu thành công"
+        changePassInterface -> user: Thông báo đổi mật khẩu thành công
         changePassInterface -> mainInterface: Hiển thị trang chủ người dùng
         end
     end 

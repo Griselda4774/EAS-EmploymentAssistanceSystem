@@ -25,6 +25,7 @@ else Valid data
     else Valid data
         User -> loginControl: Thông báo đúng\n thông tin đăng nhập
         loginControl -> loginInterface++: Hiển thị thông báo\n"Đăng nhập thành công"
+        loginInterface -> user: Thông báo đăng nhập thành công
         loginControl -> loginInterface: Đóng page đăng nhập
         loginControl -> mainInterface: Hiển thị trang chủ người dùng
     end

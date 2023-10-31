@@ -1,0 +1,43 @@
+@startuml SeqCapNhatBaiDang
+skin rose
+hide footbox
+
+actor congTy as "Công ty\ntuyển dụng"
+boundary updatePostInterface as ": Update Post Interface\nClass"
+control managePostController as ": Manage Post Controller\nClass"
+entity Post as ": Post\nClass"
+congTy++
+control managePostController as ": Manage Post Controller\nClass"
+entity Post as ": Post\nClass"
+autonumber 
+congTy++
+congTy -> updatePostInterface++: Truy cập vào trang bài đăng
+updatePostInterface-> managePostController++: Yêu cầu truy cập bài đăng
+managePostController -> Post++:Gửi thông tin bài đăng cần truy cập
+Post -> Post: Kiểm tra bài đăng trong dữ liệu
+alt Post not exist
+    Post-> managePostController: Thông báo không có\n bài đăng đó
+    managePostController -> updatePostInterface: Hiển thị trang \nbài đăng không tồn tại 
+    updatePostInterface -> congTy: Thông báo không có bài đăng này
+else Post existed
+    Post-> managePostController: Gửi toàn bộ thông tin bài đăng
+    managePostController -> updatePostInterface: Hiển thị trang cập nhật bài đăng\n tuyển dụng với các thông tin nhận được
+    updatePostInterface -> updatePostInterface: Hiển thị trang web cho người dùng
+    congTy-> updatePostInterface: Nhập thông tin mới\n của bài đăng
+    updatePostInterface->updatePostInterface: Kiểm tra thông tin mới của bài đăng
+    opt Accept Button
+    alt Invalid data
+    updatePostInterface -> updatePostInterface: Hiển thị thông bái \n"Thiếu hoặc sai thông tin bài đăng"
+    else Valid data
+    updatePostInterface -> managePostController: Gửi yêu cầu cập nhật thông tin bài đăng
+    managePostController -> Post: Gửi thông tin bài đăng mới cập nhật
+    Post -> managePostController: Thông báo đã cập nhật thông tin bài đăng
+    managePostController -> updatePostInterface: Hiển thị thông báo\n"Cập nhật thông tin thành công"
+    updatePostInterface -> congTy: Thông báo cho công ty đã cập nhật\n thành công bài đăng tuyển dụng
+    end
+    end
+    opt Cancel Button
+    updatePostInterface -> updatePostInterface: Thoát khỏi trang \ncập nhật thông tin bài đăng
+    end
+end
+@enduml

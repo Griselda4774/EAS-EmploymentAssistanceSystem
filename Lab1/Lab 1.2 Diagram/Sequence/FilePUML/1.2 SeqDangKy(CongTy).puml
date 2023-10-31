@@ -33,7 +33,9 @@ else
         signupControl -> signupInterface: Gửi thông báo về việc\n công ty không được duyệt
         else
         admin -> adminInteface: Duyệt thành công cho\n công ty tuyển dụng
-        signupControl -> signupInterface: Gửi thông báo về việc\n công ty đã được duyệt    
+        signupControl -> signupInterface: Gửi thông báo về việc\n công ty đã được duyệt  
+        signupInterface -> congTy: Tài khoản xác thực thành công
+
         end
     end
 end

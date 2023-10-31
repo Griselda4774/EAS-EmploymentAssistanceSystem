@@ -26,5 +26,6 @@ else
     else
         signupControl -> user: Tạo tài khoản người tuyển dụng
         signupControl -> signupInterface: Thông báo tạo tài khoản thành công
+        signupInterface-> nguoiUngTuyen: Thông báo đăng ký tài khoản thành công
     end
 end
