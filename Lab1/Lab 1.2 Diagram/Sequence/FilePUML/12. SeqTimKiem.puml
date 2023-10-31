@@ -1,0 +1,35 @@
+@startuml SeqTimKiem
+
+skin rose
+hide footbox
+
+title Tìm kiếm
+
+actor User as user
+boundary ": User Interface\nClass" as userInterface
+control ": Search Controller\nClass" as searchController
+control ": Manage User\nClass" as manageUser
+control ": Manage Post\nClass" as managePost
+entity ": User\nClass" as userClass
+entity ": Post\nClass" as postClass
+
+autonumber
+user++
+user -> userInterface++: Nhập từ khóa
+userInterface -> searchController++: Truyền từ khóa
+par
+    searchController -> manageUser++: Tìm kiếm người dùng có từ khóa
+    manageUser -> userClass++: Lấy thông tin người dùng có từ khóa
+    userClass -> manageUser--: Trả về thông tin người dùng có từ khóa
+    manageUser -> searchController--: Trả về thông tin người dùng có từ khóa
+    else
+    autonumber 3
+    searchController -> managePost++: Tìm kiếm bài viết có từ khóa
+    managePost -> postClass++: Lấy thông tin bài viết có từ khóa
+    postClass -> managePost--: Trả về thông tin bài viết có từ khóa
+    managePost -> searchController--: Trả về thông tin bài viết có từ khóa
+end
+searchController -> userInterface--: Trả về kết quả tìm kiếm
+userInterface -> user--: Hiển thị kết quả tìm kiếm
+user--
+@enduml
