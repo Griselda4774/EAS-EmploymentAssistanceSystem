@@ -10,12 +10,12 @@ actor "Công ty\ntuyển dụng" as congTyTuyenDung
 rectangle "Truy cập" {
     usecase "Truy cập bài đăng" as truyCapBaiDang
     usecase "Truy cập hồ sơ công ty tuyển dụng" as truyCapHoSoCongTy
-    usecase "Truy cập hồ sơ người tuyển dụng" as truyCapHoSoNguoiTuyenDung
+    usecase "Truy cập hồ sơ người ứng tuyển" as truyCapHoSoNguoiUngTuyen
 }
 
 nguoiDung -- truyCapBaiDang
 nguoiDung -- truyCapHoSoCongTy
-nguoiDung -- truyCapHoSoNguoiTuyenDung
+nguoiDung -- truyCapHoSoNguoiUngTuyen
 
 nguoiUngTuyen --^ nguoiDung
 

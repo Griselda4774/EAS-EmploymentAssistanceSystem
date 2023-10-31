@@ -3,8 +3,10 @@
 skin rose
 hide footbox
 
+title Quản lý truy cập hệ thống
+
 actor "Quản lý" as quanLy
-boundary ":User Interface\nClass" as userInterface
+boundary ": User Interface\nClass" as userInterface
 control ": Manage User\nClass" as manageUser
 entity ": User\nClass" as user
 
@@ -54,5 +56,6 @@ opt Actor choice: Mở khóa quyền truy cập hệ thống
     end
 end
 
+quanLy--
 
 @enduml

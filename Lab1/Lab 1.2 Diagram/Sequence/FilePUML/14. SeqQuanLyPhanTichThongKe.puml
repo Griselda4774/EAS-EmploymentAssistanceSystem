@@ -1,0 +1,10 @@
+@startuml SeqQuanLyPhanTichThongKe
+
+skin rose
+hide footbox
+
+actor Admin as ad
+boundary ": User Interface\nClass" as ui
+
+
+@enduml
