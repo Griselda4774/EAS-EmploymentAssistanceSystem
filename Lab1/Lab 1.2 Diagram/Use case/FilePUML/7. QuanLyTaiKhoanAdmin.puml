@@ -4,7 +4,7 @@ actor nhanVien as "Nhân Viên"
 actor quanLy as "Quản Lý"
 quanLy --^ nhanVien
 rectangle "Quản lý tài khoản admin"{
-    usecase truyCapHoSoCaNhanAdmin as "Truy cập hồ sơ cá nhân"
+    usecase truyCapHoSoCaNhanAdmin as "Truy cập hồ sơ admin"
     usecase doiMatKhau as "Đổi mật khẩu"
 }
 nhanVien -- truyCapHoSoCaNhanAdmin

@@ -1,0 +1,41 @@
+@startuml SeqBaoCaoBaiDang
+hide footbox
+skin rose 
+actor nguoiUngTuyen as "Người ứng tuyển"
+actor admin as "Admin"
+actor congTy as "Công ty\n tuyển dụng"
+boundary adminInterface as ": Admin Interface\nClass"
+boundary postInterface as ": Post Interface\nClass"
+control reportController as ": Report Controller\nClass"
+control adminController as ": Admin Controller\nClass"
+entity Post as ": Post\nClass"
+nguoiUngTuyen++
+autonumber
+nguoiUngTuyen-> postInterface++: Truy cập vào trang bài đăng tuyển dụng
+postInterface-> postInterface: Hiển thị bài đăng tuyển dụng
+nguoiUngTuyen-> postInterface: Chọn nút báo cáo\n bài đăng tuyển dụng
+nguoiUngTuyen-> postInterface: Nhập nội dung và loại yêu cầu báo cáo
+postInterface-> reportController++: Gửi yêu cầu báo cáo\n bài đăng tuyển dụng
+reportController-> Post++: Gửi thông tin bài đăng tuyển dụng cần báo cáo
+Post -> adminController: Gửi thông tin bài đăng tuyển dụng bị báo cáo
+adminController-> adminInterface++: Hiển thị thông tin bài đăng tuyển dụng bị báo cáo
+admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin bài đăng tuyển dụng
+alt Cancel Report
+adminInterface -> adminController: Gửi yêu cầu huỷ báo cáo bài đăng tuyển dụng
+adminController -> Post: Gửi thông tin bài đăng huỷ trạng thái báo cáo
+else Accept Report
+admin -> adminInterface: Chọn phương thức cánh cáo bài đăng tuyển dụng
+opt Cancel Post
+adminInterface -> adminController: Gửi yêu cầu huỷ\n bài đăng tuyển dụng
+adminController -> Post: Gửi thông tin bài đăng tuyển dụng\n bị huỷ
+Post->Post: Huỷ bài đăng bị báo cáo 
+Post->reportController: Thông báo đã huỷ bài đăng
+reportController-> postInterface: Hiển thị thông báo cho công ty đã huỷ bài đăng tuyển dụng
+postInterface -> congTy: Cảnh báo công ty đã đăng bài vi phạm nội dung
+end
+opt Send report to Company 
+Post -> reportController: Gửi cảnh cáo đến công ty đăng bài đăng tuyển dụng
+reportController -> postInterface: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+end
+end
+@enduml

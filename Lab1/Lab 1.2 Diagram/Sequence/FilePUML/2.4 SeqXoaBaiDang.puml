@@ -2,38 +2,38 @@
 skin rose
 hide footbox
 actor congTy as "Công ty\ntuyển dụng"
-boundary postInformatinoInterface as ": Post Information Interface\nClass"
+boundary postInterface as ": Post Interface\nClass"
 control managePostController as ": Manage Post Controller\nClass"
 entity Post as ": Post\nClass"
 autonumber 
 congTy++
-congTy -> postInformatinoInterface++: Truy cập vào trang bài đăng
-postInformatinoInterface-> managePostController++: Yêu cầu truy cập bài đăng
+congTy -> postInterface++: Truy cập vào trang bài đăng
+postInterface-> managePostController++: Yêu cầu truy cập bài đăng
 managePostController -> Post++:Gửi thông tin bài đăng cần truy cập
 Post -> Post: Kiểm tra bài đăng trong dữ liệu
 alt Post not exist
     Post-> managePostController: Thông báo không có\n bài đăng đó
-    managePostController -> postInformatinoInterface: Hiển thị trang \nbài đăng không tồn tại 
-    postInformatinoInterface -> congTy: Thông báo không có bài đăng này
+    managePostController -> postInterface: Hiển thị trang \nbài đăng không tồn tại 
+    postInterface -> congTy: Thông báo không có bài đăng này
 else Post existed
     Post-> managePostController: Gửi toàn bộ thông tin bài đăng
-    managePostController -> postInformatinoInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
-    postInformatinoInterface -> postInformatinoInterface: Hiển thị trang web cho người dùng
-    congTy -> postInformatinoInterface: Chọn nút xoá thông tin bài đăng
-    postInformatinoInterface -> postInformatinoInterface: Hiển thị thông báo \n"Bạn có chắc chắn muốn xoá bài đăng này"
+    managePostController -> postInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
+    postInterface -> postInterface: Hiển thị trang web cho người dùng
+    congTy -> postInterface: Chọn nút xoá thông tin bài đăng
+    postInterface -> postInterface: Hiển thị thông báo \n"Bạn có chắc chắn muốn xoá bài đăng này"
     alt No button
-    postInformatinoInterface->postInformatinoInterface: Hiển thị lại trang bài đăng tuyển dụng
+    postInterface->postInterface: Hiển thị lại trang bài đăng tuyển dụng
     else Yes button
-    postInformatinoInterface-> managePostController: Yêu cầu xoá bài đăng đã được chọn
+    postInterface-> managePostController: Yêu cầu xoá bài đăng đã được chọn
     managePostController -> Post: Gửi thông tin bài đăng cần xoá 
     Post->Post: Kiểm tra thông tin bài đăng
     alt Invalid data
     Post->managePostController: Thông báo lỗi 
-    managePostController -> postInformatinoInterface: Hiển thị thông báo "Xoá bài đăng thất bại"
+    managePostController -> postInterface: Hiển thị thông báo "Xoá bài đăng thất bại"
     else Valid data
     Post->managePostController: Thông báo thành công
-    managePostController -> postInformatinoInterface: Hiển thị thông báo \n"Xoá bài đăng thành công"
-    postInformatinoInterface -> postInformatinoInterface: Thoát trang thông tin bài đăng
+    managePostController -> postInterface: Hiển thị thông báo \n"Xoá bài đăng thành công"
+    postInterface -> postInterface: Thoát trang thông tin bài đăng
     end
     end
 end

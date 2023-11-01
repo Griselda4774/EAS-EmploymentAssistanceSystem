@@ -1,0 +1,15 @@
+@startuml SeqTruyCapHoSoCongTy
+skin rose 
+hide footbox
+actor congTy as "Công ty tuyển dụng"
+boundary companyInterface as ": Company Interface\nClass"
+control companyController as ": Company Controller\nClass"
+entity User as ": User\nClass"
+autonumber
+congTy -> companyInterface++: Truy cập vào hồ sơ công ty tuyển dụng
+companyInterface -> companyController: Gửi yêu cầu truy cập hồ sơ công ty tuyển dụng
+companyController -> User++: Đưa thông tin tài khoản công ty tuyển dụng
+User -> companyController++: Toàn bộ thông tin tài khoản công ty tuyển dụng 
+companyController -> companyInterface: Hiển thị toàn bộ thông tin người dùng congTy
+companyInterface -> congTy: Hiển thị thông tin công ty tuyển dụng
+@enduml

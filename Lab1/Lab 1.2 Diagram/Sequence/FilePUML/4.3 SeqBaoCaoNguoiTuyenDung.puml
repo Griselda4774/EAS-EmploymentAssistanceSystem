@@ -1,0 +1,38 @@
+@startuml SeqBaoCaoBaiDang
+hide footbox
+skin rose 
+actor user as "User"
+actor admin as "Admin"
+boundary adminInterface as ": Admin Interface\nClass"
+boundary userInterface as ": User Interface\nClass"
+control reportController as ": Report Controller\nClass"
+control adminController as ": Admin Controller\nClass"
+entity User as ": User\nClass"
+user++
+autonumber
+user-> userInterface++: Truy cập vào trang người dùng tuyển dụng
+userInterface-> userInterface: Hiển thị người dùng
+user-> userInterface: Chọn nút báo cáo\n người dùng
+user-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
+userInterface-> reportController++: Gửi yêu cầu báo cáo\n người dùng
+User -> adminController: Gửi thông tin người dùng bị báo cáo
+adminController-> adminInterface++: Hiển thị thông tin người dùng bị báo cáo
+admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin người dùng
+alt Cancel Report
+adminInterface -> adminController: Gửi yêu cầu huỷ báo cáo người dùng
+adminController -> User: Gửi thông tin người dùng đó đã huỷ trạng thái báo cáo
+else Accept Report
+admin -> adminInterface: Chọn biện pháp cảnh cáo 
+adminInterface -> adminInterface: Hiển thị biện pháp cảnh cáo
+opt Ban User activity
+adminInterface -> adminController: Gửi yêu cầu khoá tài khoản người dùng
+adminController -> User: Gửi thông tin người dùng muốn khoá tài khoản 
+User -> userInterface: Thông báo tài khoản người dùng đã bị khoá 
+end
+opt Send report to User
+adminInterface->adminController: Gửi yêu cầu cảnh báo người dùng
+adminController -> User++: Gửi thông tin cảnh cáo đến người dùng
+User -> reportController: Gửi cảnh cáo đến người dùng 
+reportController -> userInterface: Hiển thị thông báo \n"Cảnh cáo người dùng vi phạm tiêu chuẩn"
+end
+end

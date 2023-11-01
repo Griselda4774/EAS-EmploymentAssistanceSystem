@@ -1,0 +1,30 @@
+@startuml SeqDoiMatKhau
+skin rose 
+hide footbox
+actor user 
+boundary changePassInterface as ": Change Password Interface\nClass"
+control userController as ": User controller\nClass"
+entity User as ": User\nClass"
+autonumber
+user++
+user -> changePassInterface++: Truy cập vào trang đổi mật khẩu
+changePassInterface-> changePassInterface: Hiển thị trang web đổi mật khẩu 
+user -> changePassInterface: Nhập mật khẩu cũ và mật khẩu mới 
+changePassInterface -> changePassInterface: Kiểm tra mật khẩu nhập vào 
+alt Invalid Password
+changePassInterface -> changePassInterface: Hiển thị thông báo "Mật khẩu không hợp lệ"
+else Valid Password
+changePassInterface -> userController++ : Gửi yêu cầu đổi mật khẩu
+userController -> User++: Gửi thông tin mật khẩu cũ và mật khẩu mới
+User -> User: Kiểm tra mật khẩu nhập vào 
+alt Invalid Old Password
+User -> userController: Thông báo sai mật khẩu cũ
+userController -> changePassInterface: Hiển thị thông báo "Sai mật khẩu cũ"
+else Valid Old Password
+User -> User: Đổi mật khẩu
+User -> userController: Thông báo đổi mật khẩu thành công
+userController -> changePassInterface: Hiển thị thông báo "Đổi mật khẩu thành công"
+changePassInterface -> user: Hiển thị thông báo đổi mật khẩu thành công
+end
+end
+@enduml
