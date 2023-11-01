@@ -1,0 +1,21 @@
+@startuml SeqXemThongTinUngTuyen
+
+skin rose
+hide footbox
+title Xem thông tin ứng tuyển
+
+actor "Người ứng tuyển" as nguoiUngTuyen
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Job Application\nClass" as manageJobApplication
+entity ": Job Application\nClass" as jobApplication
+
+autonumber
+nguoiUngTuyen++
+nguoiUngTuyen -> userInterface++: Truy cập giao diện thông tin ứng tuyển
+userInterface -> manageJobApplication++: Yêu cầu thông tin ứng tuyển
+manageJobApplication -> jobApplication++: Lấy thông tin ứng tuyển
+jobApplication -> manageJobApplication--: Trả về thông tin ứng tuyển
+manageJobApplication -> userInterface--: Trả về thông tin ứng tuyển
+userInterface -> nguoiUngTuyen--: Hiển thị thông tin ứng tuyển
+nguoiUngTuyen--
+@enduml
