@@ -2,9 +2,21 @@
 
 skin rose
 hide footbox
+title Quản lí phân tích thống kê
 
-actor Admin as ad
-boundary ": User Interface\nClass" as ui
+actor Admin as admin
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Analysis\nClass" as manageAnalysis
+entity ": Analysis\nClass" as analysis
 
+autonumber
+admin++
+admin -> userInterface++: Truy cập giao diện quản lí phân tích thống kê
+userInterface -> manageAnalysis++: Yêu cầu dữ liệu phân tích thống kê
+manageAnalysis -> analysis++: Lấy dữ liệu phân tích thống kê
+analysis -> manageAnalysis--: Trả về dữ liệu phân tích thống kê
+manageAnalysis -> userInterface--: Trả về dữ liệu phân tích thống kê
+userInterface -> admin--: Hiển thị dữ liệu phân tích thống kê
+admin--
 
 @enduml

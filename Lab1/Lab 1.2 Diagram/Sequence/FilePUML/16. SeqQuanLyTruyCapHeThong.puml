@@ -24,10 +24,10 @@ userInterface -> quanLy-- : Hiển thị giao diện thông tin người dùng
 opt Actor choice: Khóa quyền truy cập hệ thống
     quanLy -> userInterface++ : Chọn chức năng khóa quyền truy cập hệ thống
     userInterface -> quanLy : Gửi yêu cầu xác nhận hành động
-    alt Không xác nhận
+    alt Actor choice: Không xác nhận
         quanLy -> userInterface : Không xác nhận
         userInterface -> quanLy-- : Hiển thị giao diện thông tin người dùng cũ
-    else xác nhận
+    else Actor choice: Xác nhận
         autonumber 11
         quanLy -> userInterface++ : Xác nhận
         userInterface -> manageUser++ : Yêu cầu khóa quyền truy cập hệ thống

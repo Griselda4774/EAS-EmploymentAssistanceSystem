@@ -1,0 +1,34 @@
+@startuml SeqGuiTinNhan
+
+skin rose
+hide footbox
+title Gửi tin nhắn
+
+actor "Người dùng" as nguoiDung
+actor "Người dùng 2" as nguoiDung2
+boundary ": User Interface\nClass" as userInterface
+boundary ": User Interface\nClass 2" as userInterface2
+control ": Manage Chat\nClass" as manageChat
+entity ": Chat\nClass" as Chat
+
+autonumber
+nguoiDung++
+nguoiDung -> userInterface++ : Gửi tin nhắn
+userInterface -> manageChat++ : Truyền dữ liệu
+manageChat -> Chat++ : Cập nhật cuộc trò chuyện
+Chat -> manageChat-- : Trả về cuộc trò chuyện mới
+par
+    manageChat -> userInterface : Trả về cuộc trò chuyện mới
+    userInterface -> nguoiDung-- : Hiển thị cuộc trò chuyện mới
+else
+    autonumber 5
+    manageChat -> userInterface2-- : Trả về cuộc trò chuyện mới
+    userInterface2++
+    userInterface2 -> nguoiDung2-- : Hiển thị thông báo tin nhắn mới
+    nguoiDung2++
+end
+
+nguoiDung--
+nguoiDung2--
+
+@enduml

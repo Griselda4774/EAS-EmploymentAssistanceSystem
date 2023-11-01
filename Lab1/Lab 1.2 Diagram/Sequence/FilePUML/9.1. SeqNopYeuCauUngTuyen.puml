@@ -1,0 +1,29 @@
+@startuml SeqGuiYeuCauUngTuyen
+
+skin rose
+hide footbox
+title Gửi yêu cầu ứng tuyển
+
+actor "Người ứng tuyển" as nguoiUngTuyen
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Post\nClass" as managePost
+control ": Manage Job Application\nClass" as manageJobApplication
+entity ": Post\nClass" as postClass
+entity ": Job Application\nClass" as jobApplicationClass
+
+autonumber
+nguoiUngTuyen++
+nguoiUngTuyen -> userInterface++: Truy cập giao diện thông tin bài đăng
+userInterface -> managePost++: Yêu cầu thông tin bài đăng
+managePost -> postClass++: Lấy thông tin bài đăng
+postClass -> managePost--: Trả về thông tin bài đăng
+managePost -> userInterface--: Trả về thông tin bài đăng
+userInterface -> nguoiUngTuyen--: Hiển thị thông tin bài đăng
+nguoiUngTuyen -> userInterface++: Ứng tuyển
+userInterface -> manageJobApplication++: Yêu cầu tạo ứng tuyển
+manageJobApplication -> jobApplicationClass++: Tạo ứng tuyển
+jobApplicationClass -> manageJobApplication--: Trả về thông tin ứng tuyển
+manageJobApplication -> userInterface--: Trả về thông tin ứng tuyển
+userInterface -> nguoiUngTuyen--: Hiển thị thông tin ứng tuyển
+nguoiUngTuyen--
+@enduml

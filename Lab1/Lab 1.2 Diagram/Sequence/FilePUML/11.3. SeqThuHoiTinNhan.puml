@@ -1,0 +1,22 @@
+@startuml SeqThuHoiTinNhan
+
+skin rose
+hide footbox
+title Thu hồi tin nhắn
+
+actor "Người dùng" as nguoiDung
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Chat\nClass" as manageChat
+entity ": Chat\nClass" as chat
+
+autonumber
+nguoiDung++
+nguoiDung -> userInterface++: Nhấn nút thu hồi tin nhắn
+userInterface -> manageChat++: Gửi yêu cầu thu hồi tin nhắn
+manageChat -> chat++: Cập nhật cuộc trò chuyện
+chat -> manageChat--: Trả về cuộc trò chuyện mới
+manageChat -> userInterface--: Trả về cuộc trò chuyện mới
+userInterface -> nguoiDung--: Hiển thị cuộc trò chuyện mới
+nguoiDung--
+
+@enduml
