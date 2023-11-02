@@ -1,0 +1,51 @@
+@startuml SeqTimKiem(staff)
+
+skin rose
+hide footbox
+
+title Tìm kiếm (Nhân viên)
+
+actor Staff as staff
+boundary ": Staff Interface\nClass" as staffInterface
+control ": Search Controller\nClass" as searchController
+control ": Staff Controller\nClass" as staffController
+control ": Company Controller\nClass" as companyController
+control ": Candidate Controller\nClass" as candidateController
+control ": Post Controller\nClass" as postController
+entity ": Staff\nClass" as staffClass
+entity ": Company\nClass" as companyClass
+entity ": Candidate\nClass" as candidateClass
+entity ": Post\nClass" as postClass
+
+autonumber
+staff++
+staff -> staffInterface++: Nhập từ khóa
+staffInterface -> searchController++: Truyền từ khóa
+par
+    searchController -> staffController++: Yêu cầu thông tin nhân viên có từ khóa
+    staffController -> staffClass++: Lấy thông tin nhân viên có từ khóa
+    staffClass -> staffController--: Trả về thông tin nhân viên có từ khóa
+    staffController -> searchController--: Trả về thông tin nhân viên có từ khóa
+else
+    autonumber 3
+    searchController -> companyController++: Yêu cầu thông tin công ty có từ khóa
+    companyController -> companyClass++: Lấy thông tin công ty có từ khóa
+    companyClass -> companyController--: Trả về thông tin công ty có từ khóa
+    companyController -> searchController--: Trả về thông tin công ty có từ khóa
+else
+    autonumber 3
+    searchController -> candidateController++: Yêu cầu thông tin người ứng tuyển có từ khóa
+    candidateController -> candidateClass++: Lấy thông tin người ứng tuyển có từ khóa
+    candidateClass -> candidateController--: Trả về thông tin người ứng tuyển có từ khóa
+    candidateController -> searchController--: Trả về thông tin người ứng tuyển có từ khóa
+else
+    autonumber 3
+    searchController -> postController++: Yêu cầu thông tin bài viết có từ khóa
+    postController -> postClass++: Lấy thông tin bài viết có từ khóa
+    postClass -> postController--: Trả về thông tin bài viết có từ khóa
+    postController -> searchController--: Trả về thông tin bài viết có từ khóa
+end
+searchController -> staffInterface--: Trả về kết quả tìm kiếm
+staffInterface -> staff--: Hiển thị kết quả tìm kiếm
+staff--
+@enduml

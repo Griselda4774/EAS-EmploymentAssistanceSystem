@@ -4,19 +4,38 @@ skin rose
 hide footbox
 title Thu hồi tin nhắn
 
-actor "Người dùng" as nguoiDung
+actor User2 as user2
+actor User as user
 boundary ": User Interface\nClass" as userInterface
-control ": Manage Chat\nClass" as manageChat
+boundary ": User Interface\nClass 2" as userInterface2
+control ": Chat Controller\nClass" as chatController
 entity ": Chat\nClass" as chat
 
 autonumber
-nguoiDung++
-nguoiDung -> userInterface++: Nhấn nút thu hồi tin nhắn
-userInterface -> manageChat++: Gửi yêu cầu thu hồi tin nhắn
-manageChat -> chat++: Cập nhật cuộc trò chuyện
-chat -> manageChat--: Trả về cuộc trò chuyện mới
-manageChat -> userInterface--: Trả về cuộc trò chuyện mới
-userInterface -> nguoiDung--: Hiển thị cuộc trò chuyện mới
-nguoiDung--
+user++
+user2++
+user -> userInterface++: Nhấn nút thu hồi tin nhắn\n[đã truy cập giao diện nhắn tin]
+userInterface -> user: Gửi yêu cầu xác nhận
+alt Không xác nhận thu hồi tin nhắn
+    user -> userInterface : Nhấn nút hủy
+    userInterface -> user : Hiển thị cuộc trò chuyện cũ
+else Xác nhận thu hồi tin nhắn
+    autonumber 3
+    user -> userInterface : Nhấn nút xác nhận
+    userInterface -> chatController++: Gửi yêu cầu thu hồi tin nhắn
+    chatController -> chat++: Cập nhật cuộc trò chuyện
+    chat -> chatController--: Trả về cuộc trò chuyện mới
+    par
+        chatController -> userInterface : Trả về cuộc trò chuyện mới
+        userInterface -> user-- : Hiển thị cuộc trò chuyện mới
+    else
+        autonumber 7
+        chatController -> userInterface2-- : Trả về cuộc trò chuyện mới
+        userInterface2++
+        userInterface2 -> user2-- : Hiển thị cuộc trò chuyện mới
+    end
+end
+user--
+user2--
 
 @enduml

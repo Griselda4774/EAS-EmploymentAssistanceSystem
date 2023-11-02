@@ -4,19 +4,27 @@ skin rose
 hide footbox
 title Chặn tin nhắn
 
-actor "Người dùng" as nguoiDung
+actor User as user
 boundary ": User Interface\nClass" as userInterface
-control ": Manage Chat\nClass" as manageChat
+control ": Chat Controller\nClass" as chatController
 entity ": Chat\nClass" as chat
 
 autonumber
-nguoiDung++
-nguoiDung -> userInterface++: Nhấn nút chặn tin nhắn
-userInterface -> manageChat++: Gửi yêu cầu chặn tin nhắn
-manageChat -> chat++: Chặn tin nhắn
-chat -> manageChat--: Trả về thông báo và cuộc trò chuyện mới
-manageChat -> userInterface--: Trả về thông báo và cuộc trò chuyện mới
-userInterface -> nguoiDung--: Hiển thị thông báo và cuộc trò chuyện mới
-nguoiDung--
+user++
+user -> userInterface++: Nhấn nút chặn tin nhắn\n[đã truy cập giao diện nhắn tin]
+userInterface -> user: Gửi yêu cầu xác nhận
+alt Không xác nhận chặn tin nhắn
+    user -> userInterface: Nhấn nút hủy
+    userInterface -> user: Hiển thị giao diện nhắn tin cũ
+else Xác nhận chặn tin nhắn
+    autonumber 3
+    user -> userInterface: Nhấn nút xác nhận
+    userInterface -> chatController++: Gửi yêu cầu chặn tin nhắn
+    chatController -> chat++: Chặn tin nhắn
+    chat -> chatController--: Trả về thông báo\nvà cuộc trò chuyện mới
+    chatController -> userInterface--: Trả về thông báo\nvà cuộc trò chuyện mới
+    userInterface -> user--: Hiển thị thông báo\nvà hiển thị giao diện nhắn tin mới
+end
+user--
 
 @enduml

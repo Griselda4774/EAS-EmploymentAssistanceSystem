@@ -4,18 +4,19 @@ skin rose
 hide footbox
 title Xem tin nhắn
 
-actor "Người dùng" as nguoiDung
+actor User as user
 boundary ": User Interface\nClass" as userInterface
-control ": Manage Chat\nClass" as manageChat
+control ": Chat Controller\nClass" as chatController
 entity ": Chat\nClass" as Chat
 
 autonumber
-nguoiDung++
-nguoiDung -> userInterface++ : Truy nhập giao diện nhắn tin
-userInterface -> manageChat++ : Yêu cầu thông tin cuộc trò chuyện
-manageChat -> Chat++ : Lấy thông tin cuộc trò chuyện
-Chat -> manageChat-- : Trả về thông tin cuộc trò chuyện
-manageChat -> userInterface-- : Trả về thông tin cuộc trò chuyện
-userInterface -> nguoiDung--: Hiển thị thông tin cuộc trò chuyện
+user++
+user -> userInterface++ : Truy nhập giao diện nhắn tin
+userInterface -> chatController++ : Yêu cầu thông tin cuộc trò chuyện
+chatController -> Chat++ : Lấy thông tin cuộc trò chuyện
+Chat -> chatController-- : Trả về thông tin cuộc trò chuyện
+chatController -> userInterface-- : Trả về thông tin cuộc trò chuyện
+userInterface -> user--: Hiển thị thông tin cuộc trò chuyện
+user--
 
 @enduml
