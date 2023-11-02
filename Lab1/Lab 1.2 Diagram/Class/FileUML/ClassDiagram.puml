@@ -1,0 +1,8 @@
+@startuml ClassDiagram
+
+skin rose
+
+class User
+
+@enduml
+```
