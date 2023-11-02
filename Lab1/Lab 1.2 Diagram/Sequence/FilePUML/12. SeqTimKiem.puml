@@ -8,7 +8,7 @@ title Tìm kiếm
 actor User as user
 boundary ": User Interface\nClass" as userInterface
 control ": Search Controller\nClass" as searchController
-control ": Manage User\nClass" as manageUser
+control ": User\nClass" as manageUser
 control ": Manage Post\nClass" as managePost
 entity ": User\nClass" as userClass
 entity ": Post\nClass" as postClass
