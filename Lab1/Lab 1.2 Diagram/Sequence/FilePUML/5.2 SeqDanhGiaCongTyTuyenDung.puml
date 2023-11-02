@@ -1,20 +1,20 @@
 @startuml SeqDanhGiaCongTyTuyenDung
 skin rose 
 hide footbox
-actor congTy as "Công ty \n tuyển dụng"
 actor nguoiUngTuyen as "Người ứng tuyển"
+actor congTy as "Công ty \n tuyển dụng"
+
 nguoiUngTuyen++
 boundary companyInterface as ": Company Interface\nClass"
-boundary candidateInterface as ": Candidate Interface\nClass"
-control companyController as ": Company Controller\nClass"
-control candidateController as ": Candidate Controller\nClass"
-entity Candidate as ": Candidate\nClass"
+boundary candidateInterface as ": User Interface\nClass"
+control userController as ": User Controller\nClass"
+entity User as ": User\nClass"
 nguoiUngTuyen->candidateInterface++: Chọn đánh giá một công ty \nđã từng tham gia ứng tuyển
 candidateInterface->candidateInterface: Hiển thị bảng đánh giá công ty
 nguoiUngTuyen-> candidateInterface: Nhập thông tin đánh giá công ty
-candidateInterface-> candidateController: Gửi yêu cầu đánh giá công ty
-candidateController-> Company: Gửi thông tin đánh giá công ty
-Company ->  companyController++: Gửi thông báo đánh giá đến công ty
-companyController-> companyInterface: Hiển thị thông tin đánh giá công ty đó
-companyInterface -> congTy++: Thông báo đánh giá công ty đó
+candidateInterface-> userController: Gửi yêu cầu đánh giá công ty
+userController-> User: Gửi thông tin đánh giá công ty
+User ->  userController++: Gửi thông báo đánh giá đến công ty
+userController-> companyInterface++: Hiển thị thông tin đánh giá công ty đó
+companyInterface -> congTy: Thông báo đánh giá công ty đó
 @enduml

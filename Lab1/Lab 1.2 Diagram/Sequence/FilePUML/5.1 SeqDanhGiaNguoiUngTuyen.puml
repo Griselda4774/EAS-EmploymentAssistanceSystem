@@ -1,20 +1,22 @@
 @startuml SeqDanhGiaCongTyTuyenDung
 skin rose 
 hide footbox
+autonumber
 actor congTy as "Công ty \n tuyển dụng"
 actor nguoiUngTuyen as "Người ứng tuyển"
 boundary companyInterface as ": Company Interface\nClass"
-boundary candidateInterface as ": Candidate Interface\nClass"
-control companyController as ": Company Controller\nClass"
-control candidateController as ": Candidate Controller\nClass"
-entity Candidate as ": Candidate\nClass"
+boundary candidateInterface as ": User Interface\nClass"
+control userController as ": User Controller\nClass"
+entity User as ": User\nClass"
 
-nguoiUngTuyen->candidateInterface++: Chọn đánh giá một ứng viên\n đã từng ứng tuyển công ty
-candidateInterface->candidateInterface: Hiển thị bảng đánh giá ứng viên
-nguoiUngTuyen-> candidateInterface: Nhập thông tin đánh giá ứng viên
-candidateInterface-> candidateController: Gửi yêu cầu đánh giá người ứng tuyển
-candidateController-> Candidate: Gửi thông tin đánh giá người ứng tuyển
-Candidate ->  candidateController++: Gửi thông báo đánh giá đến người ứng tuyển
-candidateController-> candidateInterface: Hiển thị thông tin đánh giá người ứng tuyển đó
-candidateInterface -> nguoiUngTuyen: Thông báo đánh giá người ứng tuyển đó
+congTy->companyInterface++: Chọn đánh giá một ứng viên\n đã từng ứng tuyển công ty
+companyInterface->companyInterface: Hiển thị bảng đánh giá ứng viên
+congTy-> companyInterface: Nhập thông tin đánh giá ứng viên
+companyInterface-> userController++: Gửi yêu cầu đánh giá người ứng tuyển
+userController-> User: Gửi thông tin đánh giá người ứng tuyển
+User ->  userController: Gửi thông báo đánh giá đến người ứng tuyển
+userController-> companyInterface: Hiển thị thông tin đánh giá người ứng tuyển đó
+companyInterface -> congTy: Thông báo đánh giá người ứng tuyển đó
+userController-> candidateInterface: Hiển thị thông báo có\ncông ty đánh giá người ứng tuyển
+candidateInterface->nguoiUngTuyen:Hiển thị có công ty đánh\n giá người úng tuyển
 @enduml

@@ -1,44 +1,40 @@
 @startuml SeqQuenMatKhau
 skin rose
 hide footbox
+autonumber
 actor user as "User"
-boundary forgotPassInterface as ": ForgotPassword Interface\nClass"
-boundary loginInterface as ": Login Interface\n Class"
-boundary authenticationInterface as ": Authentication Interface\n Class"
-boundary changePassInterface as ": ChangePassword Interface\n Class"
-boundary mainInterface as ": Main Interface\n Class"
-control changePassController as ": Change password controller\nClass"
-control forgotPassController as ": ForgotPassword Controller\nClass"
+boundary userInterface as ": User Interface\n Class"
+control userController as ": User controller\nClass"
 entity User as ": User\nClass"
 user++
-user -> forgotPassInterface++: Truy cập vào trang quên mật khẩu
-forgotPassInterface -> forgotPassInterface--: Hiển thị trang quên mật khẩu
-user -> forgotPassInterface++: Nhập username 
-forgotPassInterface -> forgotPassInterface--: Kiểm tra format username
+user -> userInterface++: Truy cập vào trang quên mật khẩu
+userInterface -> userInterface: Hiển thị trang quên mật khẩu
+user -> userInterface: Nhập username 
+userInterface -> userInterface: Kiểm tra format username
 alt Invalid Data
-    forgotPassInterface -> forgotPassInterface++: Hiển thị thông báo\n"Sai format thông tin đăng nhập"
+    userInterface -> user: Hiển thị thông báo\n"Sai format thông tin đăng nhập"
 else Valid Data
-    forgotPassInterface -> forgotPassController++: Gửi thông tin username
-    forgotPassController -> User++: Gửi thông tin username
-    User -> User--: Kiểm tra thông tin username
+    userInterface -> userController++: Gửi thông tin username
+    userController -> User++: Gửi thông tin username
+    User -> User: Kiểm tra thông tin username
     alt InValid Data
-        User->forgotPassController: Thông báo sai thông tin người dùng
-        forgotPassController -> forgotPassInterface: Hiển thị thông báo\n"Không có người dùng này trong hệ thống"
+        User->userController: Thông báo sai thông tin người dùng
+        userController -> userInterface: Hiển thị thông báo\n"Không có người dùng này trong hệ thống"
     else Valid Data
-        User->forgotPassController--: Thông báo đúng thông tin người dùng
-        forgotPassController -> authenticationInterface++: Hiển thị xác thực người dùng
-        user -> authenticationInterface: Nhập mã OTP
+        User->userController--: Thông báo đúng thông tin người dùng
+        userController -> userInterface: Hiển thị xác thực người dùng
+        user -> userInterface: Nhập mã OTP
         alt Invalid OTP
-        authenticationInterface -> authenticationInterface--: Hiển thị thông báo\n"Sai mã OTP"
+        userInterface -> userInterface: Hiển thị thông báo\n"Sai mã OTP"
         else
-        authenticationInterface -> changePassInterface++: Hiển thị trang đổi mật khẩu
-        user -> changePassInterface: Nhập mật khẩu mới
-        changePassInterface -> changePassController: Gửi mật khẩu mới
-        changePassController -> User: Đổi mật khẩu
-        User -> changePassController: Đổi mật khẩu thành công
-        changePassController -> changePassInterface: Hiển thị thông báo \n"đổi mật khẩu thành công"
-        changePassInterface -> user: Thông báo đổi mật khẩu thành công
-        changePassInterface -> mainInterface: Hiển thị trang chủ người dùng
+        userInterface -> userInterface: Hiển thị trang đổi mật khẩu
+        user -> userInterface: Nhập mật khẩu mới
+        userInterface -> userController: Gửi mật khẩu mới
+        userController -> User: Đổi mật khẩu
+        User -> userController: Đổi mật khẩu thành công
+        userController -> userInterface: Hiển thị thông báo \n"đổi mật khẩu thành công"
+        userInterface -> user: Thông báo đổi mật khẩu thành công
+        userInterface -> userInterface: Hiển thị trang chủ người dùng
         end
     end 
 end
