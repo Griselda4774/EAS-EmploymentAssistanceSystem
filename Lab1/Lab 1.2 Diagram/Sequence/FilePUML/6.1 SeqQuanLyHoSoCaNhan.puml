@@ -2,28 +2,28 @@
 skin rose
 hide footbox
 actor nguoiUngTuyen as "Người ứng tuyển"
-boundary candidateInformationInterface as ": User Information Interface\nClass"
-control candidateController as ": User Controller\nClass"
+boundary candidateInterface as ": Candidate Interface\nClass"
+control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
 autonumber
 nguoiUngTuyen++
-nguoiUngTuyen-> candidateInformationInterface++: Truy cập trang cá nhân
-candidateInformationInterface->candidateInformationInterface: Trả về trang cá nhân người dùng
-nguoiUngTuyen-> candidateInformationInterface: Chọn chỉnh sửa thông tin
-candidateInformationInterface-> candidateInformationInterface: Hiển thị trang chỉnh sửa\nthông tin cá nhân
-nguoiUngTuyen -> candidateInformationInterface: Nhập thông tin cá nhân
-candidateInformationInterface->candidateInformationInterface: Kiểm tra thông tin nhập
+nguoiUngTuyen-> candidateInterface++: Truy cập trang cá nhân
+candidateInterface->candidateInterface: Trả về trang cá nhân người dùng
+nguoiUngTuyen-> candidateInterface: Chọn chỉnh sửa thông tin
+candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin cá nhân
+nguoiUngTuyen -> candidateInterface: Nhập thông tin cá nhân
+candidateInterface->candidateInterface: Kiểm tra thông tin nhập
 alt Invalid Data
-candidateInformationInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin
+candidateInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin
 else Valid Data
-candidateInformationInterface -> candidateController++: Gửi yếu cầu cập nhật thông tin cá nhân
-candidateController -> User++: Gửi thông tin cá nhân \nngười dùng mới cập nhật
+candidateInterface -> userController++: Gửi yếu cầu cập nhật thông tin cá nhân
+userController -> User++: Gửi thông tin cá nhân \nngười dùng mới cập nhật
 alt Invalid Data
-User -> candidateController: Thông báo dữ liệu nhập vào bị sai
-candidateController -> candidateInformationInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
+User -> userController: Thông báo dữ liệu nhập vào bị sai
+userController -> candidateInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
 else Valid Data
-User -> candidateController: Thông báo dữ liệu cập nhật thành công
-candidateController -> candidateInformationInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
-candidateInformationInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
+User -> userController: Thông báo dữ liệu cập nhật thành công
+userController -> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
+candidateInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
 end
 @enduml

@@ -2,29 +2,29 @@
 skin rose
 hide footbox
 actor nguoiUngTuyen as "Người ứng tuyển"
-boundary candidateCVInterface as ": Candidate CV Interface\nClass"
-control candidateCVController as ": Candidate CV Controller\nClass"
+boundary candidateInterface as ": Candidate CV Interface\nClass"
+control cVController as ": Candidate CV Controller\nClass"
 entity CV as ": CV\nClass"
 autonumber
 nguoiUngTuyen++
-nguoiUngTuyen-> candidateCVInterface++: Truy cập trang cá nhân chứa hồ sơ xin việc
-candidateCVInterface->candidateCVInterface: Trả về hồ sơ xin việc của người dùng
-nguoiUngTuyen-> candidateCVInterface: Chọn chỉnh sửa thông tin hồ sơ xin việc
-candidateCVInterface-> candidateCVInterface: Hiển thị trang chỉnh sửa\nthông tin hồ sơ xin việc
-nguoiUngTuyen -> candidateCVInterface: Nhập thông tin hồ sơ xin việc
-candidateCVInterface->candidateCVInterface: Kiểm tra thông tin hồ sơ xin việc
+nguoiUngTuyen-> candidateInterface++: Truy cập trang cá nhân chứa hồ sơ xin việc
+candidateInterface->candidateInterface: Trả về hồ sơ xin việc của người dùng
+nguoiUngTuyen-> candidateInterface: Chọn chỉnh sửa thông tin hồ sơ xin việc
+candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin hồ sơ xin việc
+nguoiUngTuyen -> candidateInterface: Nhập thông tin hồ sơ xin việc
+candidateInterface->candidateInterface: Kiểm tra thông tin hồ sơ xin việc
 alt Invalid Data
-candidateCVInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin hồ sơ xin việc
+candidateInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin hồ sơ xin việc
 else Valid Data
-candidateCVInterface -> candidateCVController++: Gửi yêu cầu cập nhật thông tin hồ sơ xin việc
-candidateCVController -> User++: Gửi thông tin hồ sơ xin việc \nngười dùng mới cập nhật
+candidateInterface -> cVController++: Gửi yêu cầu cập nhật thông tin hồ sơ xin việc
+cVController -> CV++: Gửi thông tin hồ sơ xin việc \nngười dùng mới cập nhật
 alt Invalid Data
-User -> candidateCVController: Thông báo dữ liệu nhập vào bị sai
-candidateCVController -> candidateCVInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
+CV -> cVController: Thông báo dữ liệu nhập vào bị sai
+cVController -> candidateInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
 else Valid Data
-User -> candidateCVController: Thông báo dữ liệu cập nhật thành công
-candidateCVController -> candidateCVInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
-candidateCVInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
+CV -> cVController: Thông báo dữ liệu cập nhật thành công
+cVController -> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
+candidateInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
 end
 end
 @enduml

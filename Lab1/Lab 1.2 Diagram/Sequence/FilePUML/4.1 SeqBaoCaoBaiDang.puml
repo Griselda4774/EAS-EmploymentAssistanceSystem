@@ -4,38 +4,40 @@ skin rose
 actor nguoiUngTuyen as "Người ứng tuyển"
 actor admin as "Admin"
 actor congTy as "Công ty\n tuyển dụng"
+boundary userInterface as ": User Interface\nClass"
 boundary adminInterface as ": Admin Interface\nClass"
-boundary postInterface as ": Post Interface\nClass"
-control reportController as ": Report Controller\nClass"
-control adminController as ": Admin Controller\nClass"
+boundary companyInterface as ": Company Interface\nClass"
+control postController as ": Post Controller\nClass"
 entity Post as ": Post\nClass"
 nguoiUngTuyen++
 autonumber
-nguoiUngTuyen-> postInterface++: Truy cập vào trang bài đăng tuyển dụng
-postInterface-> postInterface: Hiển thị bài đăng tuyển dụng
-nguoiUngTuyen-> postInterface: Chọn nút báo cáo\n bài đăng tuyển dụng
-nguoiUngTuyen-> postInterface: Nhập nội dung và loại yêu cầu báo cáo
-postInterface-> reportController++: Gửi yêu cầu báo cáo\n bài đăng tuyển dụng
-reportController-> Post++: Gửi thông tin bài đăng tuyển dụng cần báo cáo
-Post -> adminController: Gửi thông tin bài đăng tuyển dụng bị báo cáo
-adminController-> adminInterface++: Hiển thị thông tin bài đăng tuyển dụng bị báo cáo
+nguoiUngTuyen-> userInterface++: Truy cập vào trang bài đăng tuyển dụng
+userInterface-> userInterface: Hiển thị bài đăng tuyển dụng
+nguoiUngTuyen-> userInterface: Chọn nút báo cáo\n bài đăng tuyển dụng
+nguoiUngTuyen-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
+userInterface-> postController++: Gửi yêu cầu báo cáo\n bài đăng tuyển dụng
+postController-> Post++: Gửi thông tin bài đăng tuyển dụng cần báo cáo
+Post -> postController: Gửi thông tin bài đăng tuyển dụng bị báo cáo
+postController-> adminInterface++: Hiển thị thông tin bài đăng tuyển dụng bị báo cáo
 admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin bài đăng tuyển dụng
 alt Cancel Report
-adminInterface -> adminController: Gửi yêu cầu huỷ báo cáo bài đăng tuyển dụng
-adminController -> Post: Gửi thông tin bài đăng huỷ trạng thái báo cáo
+adminInterface -> postController: Gửi yêu cầu huỷ báo cáo bài đăng tuyển dụng
+postController -> Post: Gửi thông tin bài đăng huỷ trạng thái báo cáo
 else Accept Report
 admin -> adminInterface: Chọn phương thức cánh cáo bài đăng tuyển dụng
 opt Cancel Post
-adminInterface -> adminController: Gửi yêu cầu huỷ\n bài đăng tuyển dụng
-adminController -> Post: Gửi thông tin bài đăng tuyển dụng\n bị huỷ
+adminInterface -> postController: Gửi yêu cầu huỷ\n bài đăng tuyển dụng
+postController -> Post: Gửi thông tin bài đăng tuyển dụng\n bị huỷ
 Post->Post: Huỷ bài đăng bị báo cáo 
-Post->reportController: Thông báo đã huỷ bài đăng
-reportController-> postInterface: Hiển thị thông báo cho công ty đã huỷ bài đăng tuyển dụng
-postInterface -> congTy: Cảnh báo công ty đã đăng bài vi phạm nội dung
+Post->postController: Thông báo đã huỷ bài đăng
+postController-> companyInterface++: Hiển thị thông báo cho công ty đã huỷ bài đăng tuyển dụng
+companyInterface -> congTy: Cảnh báo công ty đã đăng bài vi phạm nội dung
 end
 opt Send report to Company 
-Post -> reportController: Gửi cảnh cáo đến công ty đăng bài đăng tuyển dụng
-reportController -> postInterface: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+Post -> postController: Gửi cảnh cáo đến công ty đăng bài đăng tuyển dụng
+postController -> companyInterface: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+companyInterface -> congTy: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+
 end
 end
 @enduml

@@ -5,36 +5,40 @@ actor nguoiUngTuyen as "Người ứng tuyển"
 actor admin as "Admin"
 actor congTy as "Công ty\n tuyển dụng"
 boundary adminInterface as ": Admin Interface\nClass"
+boundary userInterface as ": User Interface\nClass"
 boundary companyInterface as ": Company Interface\nClass"
-control reportController as ": Report Controller\nClass"
-control adminController as ": Admin Controller\nClass"
-entity Company as ": Company\nClass"
+control userController as ": User Controller\nClass"
+entity User as ": User\nClass"
 nguoiUngTuyen++
+admin++
+congTy++
 autonumber
-nguoiUngTuyen-> companyInterface++: Truy cập vào trang công ty tuyển dụng
-companyInterface-> companyInterface: Hiển thị công ty
-nguoiUngTuyen-> companyInterface: Chọn nút báo cáo\n công ty
-nguoiUngTuyen-> companyInterface: Nhập nội dung và loại yêu cầu báo cáo
-companyInterface-> reportController++: Gửi yêu cầu báo cáo\n công ty
-Company -> adminController: Gửi thông tin công ty bị báo cáo
-adminController-> adminInterface++: Hiển thị thông tin công ty bị báo cáo
+nguoiUngTuyen-> userInterface++: Truy cập vào trang công ty tuyển dụng
+userInterface-> userInterface: Hiển thị công ty
+nguoiUngTuyen-> userInterface: Chọn nút báo cáo\n công ty
+nguoiUngTuyen-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
+userInterface-> userController++: Gửi yêu cầu báo cáo\n công ty
+User -> userController: Gửi thông tin công ty bị báo cáo
+userController-> adminInterface++: Hiển thị thông tin công ty bị báo cáo
 admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin công ty
 alt Cancel Report
-adminInterface -> adminController: Gửi yêu cầu huỷ báo cáo công ty
-adminController -> Company: Gửi thông tin công ty đó đã huỷ trạng thái báo cáo
+adminInterface -> userController: Gửi yêu cầu huỷ báo cáo công ty
+userController -> User: Gửi thông tin công ty đó đã huỷ trạng thái báo cáo
 else Accept Report
 admin -> adminInterface: Chọn biện pháp cảnh cáo 
 adminInterface -> adminInterface: Hiển thị biện pháp cảnh cáo
 opt Ban Company activity
-adminInterface -> adminController: Gửi yêu cầu khoá tài khoản công ty
-adminController -> Company: Gửi thông tin công ty muốn khoá tài khoản 
-Company -> companyInterface: Thông báo tài khoản công ty đã bị khoá 
+adminInterface -> userController: Gửi yêu cầu khoá tài khoản công ty
+userController -> User: Gửi thông tin công ty muốn khoá tài khoản 
+User -> userController: Thông báo tài khoản công ty đã bị khoá 
+userController -> companyInterface++: Thông báo tài khoản công ty đã bị khoá 
+companyInterface -> congTy: Thông báo tài khoản đã bị khoá
 end
-opt Send report to company
-adminInterface->adminController: Gửi yêu cầu cảnh báo công ty
-adminController -> Company++: Gửi thông tin cảnh cáo đến công ty
-Company -> reportController: Gửi cảnh cáo đến công ty 
-reportController -> companyInterface: Hiển thị thông báo \n"Cảnh cáo công ty vi phạm tiêu chuẩn"
+opt Send report to Company
+adminInterface->userController: Gửi yêu cầu cảnh báo công ty
+userController -> User++: Gửi thông tin cảnh cáo đến công ty
+User -> userController: Gửi cảnh cáo đến công ty 
+userController -> companyInterface: Hiển thị thông báo \n"Cảnh cáo công ty vi phạm tiêu chuẩn"
 companyInterface -> congTy: Thông báo tài khoản đã bị khoá
 end
 end

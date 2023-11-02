@@ -3,7 +3,6 @@ skin rose
 hide footbox
 actor nguoiUngTuyen as "Người ứng tuyển"
 actor congTy as "Công ty \n tuyển dụng"
-
 nguoiUngTuyen++
 boundary companyInterface as ": Company Interface\nClass"
 boundary candidateInterface as ": User Interface\nClass"

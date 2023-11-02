@@ -3,13 +3,13 @@ skin rose
 hide footbox
 actor admin as "Admin"
 boundary adminInterface as ": Admin Interface\nClass"
-control adminController as ": Admin Controller\nClass"
+control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
 autonumber
 admin -> adminInterface++: Truy cập vào hồ sơ admin
-adminInterface -> adminController: Gửi yêu cầu truy cập hồ sơ admin
-adminController -> User++: Đưa thông tin tài khoản admin
-User -> adminController++: Toàn bộ thông tin tài khoản admin 
-adminController -> adminInterface: Hiển thị toàn bộ thông tin người dùng admin
+adminInterface -> userController: Gửi yêu cầu truy cập hồ sơ admin
+userController -> User++: Đưa thông tin tài khoản admin
+User -> userController++: Toàn bộ thông tin tài khoản admin 
+userController -> adminInterface: Hiển thị toàn bộ thông tin người dùng admin
 adminInterface -> admin: Hiển thị thông tin admin
 @enduml

@@ -17,7 +17,7 @@ else Valid Data
     userInterface -> userController++: Gửi thông tin username
     userController -> User++: Gửi thông tin username
     User -> User: Kiểm tra thông tin username
-    alt InValid Data
+    alt Invalid Data
         User->userController: Thông báo sai thông tin người dùng
         userController -> userInterface: Hiển thị thông báo\n"Không có người dùng này trong hệ thống"
     else Valid Data
@@ -25,8 +25,8 @@ else Valid Data
         userController -> userInterface: Hiển thị xác thực người dùng
         user -> userInterface: Nhập mã OTP
         alt Invalid OTP
-        userInterface -> userInterface: Hiển thị thông báo\n"Sai mã OTP"
-        else
+        userInterface -> user: Hiển thị thông báo\n"Sai mã OTP"
+        else Valid OTP
         userInterface -> userInterface: Hiển thị trang đổi mật khẩu
         user -> userInterface: Nhập mật khẩu mới
         userInterface -> userController: Gửi mật khẩu mới
@@ -34,7 +34,6 @@ else Valid Data
         User -> userController: Đổi mật khẩu thành công
         userController -> userInterface: Hiển thị thông báo \n"đổi mật khẩu thành công"
         userInterface -> user: Thông báo đổi mật khẩu thành công
-        userInterface -> userInterface: Hiển thị trang chủ người dùng
         end
     end 
 end

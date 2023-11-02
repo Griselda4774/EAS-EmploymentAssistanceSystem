@@ -13,7 +13,7 @@ companyInterface -> companyInterface--: Hiển thị trang tạo bài đăng\nv�
 congTy -> companyInterface++: Nhập thông tin bài bài đăng
 companyInterface -> companyInterface: Kiểm tra thông tin\n bài đăng nhập vào
 alt Invalid data
-    companyInterface-> companyInterface: Hiển thị thông báo \nthiếu thông tin bài đăng    
+    companyInterface-> congTy: Hiển thị thông báo \nthiếu thông tin bài đăng    
 else Valid data
     companyInterface-> postController: Gửi yêu cầu tạo bài đăng
     postController-> Post++: Gửi thông tin bài đăng
