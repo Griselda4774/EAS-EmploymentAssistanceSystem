@@ -4,14 +4,12 @@ left to right direction
 actor "Người ứng tuyển" as nguoiUngTuyen
 
 rectangle "Ứng tuyển" {
-    usecase "Nộp yêu cầu ứng tuyển" as nopYeuCauUngTuyen
-    usecase "Xem trạng thái yêu cầu ứng tuyển" as xemTrangThaiYeuCauUngTuyen
-    usecase "Nhận thông báo kết quả ứng tuyển" as nhanThongBaoKetQuaUngTuyen
+    usecase "Gửi yêu cầu ứng tuyển" as nopYeuCauUngTuyen
+    usecase "Xem thông tin ứng tuyển" as xemTrangThaiYeuCauUngTuyen
 }
 
 nguoiUngTuyen -- nopYeuCauUngTuyen
 nguoiUngTuyen -- xemTrangThaiYeuCauUngTuyen
-nguoiUngTuyen -- nhanThongBaoKetQuaUngTuyen
 
 @enduml
 ```

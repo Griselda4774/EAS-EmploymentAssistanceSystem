@@ -1,0 +1,21 @@
+@startuml SeqXemTinNhan
+
+skin rose
+hide footbox
+title Xem tin nhắn
+
+actor "Người dùng" as nguoiDung
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Chat\nClass" as manageChat
+entity ": Chat\nClass" as Chat
+
+autonumber
+nguoiDung++
+nguoiDung -> userInterface++ : Truy nhập giao diện nhắn tin
+userInterface -> manageChat++ : Yêu cầu thông tin cuộc trò chuyện
+manageChat -> Chat++ : Lấy thông tin cuộc trò chuyện
+Chat -> manageChat-- : Trả về thông tin cuộc trò chuyện
+manageChat -> userInterface-- : Trả về thông tin cuộc trò chuyện
+userInterface -> nguoiDung--: Hiển thị thông tin cuộc trò chuyện
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml SeqBoChanTinNhan
+
+skin rose
+hide footbox
+title Bỏ chặn tin nhắn
+
+actor "Người dùng" as nguoiDung
+boundary ": User Interface\nClass" as userInterface
+control ": Manage Chat\nClass" as manageChat
+entity ": Chat\nClass" as chat
+
+autonumber
+nguoiDung++
+nguoiDung -> userInterface++: Nhấn nút bỏ chặn tin nhắn
+userInterface -> manageChat++: Gửi yêu cầu bỏ chặn tin nhắn
+manageChat -> chat++: Chặn tin nhắn
+chat -> manageChat--: Trả về thông báo và cuộc trò chuyện mới
+manageChat -> userInterface--: Trả về thông báo và cuộc trò chuyện mới
+userInterface -> nguoiDung--: Hiển thị thông báo và cuộc trò chuyện mới
+nguoiDung--
+
+@enduml
