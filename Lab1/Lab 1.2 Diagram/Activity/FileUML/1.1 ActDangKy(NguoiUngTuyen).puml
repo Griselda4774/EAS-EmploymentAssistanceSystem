@@ -1,0 +1,28 @@
+@startuml ActDangKy(NguoiTuyenDung)
+
+skin rose
+title Đăng ký (Người tuyển dụng)
+|Candidate|
+start
+: Ấn vào nút đăng ký người dùng\n dưới dạng người ứng tuyển;
+|System|
+: Hiển thị trang đăng ký\n cho người ứng tuyển;
+|Candidate|
+repeat : Nhập thông tin người ứng tuyển;
+: Ấn nút đăng ký;
+|System|
+: Kiểm tra format \nthông tin người dùng;
+backward :hiển thị thông báo lỗi;
+repeat while () is (Invalid data) not (Valid data) 
+|Database|
+:Kiểm tra thông tin người dùng;
+if () then (Invalid data)
+    |System|
+    : Hiển thị thông báo lỗi đăng ký;
+else (Valid data)
+    |System|
+    : Hiển thị thông báo đăng ký thành công\n và chuyển sang trang chính;
+    endif
+|Database|
+stop
+

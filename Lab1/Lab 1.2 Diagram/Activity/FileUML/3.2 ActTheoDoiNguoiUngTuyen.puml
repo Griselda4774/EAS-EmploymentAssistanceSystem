@@ -1,0 +1,30 @@
+@startuml ActTheoDoiCongTyTuyenDung
+
+skin rose
+title Theo dõi người ứng tuyển
+
+|Candidate|
+start
+: Truy cập giao diện người tuyển dụng;
+|System|
+: Hiển thị trang người tuyển dụng;
+|Candidate|
+if () then (Unfollow button)
+: Chọn nút unfollow người tuyển dụng;
+|System|
+: Gửi thông báo unfollow người tuyển dụng đó;
+|Database|
+: Cập nhật người dùng đã unfollow người tuyển dụng;
+|System|
+: Hiển thị người dùng chưa follow người tuyển dụng đó; 
+stop
+else (Follow button)
+: Chọn nút follow người tuyển dụng;
+|System|
+: Gửi thông báo follow người tuyển dụng đó;
+|Database|
+: Cập nhật người dùng đã follow người tuyển dụng;
+|System|
+: Hiển thị người dùng đã follow người tuyển dụng đó; 
+stop
+@enduml

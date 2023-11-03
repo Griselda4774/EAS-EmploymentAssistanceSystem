@@ -1,0 +1,27 @@
+@startuml ActDangKy(congTyTuyenDung)
+skin rose
+title Đăng ký (Công ty ứng tuyển)
+|Company|
+start
+: Ấn vào nút đăng ký người dùng\n dưới dạng công ty tuyển dụng;
+|System|
+: Hiển thị trang đăng ký cho công ty tuyển dụng;
+|Company|
+repeat : Nhập thông tin công ty tuyển dụng;
+: Ấn nút đăng ký;
+|System|
+: Kiểm tra format thông tin công ty tuyển dụng;
+backward :hiển thị thông báo lỗi;
+repeat while () is (Invalid data) not (Valid data) 
+|Database|
+:Kiểm tra thông tin công ty tuyển dụng;
+if () then (Invalid data)
+    |System|
+    : Hiển thị thông báo lỗi đăng ký;
+else (Valid data)
+    |System|
+    : Hiển thị thông báo đăng ký thành công và đợi admin duyệt;
+    endif
+|Database|
+stop
+

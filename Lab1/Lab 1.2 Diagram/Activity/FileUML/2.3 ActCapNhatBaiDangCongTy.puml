@@ -1,0 +1,35 @@
+@startuml ActCapNhatBaiDangCongTy
+
+skin rose
+title Cập nhật bài đăng công ty
+
+|Company|
+start
+: Truy cập trang cập nhật thông tin bài đăng;
+|System|
+: Lấy thông tin bài đăng;
+|Database|
+: Truy vấn thông tin bài đăng;
+: Trả về thông tin bài đăng;
+|System|
+: Hiển thị thông tin bài đăng;
+|Company|
+repeat: Nhập thông tin mới của bài đăng;
+: Nhập nút cần lựa chọn;
+if () then (Cancle Button)
+: Nhập nút huỷ cập nhật;
+|Company|
+stop
+else (Update Button)
+: Nhập nút Cập nhật bài đăng;
+|System|
+: Kiểm tra thông tin bài đăng vừa cập nhật;
+endif
+backward :Thông báo thông tin mới\n cập nhật của bài đăng bị lỗi;
+repeat while() is (Invalid data) not (Valid data)
+|Database|
+: Cập nhật thông tin bài đăng mới;
+|System|
+: Thông báo cập nhật thông tin bài\n đăng mới thành công;
+stop
+@enduml

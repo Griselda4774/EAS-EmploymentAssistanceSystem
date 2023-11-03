@@ -1,0 +1,32 @@
+@startuml ActXoaBaiDangCongTy
+skin rose
+title Xoá bài đăng công ty
+|Company|
+start
+: Truy cập giao diện bài đăng;
+|System|
+: Lấy thông tin bài đăng;
+|Database|
+: Truy vấn thông tin bài đăng;
+: Trả về thông tin bài đăng;
+|System|
+: Hiển thị thông tin bài đăng;
+|Company|
+: Chọn nút xoá bài đăng;
+|System|
+: Hiển thị thông báo \n"Bạn có muốn xoá bài đăng hay không";
+if () then (No button)
+|Company|
+: Chọn nút "No";
+stop
+else (Yes button)
+|Company|
+: Chọn nút "Yes";
+|System|
+: Đưa thông tin bài đăng cần xoá;
+|Database|
+: Xoá bài đăng đó;
+|System|
+: Thông báo xoá thành công bài đăng;
+stop
+@enduml

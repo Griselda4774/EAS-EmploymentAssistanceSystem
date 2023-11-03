@@ -1,0 +1,17 @@
+@startuml ActTruyCapBaiDangCongTy
+
+skin rose
+title Truy cập bài đăng công ty
+
+|Company|
+start
+: Truy cập giao diện bài đăng;
+|System|
+: Lấy thông tin bài đăng;
+|Database|
+: Truy vấn thông tin bài đăng;
+: Trả về thông tin bài đăng;
+|System|
+: Hiển thị thông tin bài đăng;
+stop
+@enduml
