@@ -1,41 +1,34 @@
 @startuml SeqXoaBaiDang
 skin rose
 hide footbox
-actor congTy as "Công ty\ntuyển dụng"
+actor company as "Company"
 boundary companyInterface as ": Company Interface\nClass"
 control postController as ": Post Controller\nClass"
 entity Post as ": Post\nClass"
 autonumber 
-congTy++
-congTy -> companyInterface++: Truy cập vào trang bài đăng
+company++
+company -> companyInterface++: Truy cập vào trang bài đăng
 companyInterface-> postController++: Yêu cầu truy cập bài đăng
 postController -> Post++:Gửi thông tin bài đăng cần truy cập
 Post -> Post: Kiểm tra bài đăng trong dữ liệu
 alt Post not exist
     Post-> postController: Thông báo không có\n bài đăng đó
     postController -> companyInterface: Hiển thị trang \nbài đăng không tồn tại 
-    companyInterface -> congTy: Thông báo không có bài đăng này
+    companyInterface -> company: Thông báo không có bài đăng này
 else Post existed
     Post-> postController: Gửi toàn bộ thông tin bài đăng
     postController -> companyInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
     companyInterface -> companyInterface: Hiển thị trang web cho người dùng
-    congTy -> companyInterface: Chọn nút xoá thông tin bài đăng
+    company -> companyInterface: Chọn nút xoá thông tin bài đăng
     companyInterface -> companyInterface: Hiển thị thông báo \n"Bạn có chắc chắn muốn xoá bài đăng này"
     alt No button
     companyInterface->companyInterface: Hiển thị lại trang bài đăng tuyển dụng
     else Yes button
     companyInterface-> postController: Yêu cầu xoá bài đăng đã được chọn
     postController -> Post: Gửi thông tin bài đăng cần xoá 
-    Post->Post: Kiểm tra thông tin bài đăng
-    alt Invalid data
-    Post->postController: Thông báo lỗi 
-    postController -> companyInterface: Hiển thị thông báo "Xoá bài đăng thất bại"
-    else Valid data
     Post->postController: Thông báo thành công
     postController -> companyInterface: Hiển thị thông báo \n"Xoá bài đăng thành công"
-    companyInterface -> congTy: Hiển thị thông báo \n"Xoá bài đăng thành công"
-   
-    end
+    companyInterface -> company: Hiển thị thông báo \n"Xoá bài đăng thành công"
     end
 end
 @enduml

@@ -12,19 +12,15 @@ candidateInterface->candidateInterface: Trả về hồ sơ xin việc của ng�
 nguoiUngTuyen-> candidateInterface: Chọn chỉnh sửa thông tin hồ sơ xin việc
 candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin hồ sơ xin việc
 nguoiUngTuyen -> candidateInterface: Nhập thông tin hồ sơ xin việc
-candidateInterface->candidateInterface: Kiểm tra thông tin hồ sơ xin việc
+candidateInterface->cVController: Gửi thông tin hồ sơ xin việc
+cVController->cVController: Kiểm tra thông tin hồ sơ xin việc
 alt Invalid Data
+cVController->candidateInterface: Gửi thông báo sai thông tin hồ sơ xin việc
 candidateInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin hồ sơ xin việc
 else Valid Data
-candidateInterface -> cVController++: Gửi yêu cầu cập nhật thông tin hồ sơ xin việc
 cVController -> CV++: Gửi thông tin hồ sơ xin việc \nngười dùng mới cập nhật
-alt Invalid Data
-CV -> cVController: Thông báo dữ liệu nhập vào bị sai
-cVController -> candidateInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
-else Valid Data
 CV -> cVController: Thông báo dữ liệu cập nhật thành công
 cVController -> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
 candidateInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
-end
 end
 @enduml

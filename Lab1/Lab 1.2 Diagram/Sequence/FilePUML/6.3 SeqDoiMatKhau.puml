@@ -16,13 +16,11 @@ userInterface -> userInterface: Hiển thị thông báo "Mật khẩu không h�
 else Valid Password
 userInterface -> userController++ : Gửi yêu cầu đổi mật khẩu
 userController -> User++: Gửi thông tin mật khẩu cũ và mật khẩu mới
-User -> User: Kiểm tra mật khẩu nhập vào 
-alt Invalid Old Password
-User -> userController: Thông báo sai mật khẩu cũ
+User -> userController: Gửi thông tin mật khẩu trong dữ liệu có sẵn
+alt Invalid Old Passwor
 userController -> userInterface: Hiển thị thông báo "Sai mật khẩu cũ"
+userInterface -> user: Hiển thị thông báo "Sai mật khẩu cũ"
 else Valid Old Password
-User -> User: Đổi mật khẩu
-User -> userController: Thông báo đổi mật khẩu thành công
 userController -> userInterface: Hiển thị thông báo "Đổi mật khẩu thành công"
 userInterface -> user: Hiển thị thông báo đổi mật khẩu thành công
 end

@@ -11,15 +11,16 @@ user++
 user -> userInterface++: Truy cập vào trang đăng nhập
 userInterface -> userInterface--: Hiển thị trang đăng nhập
 user -> userInterface++: Nhập thông tin đăng nhập
-userInterface -> userInterface: Kiểm tra thông tin format\n thông tin đăng nhập
+userInterface -> userController++: Gửi thông tin đăng nhập
+userController -> userController: Kiểm tra thông tin format\n thông tin đăng nhập
 alt Invalid data
+    userController -> userInterface: Gửi thông báo thông tin\n đăng nhập sai format
     userInterface -> user: Gửi thông báo thông tin\n đăng nhập sai format
 else Valid data
-    userInterface -> userController++: Gửi thông tin đăng nhập
     userController -> User++: Gửi thông tin đăng nhập
-    User -> User--: Kiểm tra thông tin đăng nhập
+    User -> userController : Gửi thông tin tài khoản đã đăng nhập
+    userController -> userController: Kiểm tra thông\n tin tài khoản
     alt Invalid data
-        User -> userController: Thông báo sai\n thông tin đăng nhập
         userController -> userInterface: Hiển thị thông báo \n"Sai thông tin đăng nhập"
         userInterface -> user: Hiển thị thông báo \n"Sai thông tin đăng nhập"
     else Valid data

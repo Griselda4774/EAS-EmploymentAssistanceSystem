@@ -1,29 +1,26 @@
 @startuml SeqQuanLyHoSoCaNhan
 skin rose
 hide footbox
-actor nguoiUngTuyen as "Người ứng tuyển"
+actor candidate as "Candidate"
 boundary candidateInterface as ": Candidate Interface\nClass"
 control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
 autonumber
-nguoiUngTuyen++
-nguoiUngTuyen-> candidateInterface++: Truy cập trang cá nhân
+candidate++
+candidate-> candidateInterface++: Truy cập trang cá nhân
 candidateInterface->candidateInterface: Trả về trang cá nhân người dùng
-nguoiUngTuyen-> candidateInterface: Chọn chỉnh sửa thông tin
+candidate-> candidateInterface: Chọn chỉnh sửa thông tin
 candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin cá nhân
-nguoiUngTuyen -> candidateInterface: Nhập thông tin cá nhân
-candidateInterface->candidateInterface: Kiểm tra thông tin nhập
+candidate -> candidateInterface: Nhập thông tin cá nhân
+candidateInterface->userController: Gửi thông tin cá nhân đã nhập
+userController->userController: Kiểm tra thông tin đã nhập
 alt Invalid Data
-candidateInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin
+userController -> candidateInterface: Thông báo sai thông tin 
+candidateInterface -> candidate: Thông báo nhập lại thông tin
 else Valid Data
-candidateInterface -> userController++: Gửi yếu cầu cập nhật thông tin cá nhân
 userController -> User++: Gửi thông tin cá nhân \nngười dùng mới cập nhật
-alt Invalid Data
-User -> userController: Thông báo dữ liệu nhập vào bị sai
-userController -> candidateInterface: Hiển thị thông báo lỗi khi\n cập nhật thông tin
-else Valid Data
 User -> userController: Thông báo dữ liệu cập nhật thành công
 userController -> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
-candidateInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
+candidateInterface -> candidate: Thông báo cập nhật thông tin thành công
 end
 @enduml

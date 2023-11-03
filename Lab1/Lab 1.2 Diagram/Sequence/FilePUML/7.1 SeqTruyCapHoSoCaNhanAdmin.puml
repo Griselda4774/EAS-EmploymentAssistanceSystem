@@ -6,10 +6,11 @@ boundary adminInterface as ": Admin Interface\nClass"
 control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
 autonumber
+admin++
 admin -> adminInterface++: Truy cập vào hồ sơ admin
-adminInterface -> userController: Gửi yêu cầu truy cập hồ sơ admin
+adminInterface -> userController++: Gửi yêu cầu truy cập hồ sơ admin
 userController -> User++: Đưa thông tin tài khoản admin
-User -> userController++: Toàn bộ thông tin tài khoản admin 
+User -> userController: Toàn bộ thông tin tài khoản admin 
 userController -> adminInterface: Hiển thị toàn bộ thông tin người dùng admin
 adminInterface -> admin: Hiển thị thông tin admin
 @enduml

@@ -2,21 +2,22 @@
 skin rose 
 hide footbox
 autonumber
-actor congTy as "Công ty \n tuyển dụng"
-actor nguoiUngTuyen as "Người ứng tuyển"
+actor company as "Company"
+actor candidate as "Candidate"
 boundary companyInterface as ": Company Interface\nClass"
 boundary candidateInterface as ": User Interface\nClass"
 control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
-
-congTy->companyInterface++: Chọn đánh giá một ứng viên\n đã từng ứng tuyển công ty
+company++
+candidate++
+company->companyInterface++: Chọn đánh giá một ứng viên\n đã từng ứng tuyển công ty
 companyInterface->companyInterface: Hiển thị bảng đánh giá ứng viên
-congTy-> companyInterface: Nhập thông tin đánh giá ứng viên
+company-> companyInterface: Nhập thông tin đánh giá ứng viên
 companyInterface-> userController++: Gửi yêu cầu đánh giá người ứng tuyển
 userController-> User: Gửi thông tin đánh giá người ứng tuyển
 User ->  userController: Gửi thông báo đánh giá đến người ứng tuyển
 userController-> companyInterface: Hiển thị thông tin đánh giá người ứng tuyển đó
-companyInterface -> congTy: Thông báo đánh giá người ứng tuyển đó
+companyInterface -> company: Thông báo đánh giá người ứng tuyển đó
 userController-> candidateInterface: Hiển thị thông báo có\ncông ty đánh giá người ứng tuyển
-candidateInterface->nguoiUngTuyen:Hiển thị có công ty đánh\n giá người úng tuyển
+candidateInterface->candidate:Hiển thị có công ty đánh\n giá người úng tuyển
 @enduml

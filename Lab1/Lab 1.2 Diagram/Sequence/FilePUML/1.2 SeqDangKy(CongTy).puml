@@ -1,34 +1,35 @@
-@startuml SeqDangKyCongTy
+@startuml SeqDangKycompany
 skin rose
 hide footbox
 actor admin as "Admin"
-actor congTy as "Công ty tuyển dụng"
+actor company as "Company"
 boundary ":Company Interface\nClass" as companyInterface
 boundary ":Admin Interface\nClass" as adminInteface
 control ": User Controller\nClass" as userController
 entity User as ": User\nClass" 
 autonumber
-congTy++
+company++
 admin++
-congTy -> companyInterface++ : Người dùng chọn đăng ký dưới dạng người tuyển dụng 
+company -> companyInterface++ : Người dùng chọn đăng ký dưới dạng người tuyển dụng 
 companyInterface -> companyInterface-- : Hiển thị trang đăng ký cho\n công ty tuyển dụng
-congTy -> companyInterface++: Nhập thông tin người dùng
-companyInterface -> companyInterface: Kiểm tra format thông tin công ty
+company -> companyInterface++: Nhập thông tin người dùng
+companyInterface -> userController++: Gửi thông tin công ty
+userController -> userController: Kiểm tra format thông tin công ty
 
 alt Invalid Data
-    companyInterface ->congTy: Thông báo sai thông tin người dùng
+    userController ->companyInterface: Thông báo sai thông tin người dùng
+    companyInterface ->company: Thông báo sai thông tin người dùng
 else Valid Data
-    companyInterface -> userController++: Gửi thông tin công ty
     userController -> companyInterface: Gửi mã xác thực về cho công ty
-    congTy -> companyInterface: Nhập mã xác thực 
+    company -> companyInterface: Nhập mã xác thực 
     companyInterface -> userController: Kiểm tra mã xác thực
     alt Invalid OTP
-        userController -> companyInterface : Thông báo sai mã OTP
+        userController -> companyInterface : Thông báo sai mã xác thực  
     else
         userController -> User: Tạo tài khoản người tuyển dụng
         User -> userController: Thông báo tạo tài khoản thành công
         userController -> companyInterface: Thông báo tạo tài khoản thành công và đợi xác thực của admin 
-        userController -> adminInteface: Gửi thông báo xác thức\n công ty đến admin
+        userController -> adminInteface++: Gửi thông báo xác thực\n công ty đến admin
         admin -> adminInteface: Xác thực công ty
         alt Không xác thực công ty
         admin -> adminInteface: Không duyệt cho\n công ty tuyển dụng
@@ -36,13 +37,15 @@ else Valid Data
         userController -> User: Không xác thực công ty
         User -> userController: Gửi thông báo "Không xác thực công ty"
         userController -> companyInterface: Gửi thông báo về việc\n công ty không được duyệt
+        companyInterface -> company: Tài khoản không được xác thực
+
         else
         admin -> adminInteface: Duyệt thành công cho\n công ty tuyển dụng
          adminInteface -> userController: Gửi yêu cầu đã duyệt công ty
         userController -> User: Đã xác thực công ty
         User -> userController: Gửi thông báo "Đã xác thực công ty"
         userController -> companyInterface: Gửi thông báo về việc\n công ty đã được duyệt  
-        companyInterface -> congTy: Tài khoản xác thực thành công
+        companyInterface -> company: Tài khoản xác thực thành công
 
         end
     end
