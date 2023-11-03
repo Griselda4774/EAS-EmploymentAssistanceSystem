@@ -4,35 +4,35 @@ skin rose
 hide footbox
 title Quản lý ứng tuyển
 
-actor "Công ty\ntuyển dụng" as congTyTuyenDung
-boundary ": User Interface\nClass" as userInterface
-control ": Manage Job Application\nClass" as manageJobApplication
+actor Company as company
+boundary ": Company Interface\nClass" as userInterface
+control ": Job Application Controller\nClass" as jobApplicationController
 entity ": Job Application\nClass" as jobApplication
 
 autonumber
-congTyTuyenDung++
-congTyTuyenDung -> userInterface++: Truy cập giao diện thông tin ứng tuyển
-userInterface -> manageJobApplication++: Yêu cầu thông tin ứng tuyển
-manageJobApplication -> jobApplication++: Lấy thông tin ứng tuyển
-jobApplication -> manageJobApplication--: Trả về thông tin ứng tuyển
-manageJobApplication -> userInterface--: Trả về thông tin ứng tuyển
-userInterface -> congTyTuyenDung--: Hiển thị thông tin ứng tuyển
+company++
+company -> userInterface++: Truy cập giao diện thông tin ứng tuyển
+userInterface -> jobApplicationController++: Yêu cầu thông tin ứng tuyển
+jobApplicationController -> jobApplication++: Lấy thông tin ứng tuyển
+jobApplication -> jobApplicationController--: Trả về thông tin ứng tuyển
+jobApplicationController -> userInterface--: Trả về thông tin ứng tuyển
+userInterface -> company--: Hiển thị thông tin ứng tuyển
 alt Actor choice: Duyệt ứng tuyển
-    congTyTuyenDung -> userInterface++: Duyệt ứng tuyển
-    userInterface -> manageJobApplication++: Yêu cập nhật ứng tuyển
-    manageJobApplication -> jobApplication++: Cập nhật ứng tuyển
-    jobApplication -> manageJobApplication--: Trả về thông tin ứng tuyển đã cập nhật
-    manageJobApplication -> userInterface--: Trả về thông tin ứng tuyển đã cập nhật
-    userInterface -> congTyTuyenDung--: Hiển thị thông báo cập nhập thành công\nvà thông tin ứng tuyển đã cập nhật
+    company -> userInterface++: Duyệt ứng tuyển
+    userInterface -> jobApplicationController++: Yêu cầu cập nhật ứng tuyển
+    jobApplicationController -> jobApplication++: Cập nhật ứng tuyển
+    jobApplication -> jobApplicationController--: Trả về thông tin ứng tuyển đã cập nhật
+    jobApplicationController -> userInterface--: Trả về thông tin ứng tuyển đã cập nhật
+    userInterface -> company--: Hiển thị thông báo cập nhập thành công\nvà thông tin ứng tuyển đã cập nhật
 else Actor choice: Không duyệt ứng tuyển
     autonumber 7
-    congTyTuyenDung -> userInterface++: Không duyệt ứng tuyển
-    userInterface -> manageJobApplication++: Yêu cập nhật ứng tuyển
-    manageJobApplication -> jobApplication++: Cập nhật ứng tuyển
-    jobApplication -> manageJobApplication--: Trả về thông báo cập nhật
-    manageJobApplication -> userInterface--: Trả về thông báo cập nhật
-    userInterface -> congTyTuyenDung--: Hiển thị thông báo cập nhật thành công\nvà ẩn thông tin ứng tuyển
+    company -> userInterface++: Không duyệt ứng tuyển
+    userInterface -> jobApplicationController++: Yêu cập nhật ứng tuyển
+    jobApplicationController -> jobApplication++: Cập nhật ứng tuyển
+    jobApplication -> jobApplicationController--: Trả về thông báo cập nhật
+    jobApplicationController -> userInterface--: Trả về thông báo cập nhật
+    userInterface -> company--: Hiển thị thông báo cập nhật thành công\nvà ẩn thông tin ứng tuyển
 end
-congTyTuyenDung--
+company--
 
 @enduml

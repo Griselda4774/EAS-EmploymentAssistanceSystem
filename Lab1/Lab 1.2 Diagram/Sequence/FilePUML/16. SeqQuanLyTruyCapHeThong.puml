@@ -6,53 +6,53 @@ hide footbox
 title Quản lý truy cập hệ thống
 
 actor "Manager" as manager
-boundary ": Admin Interface\nClass" as adminInterface
-control ": Manage User\nClass" as manageUser
+boundary ": Manager Interface\nClass" as managerInterface
+control ": User Controller\nClass" as userController
 entity ": User\nClass" as user
 
 autonumber
 manager++
-manager -> adminInterface++ : Truy cập giao điện quản lý người dùng
-adminInterface -> manageUser++ : Yêu cầu danh sách người dùng
-manageUser -> user++ : Lấy danh sách người dùng
-user -> manageUser-- : Trả về danh sách người dùng
-manageUser -> adminInterface-- : Trả về danh sách người dùng
-adminInterface -> manager-- : Hiển thị danh sách người dùng
-manager -> adminInterface++ : Truy cập giao diện thông tin người dùng
-adminInterface -> manager-- : Hiển thị giao diện thông tin người dùng
+manager -> managerInterface++ : Truy cập giao điện quản lý người dùng
+managerInterface -> userController++ : Yêu cầu danh sách người dùng
+userController -> user++ : Lấy danh sách người dùng
+user -> userController-- : Trả về danh sách người dùng
+userController -> managerInterface-- : Trả về danh sách người dùng
+managerInterface -> manager-- : Hiển thị danh sách người dùng
+manager -> managerInterface++ : Truy cập giao diện thông tin người dùng
+managerInterface -> manager-- : Hiển thị giao diện thông tin người dùng
 
 opt Actor choice: Khóa quyền truy cập hệ thống
-    manager -> adminInterface++ : Chọn chức năng khóa quyền truy cập hệ thống
-    adminInterface -> manager : Gửi yêu cầu xác nhận hành động
+    manager -> managerInterface++ : Chọn chức năng khóa quyền truy cập hệ thống
+    managerInterface -> manager : Gửi yêu cầu xác nhận hành động
     alt Actor choice: Không xác nhận
-        manager -> adminInterface : Không xác nhận
-        adminInterface -> manager-- : Hiển thị giao diện thông tin người dùng
+        manager -> managerInterface : Không xác nhận
+        managerInterface -> manager-- : Hiển thị giao diện thông tin người dùng
     else Actor choice: Xác nhận
         autonumber 11
-        manager -> adminInterface++ : Xác nhận
-        adminInterface -> manageUser++ : Yêu cầu khóa quyền truy cập hệ thống
-        manageUser -> user++ : Khóa quyền truy cập hệ thống
-        user -> manageUser-- : Trả về kết quả\nkhóa quyền truy cập hệ thống
-        manageUser -> adminInterface-- : Trả về kết quả\nkhóa quyền truy cập hệ thống
-        adminInterface -> manager-- : Hiển thị thông báo\nkết quả khóa quyền truy cập hệ thống
+        manager -> managerInterface++ : Xác nhận
+        managerInterface -> userController++ : Yêu cầu khóa quyền truy cập hệ thống
+        userController -> user++ : Khóa quyền truy cập hệ thống
+        user -> userController-- : Trả về kết quả\nkhóa quyền truy cập hệ thống
+        userController -> managerInterface-- : Trả về kết quả\nkhóa quyền truy cập hệ thống
+        managerInterface -> manager-- : Hiển thị thông báo\nkết quả khóa quyền truy cập hệ thống
     end
 end
 
 opt Actor choice: Mở khóa quyền truy cập hệ thống
     autonumber 9
-    manager -> adminInterface++ : Chọn chức năng mở khóa quyền truy cập hệ thống
-    adminInterface -> manager : Gửi yêu cầu xác nhận hành động
+    manager -> managerInterface++ : Chọn chức năng mở khóa quyền truy cập hệ thống
+    managerInterface -> manager : Gửi yêu cầu xác nhận hành động
     alt Không xác nhận
-        manager -> adminInterface : Không xác nhận
-        adminInterface -> manager-- : Hiển thị giao diện thông tin người dùng
+        manager -> managerInterface : Không xác nhận
+        managerInterface -> manager-- : Hiển thị giao diện thông tin người dùng
     else xác nhận
         autonumber 11
-        manager -> adminInterface++ : Xác nhận
-        adminInterface -> manageUser++ : Yêu cầu mở khóa quyền truy cập hệ thống
-        manageUser -> user++ : Mở khóa quyền truy cập hệ thống
-        user -> manageUser-- : Trả về kết quả\nmở khóa quyền truy cập hệ thống
-        manageUser -> adminInterface-- : Trả về kết quả\nmở khóa quyền truy cập hệ thống
-        adminInterface -> manager-- : Hiển thị thông báo\nkết quả mở khóa quyền truy cập hệ thống
+        manager -> managerInterface++ : Xác nhận
+        managerInterface -> userController++ : Yêu cầu mở khóa quyền truy cập hệ thống
+        userController -> user++ : Mở khóa quyền truy cập hệ thống
+        user -> userController-- : Trả về kết quả\nmở khóa quyền truy cập hệ thống
+        userController -> managerInterface-- : Trả về kết quả\nmở khóa quyền truy cập hệ thống
+        managerInterface -> manager-- : Hiển thị thông báo\nkết quả mở khóa quyền truy cập hệ thống
     end
 end
 

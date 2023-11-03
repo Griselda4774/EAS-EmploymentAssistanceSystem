@@ -1,0 +1,43 @@
+@startuml SeqTimKiem(candidate)
+
+skin rose
+hide footbox
+
+title Tìm kiếm (Người ứng tuyển)
+
+actor Candidate as candidate
+boundary ": Candidate Interface\nClass" as candidateInterface
+control ": Search Controller\nClass" as searchController
+control ": Company Controller\nClass" as companyController
+control ": Candidate Controller\nClass" as candidateController
+control ": Post Controller\nClass" as postController
+entity ": Company\nClass" as companyClass
+entity ": Candidate\nClass" as candidateClass
+entity ": Post\nClass" as postClass
+
+autonumber
+candidate++
+candidate -> candidateInterface++: Nhập từ khóa
+candidateInterface -> searchController++: Truyền từ khóa
+par
+    searchController -> companyController++: Yêu cầu thông tin công ty có từ khóa
+    companyController -> companyClass++: Lấy thông tin công ty có từ khóa
+    companyClass -> companyController--: Trả về thông tin công ty có từ khóa
+    companyController -> searchController--: Trả về thông tin công ty có từ khóa
+else
+    autonumber 3
+    searchController -> candidateController++: Yêu cầu thông tin người ứng tuyển có từ khóa
+    candidateController -> candidateClass++: Lấy thông tin người ứng tuyển có từ khóa
+    candidateClass -> candidateController--: Trả về thông tin người ứng tuyển có từ khóa
+    candidateController -> searchController--: Trả về thông tin người ứng tuyển có từ khóa
+else
+    autonumber 3
+    searchController -> postController++: Yêu cầu thông tin bài viết có từ khóa
+    postController -> postClass++: Lấy thông tin bài viết có từ khóa
+    postClass -> postController--: Trả về thông tin bài viết có từ khóa
+    postController -> searchController--: Trả về thông tin bài viết có từ khóa
+end
+searchController -> candidateInterface--: Trả về kết quả tìm kiếm
+candidateInterface -> candidate--: Hiển thị kết quả tìm kiếm
+candidate--
+@enduml

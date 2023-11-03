@@ -4,26 +4,41 @@ skin rose
 hide footbox
 title Gửi yêu cầu ứng tuyển
 
-actor "Người ứng tuyển" as nguoiUngTuyen
-boundary ": User Interface\nClass" as userInterface
-control ": Manage Post\nClass" as managePost
-control ": Manage Job Application\nClass" as manageJobApplication
-entity ": Post\nClass" as postClass
+actor Candidate as candidate
+boundary ": Candidate Interface\nClass" as candidateInterface
+control ": Job Application Controller\nClass" as jobApplicationController
+control ": Post Controller\nClass" as postController
 entity ": Job Application\nClass" as jobApplicationClass
+entity ": Post\nClass" as postClass
 
 autonumber
-nguoiUngTuyen++
-nguoiUngTuyen -> userInterface++: Truy cập giao diện thông tin bài đăng
-userInterface -> managePost++: Yêu cầu thông tin bài đăng
-managePost -> postClass++: Lấy thông tin bài đăng
-postClass -> managePost--: Trả về thông tin bài đăng
-managePost -> userInterface--: Trả về thông tin bài đăng
-userInterface -> nguoiUngTuyen--: Hiển thị thông tin bài đăng
-nguoiUngTuyen -> userInterface++: Ứng tuyển
-userInterface -> manageJobApplication++: Yêu cầu tạo ứng tuyển
-manageJobApplication -> jobApplicationClass++: Tạo ứng tuyển
-jobApplicationClass -> manageJobApplication--: Trả về thông tin ứng tuyển
-manageJobApplication -> userInterface--: Trả về thông tin ứng tuyển
-userInterface -> nguoiUngTuyen--: Hiển thị thông tin ứng tuyển
-nguoiUngTuyen--
+candidate++
+candidate -> candidateInterface++: Ấn vào nút ứng tuyển\n[đã truy cập vào giao diện bài đăng]
+candidateInterface -> candidate: Yêu cầu xác nhận ứng tuyển
+alt Không xác nhận ứng tuyển
+    candidate -> candidateInterface: Ấn vào nút không xác nhận
+    candidateInterface -> candidate: Hiển thị giao diện bài đăng
+else Xác nhận ứng tuyển
+    autonumber 3
+    candidate -> candidateInterface: Ấn vào nút xác nhận
+    candidateInterface -> jobApplicationController++: Yêu cầu tạo ứng tuyển
+    jobApplicationController -> postController++: Yêu cầu kiểm tra bài đăng có tồn tại
+    postController -> postClass++: Kiểm tra bài đăng có tồn tại
+    alt Không tồn tại bài đăng
+        postClass -> postController: Trả về thông báo\nkhông tồn tại bài đăng
+        postController -> jobApplicationController: Trả về thông báo\nkhông tồn tại bài đăng
+        jobApplicationController -> candidateInterface: Trả về thông báo\nkhông tồn tại bài đăng
+        candidateInterface -> candidate: Hiển thị thông báo\nkhông tồn tại bài đăng
+    else Tồn tại bài đăng
+        autonumber 7
+        postClass -> postController: Trả về thông báo tồn tại bài đăng
+        postController -> jobApplicationController: Trả về thông báo tồn tại bài đăng
+        jobApplicationController -> jobApplicationClass++: Tạo ứng tuyển
+        jobApplicationClass -> jobApplicationController--: Trả về thông báo\nứng tuyển thành công
+        jobApplicationController -> candidateInterface--: Trả về thông báo\nứng tuyển thành công
+        candidateInterface -> candidate--: Hiển thị thông báo\nứng tuyển thành công
+        end
+end
+candidate--
+
 @enduml
