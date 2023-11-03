@@ -1,0 +1,26 @@
+@startuml ActChanTinNhan
+
+skin rose
+title Chặn tin nhắn
+
+|User|
+start 
+: Chọn cuộc trò chuyện;
+: Nhấn nút chặn tin nhắn;
+|System|
+: Yêu cầu xác nhận chặn tin nhắn;
+|User|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+: Xác nhận;
+|System|
+: Cập nhật cuộc trò chuyện;
+|Database|
+: Trả về cuộc trò chuyện mới;
+|System|
+: Hiển thị giao diện nhắn tin mới;
+stop
+@enduml
+```

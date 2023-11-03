@@ -1,0 +1,26 @@
+@startuml ActBoChanTinNhan
+
+skin rose
+title Bỏ chặn tin nhắn
+
+|User|
+start 
+: Chọn cuộc trò chuyện;
+: Nhấn nút bỏ chặn tin nhắn;
+|System|
+: Yêu cầu xác nhận bỏ chặn tin nhắn;
+|User|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+: Xác nhận;
+|System|
+: Cập nhật cuộc trò chuyện;
+|Database|
+: Trả về cuộc trò chuyện mới;
+|System|
+: Hiển thị giao diện nhắn tin mới;
+stop
+@enduml
+```

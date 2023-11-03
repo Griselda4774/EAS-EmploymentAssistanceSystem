@@ -1,0 +1,19 @@
+@startuml ActXemTinNhan
+
+skin rose
+title Xem tin nhắn
+
+|User|
+start
+: Truy cập giao diện nhắn tin;
+|System|
+: Lấy thông tin cuộc trò chuyện;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về thông tin cuộc trò chuyện;
+|System|
+: Hiển thị giao diện nhắn tin\nvới thông tin cuộc trò chuyện;
+stop
+
+@enduml
+```

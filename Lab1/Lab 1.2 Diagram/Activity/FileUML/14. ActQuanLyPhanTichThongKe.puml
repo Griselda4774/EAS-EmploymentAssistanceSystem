@@ -1,0 +1,18 @@
+@startuml ActQuanLyQuanTichThongKe
+
+skin rose
+title Quản lý phân tích thống kê
+
+|Admin|
+start
+: Truy cập giao diện quản lý phân tích thống kê;
+|System|
+: Lấy dữ liệu từ cơ sở dữ liệu;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về dữ liệu;
+|System|
+: Hiển thị giao diện quản lý phân tích thống kê;
+stop
+
+@enduml

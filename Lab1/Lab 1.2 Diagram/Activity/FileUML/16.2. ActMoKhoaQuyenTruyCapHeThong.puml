@@ -1,0 +1,42 @@
+@startuml ActMoKhoaQuyenTruyCapHeThong
+
+skin rose
+title Mở khóa quyền truy cập hệ thống
+
+|manager| Manager
+|system| System
+|database| Database
+
+|manager|
+start
+: Truy cập giao diện\nquản lý người dùng;
+|system|
+: Lấy danh sách người dùng;
+|database|
+: Truy vấn danh sách\nngười dùng;
+: Trả về danh sách\nngười dùng;
+|system|
+: Hiển thị danh sách\nngười dùng;
+|manager|
+: Chọn người dùng;
+|system|
+: Hiển thị giao diện\nthông tin người dùng;
+|manager|
+: Chọn mở khóa quyền\ntruy cập hệ thống;
+|system|
+: Yêu cầu xác nhận;
+|manager|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+: Xác nhận;
+|system|
+: Mở khóa quyền truy cập\nhệ thống;
+|database|
+: Cập nhật trạng thái\ntài khoản;
+: Trả về kết quả\nthực hiện;
+|system|
+: Hiển thị thông báo\nkết quả thực hiện;
+stop
+@enduml

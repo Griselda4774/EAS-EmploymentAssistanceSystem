@@ -1,0 +1,19 @@
+@startuml ActGuiTinNhan
+
+skin rose
+title Gửi tin nhắn
+
+|User|
+start 
+: Nhập nội dung tin nhắn;
+: Nhấn nút gửi;
+|System|
+: Cập nhật cuộc trò chuyện;
+|Database|
+: Lưu tin nhắn;
+: Trả về cuộc trò chuyện mới;
+|System|
+: Hiển thị cuộc trò chuyện mới;
+stop
+@enduml
+```

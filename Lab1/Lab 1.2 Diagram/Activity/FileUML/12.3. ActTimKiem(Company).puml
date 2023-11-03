@@ -1,0 +1,25 @@
+@startuml ActTimKiem(Company)
+
+skin rose
+title Tìm kiếm (Công ty)
+
+|Company|
+start
+: Nhập từ khóa;
+: Nhấn nút tìm kiếm;
+|System|
+: Tìm kiếm;
+|Database|
+split
+: Truy vấn dữ liệu\ncông ty liên quan;
+split again
+: Truy vấn dữ liệu\nngười ứng tuyển liên quan;
+split again
+: Truy vấn dữ liệu\nbài viết liên quan;
+end split
+: Trả về kết quả tìm kiếm;
+|System|
+: Hiển thị kết quả tìm kiếm;
+stop
+
+@enduml

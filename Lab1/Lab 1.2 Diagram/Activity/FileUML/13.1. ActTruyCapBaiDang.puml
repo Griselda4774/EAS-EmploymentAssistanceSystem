@@ -1,0 +1,19 @@
+@startuml ActTruyCapBaiDang
+
+skin rose
+title Truy cập bài đăng
+
+|User|
+start
+: Truy cập giao diện\nbài đăng;
+|System|
+: Lấy thông tin bài đăng;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về thông tin bài đăng;
+|System|
+: Hiển thị thông tin bài đăng;
+stop
+
+@enduml
+```
