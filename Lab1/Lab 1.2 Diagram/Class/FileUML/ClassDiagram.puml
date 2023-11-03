@@ -110,6 +110,7 @@ class JobApplication {
     jobApplicationID
     jobApplicationTitle
     jonbApplicationDescription
+    JobApplicationStatus
     candidateID
     companyID
     createJobApplication()

@@ -1,0 +1,18 @@
+@startuml ActXemThongTinUngTuyen
+
+skin rose
+title Xem thông tin ứng tuyển
+
+|Candidate|
+start
+: Truy cập giao diện thông tin ứng tuyển;
+|System|
+: Lấy thông tin ứng tuyển;
+|Database|
+: Truy vấn thông tin ứng tuyển;
+: Trả về thông tin ứng tuyển;
+|System|
+: Hiển thị thông tin ứng tuyển;
+stop
+
+@enduml

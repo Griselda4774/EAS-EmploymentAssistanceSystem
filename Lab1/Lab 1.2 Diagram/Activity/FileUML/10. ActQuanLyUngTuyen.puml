@@ -1,0 +1,40 @@
+@startuml ActQuanLyUngTuyen
+
+skin rose
+title Quản lý ứng tuyển
+
+|Company|
+start
+: Truy cập giao diện thông tin ứng tuyển;
+|System|
+: Lấy thông tin ứng tuyển;
+|Database|
+: Truy vấn thông tin ứng tuyển;
+: Trả về thông tin ứng tuyển;
+|System|
+: Hiển thị thông tin ứng tuyển;
+|Company|
+if () then (Duyệt ứng tuyển)
+: Không duyệt\nứng tuyển;
+|System|
+: Không duyệt ứng tuyển;
+|Database|
+: Cập nhật trạng thái ứng tuyển;
+: Trả về thông báo không duyệt ứng tuyển;
+|System|
+: Hiển thị thông báo\nkhông duyệt ứng tuyển;
+stop
+else (Không duyệt ứng tuyển)
+|Company|
+: Duyệt ứng tuyển;
+|System|
+: Duyệt ứng tuyển;
+|Database|
+: Cập nhật trạng\nthái ứng tuyển;
+: Trả về thông báo\nduyệt ứng tuyển;
+|System|
+: Hiển thị thông báo\nduyệt ứng tuyển;
+stop
+
+@enduml
+```

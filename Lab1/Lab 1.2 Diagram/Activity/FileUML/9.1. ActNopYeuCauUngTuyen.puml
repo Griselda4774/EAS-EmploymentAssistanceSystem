@@ -1,0 +1,39 @@
+@startuml ActNopYeuCauUngTuyen
+
+skin rose
+title Nộp yêu cầu ứng tuyển
+
+|Candidate|
+start
+: Ấn vào nút\nứng tuyển;
+|System|
+: Yêu cầu xác nhận\nứng tuyển;
+|Candidate|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+|Candidate|
+: Xác nhận;
+|System|
+: Kiểm tra bài đăng\ncó tồn tại;
+|Database|
+: Truy vấn bài đăng;
+if () then (Không tồn tại)
+: Trả về thông báo lỗi;
+|System|
+: Hiển thị thông báo lỗi\nbài đăng không tồn tại;
+stop
+else (Tồn tại)
+|Database|
+: Trả về thông báo\nbài đăng tồn tại;
+|System|
+: Tạo ứng tuyển;
+|Database|
+: Lưu thông tin\nứng tuyển;
+: Trả về thông báo\nứng tuyển thành công;
+|System|
+: Hiển thị thông báo\nứng tuyển thành công;
+stop
+
+@enduml

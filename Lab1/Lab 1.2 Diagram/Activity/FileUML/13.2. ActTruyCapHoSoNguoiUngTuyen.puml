@@ -1,0 +1,19 @@
+@startuml ActTruyCapHoSoNguoiUngTuyen
+
+skin rose
+title Truy cập hồ sơ người ứng tuyến
+
+|User|
+start
+: Truy cập giao diện\nhồ sơ người ứng tuyển;
+|System|
+: Lấy thông tin hồ sơ\nngười ứng tuyển;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về thông tin hồ sơ\nngười ứng tuyển;
+|System|
+: Hiển thị thông tin\nhồ sơ người ứng tuyển;
+stop
+
+@enduml
+```

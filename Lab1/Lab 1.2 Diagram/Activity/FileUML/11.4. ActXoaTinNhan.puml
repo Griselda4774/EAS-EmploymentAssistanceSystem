@@ -1,0 +1,27 @@
+@startuml ActXoaTinNhan
+
+skin rose
+title Xóa tin nhắn
+
+|User|
+start 
+: Chọn tin nhắn;
+: Nhấn nút xóa tin nhắn;
+|System|
+: Yêu cầu xác nhận xóa tin nhắn;
+|User|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+: Xác nhận;
+|System|
+: Cập nhật cuộc trò chuyện;
+|Database|
+: Xóa tin nhắn;
+: Trả về cuộc trò chuyện mới;
+|System|
+: Hiển thị cuộc trò chuyện mới;
+stop
+@enduml
+```
