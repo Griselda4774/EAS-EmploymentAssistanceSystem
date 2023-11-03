@@ -1,0 +1,138 @@
+@startuml ClassDiagram
+
+class Account {
+    accountID
+    accountName
+    accountType
+    accountPassword
+    accountStatus
+    accountDateCreated
+    accountDateUpdated
+    createAccount()
+    getAccountInformation()
+    updateAccount()
+    deleteAccount()
+}
+
+class User {
+    userID
+    accountID
+    userAvatar
+    listChat
+    createUser()
+    getUserInformation()
+    updateUserInformation()
+}
+
+class Admin {
+    adminFirstName
+    adminLastName
+}
+
+class Candidate {
+    candidateFirstName
+    candidateLastName
+    candidateDateOfBirth
+    candidateGender
+    candidatePhoneNumber
+    candidateAddress
+    candidateDescription
+    candidateDateCreated
+    cvID
+    listJobApplication
+    following
+}
+
+class Company {
+    companyName
+    companyIncoporationDate
+    companyAddress
+    companyDescription
+    companyLogo
+    companyWebsite
+    companyEmail
+    companyPhone
+    listPost
+    listJobApplication
+}
+
+class Staff {
+
+}
+
+class Manager {
+
+}
+
+class Post {
+    postID
+    postTitle
+    postDescription
+    dateCreated
+    dateUpdated
+    postAuthor
+    postViews
+    postLikes
+    postDislikes
+    postImage
+    createPost()
+    getPostInformation()
+    updatePost()
+    deletePost()
+}
+
+class CandidateCV {
+    cvID
+    cvTitle
+    cvDescription
+    cvAuthor
+    createCV()
+    getCVInformation()
+    updateCV()
+    deleteCV()
+}
+
+class JobApplication {
+    jobApplicationID
+    jobApplicationTitle
+    jonbApplicationDescription
+    candidateID
+    companyID
+    createJobApplication()
+    getJobApplicationInformation()
+    updateJobApplication()
+    deleteJobApplication()
+}
+
+class Chat {
+    chatID
+    listMessage
+    createChat()
+    getChatInformation()
+    updateChat()
+    deleteChat()
+}
+
+class Message {
+    messageID
+    messageContent
+    timestamp
+    messageAuthor
+    isRecalled
+    createMessage()
+    getMessageInformation()
+    updateMessage()
+    deleteMessage()
+}
+
+class AnalyticsAndStatistics {
+    analyticsAndStatisticsID
+    analyticsAndStatisticsTitle
+    analyticsAndStatisticsDescription
+    createAnalyticsAndStatistics()
+    getAnalyticsAndStatisticsInformation()
+    updateAnalyticsAndStatistics()
+    deleteAnalyticsAndStatistics()
+}
+
+@enduml
