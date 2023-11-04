@@ -1,7 +1,7 @@
 @startuml QuanLyUngTuyen
 left to right direction
 
-actor "Công ty\ntuyển dụng" as congTyTuyenDung
+actor "Company" as congTyTuyenDung
 
 rectangle "Quản lý ứng tuyển" {
     usecase "Xem thông tin ứng tuyển" as xemThongTinUngTuyen

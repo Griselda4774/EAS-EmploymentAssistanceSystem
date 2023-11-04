@@ -1,6 +1,6 @@
 @startuml TheoDoi
 left to right direction
-actor nguoiUngTuyen as "Người Ứng Tuyển"
+actor nguoiUngTuyen as "Candidate"
 rectangle "Theo dõi" {
     usecase theoDoiCongTyTuyenDung as "Theo dõi công ty tuyển dụng"
     usecase theoDoiNguoiDung as "Theo dõi người dùng"

@@ -1,7 +1,7 @@
 @startuml UngTuyen
 left to right direction
 
-actor "Người ứng tuyển" as nguoiUngTuyen
+actor "Candidate" as nguoiUngTuyen
 
 rectangle "Ứng tuyển" {
     usecase "Gửi yêu cầu ứng tuyển" as nopYeuCauUngTuyen
@@ -12,4 +12,3 @@ nguoiUngTuyen -- nopYeuCauUngTuyen
 nguoiUngTuyen -- xemTrangThaiYeuCauUngTuyen
 
 @enduml
-```

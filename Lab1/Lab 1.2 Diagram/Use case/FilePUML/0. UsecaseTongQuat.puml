@@ -1,10 +1,10 @@
 @startuml UsecaseTongQuat
 left to right direction
 
-actor "Nhân viên" as nhanVien
-actor "Quản lý" as quanLy
-actor "Người ứng tuyển" as nguoiUngTuyen
-actor "Công ty\ntuyển dụng" as congTy
+actor "Staff" as nhanVien
+actor "Manager" as quanLy
+actor "Candidate" as nguoiUngTuyen
+actor "Company" as congTy
 
 rectangle "Employment assistance system" {
     usecase "Đăng nhập" as dangNhap

@@ -1,6 +1,6 @@
 @startuml QuanLyTaiKhoanCaNhan
 left to right direction
-actor nguoiUngTuyen as "Người Ứng Tuyển"
+actor nguoiUngTuyen as "Candidate"
 rectangle "Quản lý tài khoản cá nhân"{
     usecase quanLyHoSoCaNhan as "Quản lý hồ sơ cá nhân"
     usecase quanLyHoSoXinViecCRUD as "Quản lý hồ sơ xin việc (CRUD)"

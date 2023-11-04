@@ -1,11 +1,11 @@
 @startuml TimKiem
 left to right direction
 
-actor "Người dùng" as nguoiDung
-actor "Người ứng tuyển" as nguoiUngTuyen
-actor "Công ty\ntuyển dụng" as congTyTuyenDung
-actor "Nhân viên" as nhanVien
-actor "Quản lý" as quanLy
+actor "User" as nguoiDung
+actor "Candidate" as nguoiUngTuyen
+actor "Company" as congTyTuyenDung
+actor "Staff" as nhanVien
+actor "Manager" as quanLy
 
 rectangle "Tìm kiếm" {
     usecase "Tìm kiếm công việc" as timKiemCongViec

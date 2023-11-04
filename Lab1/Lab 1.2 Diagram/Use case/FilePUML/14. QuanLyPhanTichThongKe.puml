@@ -1,8 +1,8 @@
 @startuml QuanLyPhanTichThongKe
 left to right direction
 
-actor "Quản lý" as quanLy
-actor "Nhân viên" as nhanVien
+actor "Manager" as quanLy
+actor "Staff" as nhanVien
 
 rectangle "Quản lý phân tích thống kê" {
     usecase "Xem thống kê người ứng tuyển" as xemThongKeNguoiUngTuyen

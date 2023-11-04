@@ -1,9 +1,9 @@
 @startuml DangNhap/DangKy
 left to right direction
-actor nhanVien as "Nhân Viên"
-actor quanLy as "Quản Lý"
-actor nguoiUngTuyen as "Người Ứng Tuyển"
-actor congTy as "Công Ty Tuyển Dụng"
+actor nhanVien as "Candidate"
+actor quanLy as "Manager"
+actor nguoiUngTuyen as "Candidate"
+actor congTy as "Company"
 quanLy --^ nhanVien
 rectangle "Đăng nhập/Đăng ký" {
     usecase "Đăng nhập vào hệ thống" as dangNhap

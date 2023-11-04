@@ -1,7 +1,7 @@
 @startuml QuanLyTruyCapHeThong
 left to right direction
 
-actor "Quản lý" as quanLy
+actor "Manager" as quanLy
 
 rectangle "Quản lý truy cập hệ thống" {
     usecase "Khóa quyền truy cập hệ thống" as khoaQuyen
