@@ -1,0 +1,16 @@
+@startuml ActTruyCapHoSoCongTy
+skin rose
+title Truy cập hồ sơ công ty
+|Company|
+start
+: Truy cập giao diện\n thông tin công ty;
+|System|
+: Lấy thông tin công ty;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về thông tin công ty;
+|System|
+: Hiển thị thông tin công ty;
+stop
+@enduml
+```

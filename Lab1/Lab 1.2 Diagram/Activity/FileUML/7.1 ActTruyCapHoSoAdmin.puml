@@ -1,0 +1,18 @@
+@startuml ActTruyCapHoSoAdmin
+
+skin rose
+title Truy cập hồ sơ admin
+
+|Admin|
+start
+: Truy cập giao diện\n thông tin admin;
+|System|
+: Lấy thông tin admin;
+|Database|
+: Truy vấn dữ liệu;
+: Trả về thông tin admin;
+|System|
+: Hiển thị thông tin admin;
+stop
+@enduml
+```

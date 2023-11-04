@@ -1,0 +1,37 @@
+@startuml ActQuanLyHoSoXinViec
+title Quản lý hồ sơ xin việc
+skin rose
+|Candidate|
+start
+: Truy cập giao diện thông tin hồ sơ xin việc;
+|System|
+: Lấy thông tin hồ sơ xin việc;
+|Database|
+: Truy vấn thông tin hồ sơ xin việc;
+: Trả về thông tin hồ sơ xin việc;
+|System|
+: Hiển thị thông tin hồ sơ xin việc;
+|Candidate|
+: Chọn nút ở thông tin hồ sơ;
+if () then (Back button)
+|Candidate|
+: Chọn chỉnh sửa thông tin hồ sơ xin việc;
+|System|
+: Hiển thị trang chỉnh sửa thông tin hồ sơ xin việc;
+|Candidate|
+repeat: Nhập thông tin hồ sơ xin việc mới cần chỉnh sửa;
+: Ân nút cập nhât thông tin;
+|System|
+backward :Thông báo sai thông tin nhập vào;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+:Cập nhật thông tin hồ sơ xin việc vừa nhập;
+|System|
+:Thông báo cập nhật thông tin hồ sơ xin việc thành công;
+stop
+else
+: Chọn nút quay về;
+|System|
+: Tắt trang thông tin hồ sơ xin việc;
+stop
+@enduml
