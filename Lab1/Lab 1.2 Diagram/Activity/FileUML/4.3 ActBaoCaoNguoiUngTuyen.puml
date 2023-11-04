@@ -33,7 +33,7 @@ if () then (Ban Candidate Account)
 stop
 else (Warning Candidate Account)
 |Database|
-: Gửi thông tin cảnh báo\n người ứng tuyển từ admin;
+: Gửi thông tin cảnh báo\n người ứng tuyển\ntừ admin;
 |System|
 : Hiển thị cảnh báo người \n ứng tuyển ở phía người ứng tuyển;
 stop
