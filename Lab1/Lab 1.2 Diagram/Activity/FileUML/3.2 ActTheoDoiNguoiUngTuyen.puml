@@ -12,7 +12,7 @@ start
 if () then (Unfollow button)
 : Chọn nút unfollow người tuyển dụng;
 |System|
-: Gửi thông báo unfollow người tuyển dụng đó;
+: Gửi thông báo\nunfollow người tuyển dụng đó;
 |Database|
 : Cập nhật người dùng đã unfollow người tuyển dụng;
 |System|
@@ -23,7 +23,7 @@ else (Follow button)
 |System|
 : Gửi thông báo follow người tuyển dụng đó;
 |Database|
-: Cập nhật người dùng đã follow người tuyển dụng;
+: Cập nhật người dùng\nđã follow người\ntuyển dụng;
 |System|
 : Hiển thị người dùng đã follow người tuyển dụng đó; 
 stop
