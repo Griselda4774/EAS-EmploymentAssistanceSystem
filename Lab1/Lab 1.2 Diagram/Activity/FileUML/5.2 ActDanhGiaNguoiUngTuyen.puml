@@ -1,5 +1,5 @@
-@startuml ActDanhGiaCongTyTuyenDUng
-title Đánh giá công ty
+@startuml ActDanhGiaNguoiUngTuyen
+title Đánh giá người ứng tuyển
 skin rose 
 |Company|
 : Chọn người ứng tuyển mà công ty đó đã phỏng vấn tuyển dụng;
