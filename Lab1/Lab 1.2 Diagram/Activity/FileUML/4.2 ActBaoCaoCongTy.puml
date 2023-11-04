@@ -33,7 +33,7 @@ if () then (Ban Company Account)
 stop
 else (Warning Company Account)
 |Database|
-: Gửi thông tin cảnh báo\n công ty tuyển dụng từ admin;
+: Gửi thông tin cảnh báo\n công ty tuyển dụng\ntừ admin;
 |System|
 : Hiển thị cảnh báo công ty\n tuyển dụng ở phía công ty tuyển dụng;
 stop

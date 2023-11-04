@@ -33,7 +33,7 @@ if () then (Remove Post)
 stop
 else (Warning Post)
 |Database|
-: Gửi thông tin cảnh báo bài đăng từ admin;
+: Gửi thông tin cảnh báo\nbài đăng từ admin;
 |System|
 : Hiển thị cảnh báo bài đăng ở phía công ty tuyển dụng;
 stop

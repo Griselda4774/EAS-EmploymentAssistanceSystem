@@ -10,9 +10,9 @@ start
 : Hiển thị trang công ty tuyển dụng;
 |Candidate|
 if () then (Unfollow button)
-: Chọn nút unfollow công ty;
+: Chọn nútunfollow công ty;
 |System|
-: Gửi thông báo unfollow công ty đó;
+: Gửi thông báo\nunfollow công ty đó;
 |Database|
 : Cập nhật người dùng đã unfollow công ty;
 |System|
@@ -23,7 +23,7 @@ else (Follow button)
 |System|
 : Gửi thông báo follow công ty đó;
 |Database|
-: Cập nhật người dùng đã follow công ty;
+: Cập nhật\nngười dùng\nđã follow công ty;
 |System|
 : Hiển thị người dùng đã follow công ty đó; 
 stop
