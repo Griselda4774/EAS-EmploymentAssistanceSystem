@@ -1,6 +1,7 @@
 @startuml SeqDanhGiaCongTyTuyenDung
 skin rose 
 hide footbox
+autonumber
 actor candidate as "Candidate"
 actor company as "Company"
 candidate++
@@ -10,7 +11,7 @@ control userController as ": User Controller\nClass"
 entity User as ": User\nClass"
 
 candidate->candidateInterface++: Chọn đánh giá một công ty \nđã từng tham gia ứng tuyển
-candidateInterface->candidateInterface: Hiển thị bảng đánh giá công ty
+candidateInterface->candidate: Hiển thị bảng đánh giá công ty
 candidate-> candidateInterface: Nhập thông tin đánh giá công ty
 candidateInterface-> userController: Gửi yêu cầu đánh giá công ty
 userController-> User: Gửi thông tin đánh giá công ty

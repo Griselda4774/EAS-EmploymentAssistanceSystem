@@ -12,7 +12,7 @@ entity Post as ": Post\nClass"
 candidate++
 autonumber
 candidate-> userInterface++: Truy cập vào trang bài đăng tuyển dụng
-userInterface-> userInterface: Hiển thị bài đăng tuyển dụng
+userInterface-> candidate: Hiển thị bài đăng tuyển dụng
 candidate-> userInterface: Chọn nút báo cáo\n bài đăng tuyển dụng
 candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
 userInterface-> postController++: Gửi yêu cầu báo cáo\n bài đăng tuyển dụng

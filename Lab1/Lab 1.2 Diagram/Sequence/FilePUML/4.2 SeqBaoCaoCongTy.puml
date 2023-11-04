@@ -14,7 +14,7 @@ admin++
 company++
 autonumber
 candidate-> userInterface++: Truy cập vào trang công ty tuyển dụng
-userInterface-> userInterface: Hiển thị công ty
+userInterface-> candidate: Hiển thị công ty
 candidate-> userInterface: Chọn nút báo cáo\n công ty
 candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
 userInterface-> userController++: Gửi yêu cầu báo cáo\n công ty

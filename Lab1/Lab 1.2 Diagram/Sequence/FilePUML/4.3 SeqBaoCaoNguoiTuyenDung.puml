@@ -10,7 +10,7 @@ entity User as ": User\nClass"
 candidate++
 autonumber
 candidate-> userInterface++: Truy cập vào trang người dùng tuyển dụng
-userInterface-> userInterface: Hiển thị người dùng
+userInterface-> candidate: Hiển thị người dùng
 candidate-> userInterface: Chọn nút báo cáo\n người dùng
 candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
 userInterface-> userController++: Gửi yêu cầu báo cáo\n người dùng

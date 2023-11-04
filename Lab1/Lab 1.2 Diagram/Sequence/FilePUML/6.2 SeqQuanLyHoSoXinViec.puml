@@ -1,26 +1,26 @@
 @startuml SeqQuanLyHoSoXinViec
 skin rose
 hide footbox
-actor nguoiUngTuyen as "Người ứng tuyển"
+actor candidate as "Candidate"
 boundary candidateInterface as ": Candidate CV Interface\nClass"
 control cVController as ": Candidate CV Controller\nClass"
 entity CV as ": CV\nClass"
 autonumber
-nguoiUngTuyen++
-nguoiUngTuyen-> candidateInterface++: Truy cập trang cá nhân chứa hồ sơ xin việc
-candidateInterface->candidateInterface: Trả về hồ sơ xin việc của người dùng
-nguoiUngTuyen-> candidateInterface: Chọn chỉnh sửa thông tin hồ sơ xin việc
-candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin hồ sơ xin việc
-nguoiUngTuyen -> candidateInterface: Nhập thông tin hồ sơ xin việc
+candidate++
+candidate-> candidateInterface++: Truy cập trang cá nhân chứa hồ sơ xin việc
+candidateInterface->candidate: Trả về hồ sơ xin việc của người dùng
+candidate-> candidateInterface: Chọn chỉnh sửa thông tin hồ sơ xin việc
+candidateInterface-> candidate: Hiển thị trang chỉnh sửa\nthông tin hồ sơ xin việc
+candidate -> candidateInterface: Nhập thông tin hồ sơ xin việc
 candidateInterface->cVController: Gửi thông tin hồ sơ xin việc
 cVController->cVController: Kiểm tra thông tin hồ sơ xin việc
 alt Invalid Data
 cVController->candidateInterface: Gửi thông báo sai thông tin hồ sơ xin việc
-candidateInterface -> nguoiUngTuyen: Thông báo nhập lại thông tin hồ sơ xin việc
+candidateInterface -> candidate: Thông báo nhập lại thông tin hồ sơ xin việc
 else Valid Data
 cVController -> CV++: Gửi thông tin hồ sơ xin việc \nngười dùng mới cập nhật
 CV -> cVController: Thông báo dữ liệu cập nhật thành công
 cVController -> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
-candidateInterface -> nguoiUngTuyen: Thông báo cập nhật thông tin thành công
+candidateInterface -> candidate: Thông báo cập nhật thông tin thành công
 end
 @enduml

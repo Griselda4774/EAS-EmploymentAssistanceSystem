@@ -8,7 +8,7 @@ control userController as ": User controller\nClass"
 entity User as ": User\nClass"
 user++
 user -> userInterface++: Truy cập vào trang quên mật khẩu
-userInterface -> userInterface: Hiển thị trang quên mật khẩu
+userInterface -> user: Hiển thị trang quên mật khẩu
 user -> userInterface: Nhập username 
 userInterface -> userController++: Gửi thông tin email
 userController -> userController: Kiểm tra format email

@@ -11,7 +11,7 @@ entity User as ": User\nClass"
 company++
 candidate++
 company->companyInterface++: Chọn đánh giá một ứng viên\n đã từng ứng tuyển công ty
-companyInterface->companyInterface: Hiển thị bảng đánh giá ứng viên
+companyInterface->company: Hiển thị bảng đánh giá ứng viên
 company-> companyInterface: Nhập thông tin đánh giá ứng viên
 companyInterface-> userController++: Gửi yêu cầu đánh giá người ứng tuyển
 userController-> User: Gửi thông tin đánh giá người ứng tuyển

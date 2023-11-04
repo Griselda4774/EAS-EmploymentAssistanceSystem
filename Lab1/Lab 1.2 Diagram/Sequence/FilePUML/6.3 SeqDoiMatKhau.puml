@@ -8,13 +8,13 @@ entity User as ": User\nClass"
 autonumber
 user++
 user -> userInterface++: Truy cập vào trang đổi mật khẩu
-userInterface-> userInterface: Hiển thị trang web đổi mật khẩu 
+userInterface-> user: Hiển thị trang web đổi mật khẩu 
 user -> userInterface: Nhập mật khẩu cũ và mật khẩu mới 
-userInterface -> userInterface: Kiểm tra mật khẩu nhập vào 
+userInterface -> userController: Gửi thông tin mật khẩu mới 
+userController -> userController++: Kiểm tra mật khẩu nhập vào 
 alt Invalid Password
-userInterface -> userInterface: Hiển thị thông báo "Mật khẩu không hợp lệ"
+userController -> userInterface: Hiển thị thông báo "Mật khẩu không hợp lệ"
 else Valid Password
-userInterface -> userController++ : Gửi yêu cầu đổi mật khẩu
 userController -> User++: Gửi thông tin mật khẩu cũ và mật khẩu mới
 User -> userController: Gửi thông tin mật khẩu trong dữ liệu có sẵn
 alt Invalid Old Passwor

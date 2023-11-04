@@ -8,9 +8,9 @@ entity User as ": User\nClass"
 autonumber
 candidate++
 candidate-> candidateInterface++: Truy cập trang cá nhân
-candidateInterface->candidateInterface: Trả về trang cá nhân người dùng
+candidateInterface->candidate: Trả về trang cá nhân người dùng
 candidate-> candidateInterface: Chọn chỉnh sửa thông tin
-candidateInterface-> candidateInterface: Hiển thị trang chỉnh sửa\nthông tin cá nhân
+candidateInterface-> candidate: Hiển thị trang chỉnh sửa\nthông tin cá nhân
 candidate -> candidateInterface: Nhập thông tin cá nhân
 candidateInterface->userController: Gửi thông tin cá nhân đã nhập
 userController->userController: Kiểm tra thông tin đã nhập

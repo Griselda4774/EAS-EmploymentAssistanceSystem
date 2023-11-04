@@ -9,8 +9,8 @@ entity User as ": User\nClass"
 autonumber
 user++
 user -> userInterface++: Truy cập vào trang đăng nhập
-userInterface -> userInterface--: Hiển thị trang đăng nhập
-user -> userInterface++: Nhập thông tin đăng nhập
+userInterface -> user: Hiển thị trang đăng nhập
+user -> userInterface: Nhập thông tin đăng nhập
 userInterface -> userController++: Gửi thông tin đăng nhập
 userController -> userController: Kiểm tra thông tin format\n thông tin đăng nhập
 alt Invalid data
