@@ -1,0 +1,23 @@
+@startuml XemThongTinTaiKhoan
+
+skin rose
+hide footbox
+
+title Xem thông tin tài khoản
+
+actor "Manager" as quanLy
+boundary ": Manager Interface\nClass" as managerInterface
+control ": Account Controller\nClass" as accountController
+entity ": Account\nClass" as account
+
+autonumber
+quanLy++
+quanLy -> managerInterface++ : Truy cập giao diện xem thông tin tài khoản
+managerInterface -> accountController++ : Gửi yêu cầu xem thông tin tài khoản
+accountController -> account++ : Lấy thông tin tài khoản
+account -> accountController-- : Trả về thông tin tài khoản
+accountController -> managerInterface-- : Trả về thông tin tài khoản
+managerInterface -> quanLy-- : Hiển thị thông tin tài khoản
+quanLy--
+
+@enduml

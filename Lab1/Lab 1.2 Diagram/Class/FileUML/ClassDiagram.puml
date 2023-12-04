@@ -86,6 +86,7 @@ class Post {
     postLikes
     postDislikes
     postImage
+    jobTag
     createPost()
     getPostInformation()
     updatePost()
