@@ -1,0 +1,33 @@
+@startuml TaoTaiKhoan
+
+skin rose
+hide footbox
+
+title Tạo tài khoản
+
+actor "Manager" as quanLy
+boundary ": Manager Interface\nClass" as managerInterface
+control ": Account Controller\nClass" as accountController
+entity ": Account\nClass" as account
+
+autonumber
+quanLy++
+quanLy -> managerInterface++ : Truy cập giao diện quản lý tài khoản
+managerInterface -> quanLy : Hiển thị giao diện quản lý tài khoản
+quanLy -> managerInterface : Ấn nút "Tạo tài khoản"
+managerInterface -> quanLy: Yêu cầu xác nhận tạo tài khoản
+alt Không xác nhận
+quanLy -> managerInterface : Ấn nút "Hủy"
+managerInterface -> quanLy : Hiển thị giao diện quản lý tài khoản với thông tin cũ
+else Xác nhận
+autonumber 5
+quanLy -> managerInterface : Ấn nút "Xác nhận"
+managerInterface -> accountController++ : Gửi yêu cầu tạo tài khoản
+accountController -> account++ : Tạo tài khoản
+account -> accountController-- : Trả về thông tin tài khoản
+accountController -> managerInterface-- : Trả về thông tin tài khoản
+managerInterface -> quanLy-- : Hiển thị giao diện quản lý tài khoản với thông tin mới
+end
+
+quanLy--
+@enduml

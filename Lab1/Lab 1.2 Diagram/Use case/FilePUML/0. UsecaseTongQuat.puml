@@ -5,6 +5,7 @@ actor "Staff" as nhanVien
 actor "Manager" as quanLy
 actor "Candidate" as nguoiUngTuyen
 actor "Company" as congTy
+actor "EA System" as heThong
 
 rectangle "Employment assistance system" {
     usecase "Đăng nhập" as dangNhap
@@ -25,6 +26,8 @@ rectangle "Employment assistance system" {
     usecase "Quản lý truy cập hệ thống" as quanLyTruyCap
     usecase "Quản lý tài khoản admin" as quanLyTaiKhoanAdmin
     usecase "Đánh giá người ứng tuyển" as danhGiaNguoiUngTuyen
+    usecase "Quản lý tài khoản" as quanLyTaiKhoan
+    usecase "Gợi ý việc làm" as goiYViecLam
 }
 
 dangNhap ---- nhanVien
@@ -37,6 +40,7 @@ quanLyTaiKhoanAdmin ---- nhanVien
 
 nhanVien ^-- quanLy
 quanLyTruyCap -- quanLy
+quanLyTaiKhoan -- quanLy
 
 nguoiUngTuyen ----- dangNhap
 nguoiUngTuyen ----- dangKy
@@ -48,14 +52,15 @@ nguoiUngTuyen ----- ungTuyen
 nguoiUngTuyen ----- nhanTin
 nguoiUngTuyen ----- truyCap
 
-congTy ----- dangNhap
-congTy ----- dangKy
-congTy ----- quanLyBaiDang
-congTy ----- quanLyTaiKhoanCongTy
-congTy ----- quanLyUngTuyen
-congTy ----- nhanTin
-congTy ----- timKiem
-congTy ----- truyCap
-congTy ----- danhGiaNguoiUngTuyen
+congTy ------ dangNhap
+congTy ------ dangKy
+congTy ------ quanLyBaiDang
+congTy ------ quanLyTaiKhoanCongTy
+congTy ------ quanLyUngTuyen
+congTy ------ nhanTin
+congTy ------ timKiem
+congTy ------ truyCap
+congTy ------ danhGiaNguoiUngTuyen
 
+heThong -- goiYViecLam
 @enduml
