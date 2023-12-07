@@ -14,7 +14,7 @@ autonumber
 quanLy++
 quanLy -> managerInterface++ : Truy cập giao diện quản lý tài khoản
 managerInterface -> quanLy : Hiển thị giao diện quản lý tài khoản
-quanLy -> managerInterface : Ấn nút "Tạo tài khoản"
+quanLy -> managerInterface : Ấn nút "Tạo tài khoản" và nhập thông tin tài khoản
 managerInterface -> quanLy: Yêu cầu xác nhận tạo tài khoản
 alt Không xác nhận
 quanLy -> managerInterface : Ấn nút "Hủy"
