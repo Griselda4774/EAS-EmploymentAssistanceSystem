@@ -26,7 +26,7 @@ rectangle "Employment assistance system" {
     usecase "Quản lý truy cập hệ thống" as quanLyTruyCap
     usecase "Quản lý tài khoản admin" as quanLyTaiKhoanAdmin
     usecase "Đánh giá người ứng tuyển" as danhGiaNguoiUngTuyen
-    usecase "Quản lý tài khoản" as quanLyTaiKhoan
+    usecase "Quản lý tài khoản trong hệ thống" as quanLyTaiKhoan <<crud>>
     usecase "Gợi ý việc làm" as goiYViecLam
 }
 
@@ -38,7 +38,7 @@ quanLyPhanTich ---- nhanVien
 kiemDuyet ---- nhanVien
 quanLyTaiKhoanAdmin ---- nhanVien
 
-nhanVien ^-- quanLy
+quanLy -- dangNhap
 quanLyTruyCap -- quanLy
 quanLyTaiKhoan -- quanLy
 
@@ -52,7 +52,7 @@ nguoiUngTuyen ----- ungTuyen
 nguoiUngTuyen ----- nhanTin
 nguoiUngTuyen ----- truyCap
 
-congTy ------ dangNhap
+congTy --- dangNhap
 congTy ------ dangKy
 congTy ------ quanLyBaiDang
 congTy ------ quanLyTaiKhoanCongTy
