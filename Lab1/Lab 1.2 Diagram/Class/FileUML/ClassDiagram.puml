@@ -4,68 +4,68 @@ hide circle
 skin rose
 
 class Account {
-    accountName
-    accountType
-    accountPassword
-    accountStatus
-    accountDateCreated
-    accountDateUpdated
-    createAccount()
-    getAccountInformation()
-    updateAccount()
-    deleteAccount()
+    -accountName
+    -accountType
+    -accountPassword
+    -accountStatus
+    -accountDateCreated
+    -accountDateUpdated
+    +createAccount()
+    +getAccountInformation()
+    +updateAccount()
+    +deleteAccount()
 }
 
 class User {
-    accountID
-    userAvatar
-    listChat
-    createUser()
-    getUserInformation()
-    updateUserInformation()
+    #accountID
+    #userAvatar
+    #listChat
+    +createUser()
+    +getUserInformation()
+    +updateUserInformation()
 }
 
 class Admin {
-    adminFirstName
-    adminLastName
-    getUserInformation()
-    updateUserInformation()
+    #adminFirstName
+    #adminLastName
+    +getUserInformation()
+    +updateUserInformation()
 }
 
 class Candidate {
-    candidateFirstName
-    candidateLastName
-    candidateDateOfBirth
-    candidateGender
-    candidatePhoneNumber
-    candidateAddress
-    candidateDescription
-    candidateDateCreated
-    cvID
-    isReported
-    listRating
-    listJobApplication
-    listFollowing
-    getUserInformation()
-    updateUserInformation()
+    -candidateFirstName
+    -candidateLastName
+    -candidateDateOfBirth
+    -candidateGender
+    -candidatePhoneNumber
+    -candidateAddress
+    -candidateDescription
+    -candidateDateCreated
+    -cvID
+    -isReported
+    -listRating
+    -listJobApplication
+    -listFollowing
+    +getUserInformation()
+    +updateUserInformation()
 }
 
 class Company {
-    companyName
-    companyIncoporationDate
-    companyAddress
-    companyDescription
-    companyLogo
-    companyWebsite
-    companyEmail
-    companyPhone
-    companyFollowersNumber
-    isReported
-    listRating
-    listPost
-    listJobApplication
-    getUserInformation()
-    updateUserInformation()
+    -companyName
+    -companyIncoporationDate
+    -companyAddress
+    -companyDescription
+    -companyLogo
+    -companyWebsite
+    -companyEmail
+    -companyPhone
+    -companyFollowersNumber
+    -isReported
+    -listRating
+    -listPost
+    -listJobApplication
+    +getUserInformation()
+    +updateUserInformation()
 }
 
 class Staff {
@@ -77,73 +77,73 @@ class Manager {
 }
 
 class Post {
-    postTitle
-    postDescription
-    dateCreated
-    dateUpdated
-    postAuthor
-    postViews
-    postLikes
-    postDislikes
-    postImage
-    jobTag
-    createPost()
-    getPostInformation()
-    updatePost()
-    deletePost()
+    -postTitle
+    -postDescription
+    -dateCreated
+    -dateUpdated
+    -postAuthor
+    -postViews
+    -postLikes
+    -postDislikes
+    -postImage
+    -jobTag
+    +createPost()
+    +getPostInformation()
+    +updatePost()
+    +deletePost()
 }
 
 class CandidateCV {
-    cvTitle
-    cvDescription
-    cvAuthor
-    createCV()
-    getCVInformation()
-    updateCV()
-    deleteCV()
+    -cvTitle
+    -cvDescription
+    -cvAuthor
+    +createCV()
+    +getCVInformation()
+    +updateCV()
+    +deleteCV()
 }
 
 class JobApplication {
-    jobApplicationID
-    jobApplicationTitle
-    jonbApplicationDescription
-    JobApplicationStatus
-    candidateID
-    companyID
-    createJobApplication()
-    getJobApplicationInformation()
-    updateJobApplication()
-    deleteJobApplication()
+    -jobApplicationID
+    -jobApplicationTitle
+    -jonbApplicationDescription
+    -JobApplicationStatus
+    -candidateID
+    -companyID
+    +createJobApplication()
+    +getJobApplicationInformation()
+    +updateJobApplication()
+    +deleteJobApplication()
 }
 
 class Chat {
-    userID
-    chatStatus
-    listMessage
-    createChat()
-    getChatInformation()
-    updateChat()
-    deleteChat()
+    -userID
+    -chatStatus
+    -listMessage
+    +createChat()
+    +getChatInformation()
+    +updateChat()
+    +deleteChat()
 }
 
 class Message {
-    messageContent
-    timestamp
-    messageAuthor
-    isRecalled
-    createMessage()
-    getMessageInformation()
-    updateMessage()
-    deleteMessage()
+    -messageContent
+    -timestamp
+    -messageAuthor
+    -isRecalled
+    +createMessage()
+    +getMessageInformation()
+    +updateMessage()
+    +deleteMessage()
 }
 
 class AnalyticsAndStatistics {
-    analyticsAndStatisticsTitle
-    analyticsAndStatisticsDescription
-    createAnalyticsAndStatistics()
-    getAnalyticsAndStatisticsInformation()
-    updateAnalyticsAndStatistics()
-    deleteAnalyticsAndStatistics()
+    -analyticsAndStatisticsTitle
+    -analyticsAndStatisticsDescription
+    +createAnalyticsAndStatistics()
+    +getAnalyticsAndStatisticsInformation()
+    +updateAnalyticsAndStatistics()
+    +deleteAnalyticsAndStatistics()
 }
 
 Account "1" --* "1" User: owns <
