@@ -1,0 +1,27 @@
+@startuml ActGoiYViecLam
+
+skin rose
+title Gợi ý việc làm
+
+|Candidate|
+|System|
+|Database|
+
+|Candidate|
+start
+: Đăng nhập vào hệ thống;
+|System|
+: Yêu cầu lấy thông tin hồ sơ xin việc;
+|Database|
+: Truy vấn thông tin hồ sơ xin việc;
+: Trả về thông tin hồ sơ xin việc;
+|System|
+: Yêu cầu lấy thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+|Database|
+: Truy vấn thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+: Trả về thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+|System|
+: Hiển thị thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+stop
+
+@enduml
