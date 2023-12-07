@@ -1,0 +1,34 @@
+@startuml ActTaoTaiKhoan
+
+skin rose
+title Tạo tài khoản
+
+|Manager|
+|System|
+|Database|
+
+|Manager|
+start
+: Truy cập giao diện quản lý tài khoản;
+|System|
+: Hiển thị giao diện quản lý tài khoản;
+|Manager|
+: Ấn nút tạo tài khoản và nhập thông tin tài khản;
+|System|
+: Yêu cầu xác nhận tạo tài khoản;
+|Manager|
+if () then (Không xác nhận)
+: Không xác nhận;
+stop
+else (Xác nhận)
+: Xác nhận;
+|System|
+: Yêu cầu tạo tài khoản;
+|Database|
+: Tạo tài khoản;
+: Trả về kết quả tạo tài khoản;
+|System|
+: Hiển thị thông báo tạo tài khoản thành công;
+stop
+
+@enduml
