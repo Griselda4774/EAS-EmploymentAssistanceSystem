@@ -4,12 +4,12 @@ hide circle
 skin rose
 
 class Account {
-    -accountName
-    -accountType
-    -accountPassword
-    -accountStatus
-    -accountDateCreated
-    -accountDateUpdated
+    -name
+    -type
+    -password
+    -isLocked
+    -dateCreated
+    -dateUpdated
     +createAccount()
     +getAccountInformation()
     +updateAccount()
@@ -18,7 +18,7 @@ class Account {
 
 class User {
     #accountID
-    #userAvatar
+    #avatar
     #listChat
     +createUser()
     +getUserInformation()
@@ -26,21 +26,21 @@ class User {
 }
 
 class Admin {
-    #adminFirstName
-    #adminLastName
+    #firstName
+    #lastName
     +getUserInformation()
     +updateUserInformation()
 }
 
 class Candidate {
-    -candidateFirstName
-    -candidateLastName
-    -candidateDateOfBirth
-    -candidateGender
-    -candidatePhoneNumber
-    -candidateAddress
-    -candidateDescription
-    -candidateDateCreated
+    -firstName
+    -lastName
+    -dateOfBirth
+    -gender
+    -phoneNumber
+    -address
+    -description
+    -dateCreated
     -cvID
     -isReported
     -listRating
@@ -51,15 +51,15 @@ class Candidate {
 }
 
 class Company {
-    -companyName
-    -companyIncoporationDate
-    -companyAddress
-    -companyDescription
-    -companyLogo
-    -companyWebsite
-    -companyEmail
-    -companyPhone
-    -companyFollowersNumber
+    -name
+    -incoporationDate
+    -address
+    -description
+    -logo
+    -website
+    -email
+    -phoneNumber
+    -followerNumber
     -isReported
     -listRating
     -listPost
@@ -77,15 +77,15 @@ class Manager {
 }
 
 class Post {
-    -postTitle
-    -postDescription
+    -title
+    -description
     -dateCreated
     -dateUpdated
-    -postAuthor
-    -postViews
-    -postLikes
-    -postDislikes
-    -postImage
+    -author
+    -views
+    -likes
+    -dislikes
+    -image
     -jobTag
     +createPost()
     +getPostInformation()
@@ -94,9 +94,9 @@ class Post {
 }
 
 class CandidateCV {
-    -cvTitle
-    -cvDescription
-    -cvAuthor
+    -title
+    -description
+    -author
     +createCV()
     +getCVInformation()
     +updateCV()
@@ -104,10 +104,10 @@ class CandidateCV {
 }
 
 class JobApplication {
-    -jobApplicationID
-    -jobApplicationTitle
-    -jonbApplicationDescription
-    -JobApplicationStatus
+    -title
+    -description
+    -isAccepted
+    -isCompleted
     -candidateID
     -companyID
     +createJobApplication()
@@ -118,7 +118,7 @@ class JobApplication {
 
 class Chat {
     -userID
-    -chatStatus
+    -isBlocked
     -listMessage
     +createChat()
     +getChatInformation()
@@ -127,9 +127,9 @@ class Chat {
 }
 
 class Message {
-    -messageContent
+    -content
     -timestamp
-    -messageAuthor
+    -author
     -isRecalled
     +createMessage()
     +getMessageInformation()
@@ -138,8 +138,8 @@ class Message {
 }
 
 class AnalyticsAndStatistics {
-    -analyticsAndStatisticsTitle
-    -analyticsAndStatisticsDescription
+    -title
+    -description
     +createAnalyticsAndStatistics()
     +getAnalyticsAndStatisticsInformation()
     +updateAnalyticsAndStatistics()
@@ -157,7 +157,7 @@ Manager "1" -- "n" Account: manages >
 Post "n" -right-* "1" Company: manages <
 Chat "n" -right-* "2" User: manages <
 Message "n" -right-* "1" Chat: haves <
-CandidateCV "n" -left-* "1" Candidate: owns <
+CandidateCV "1" -left-* "1" Candidate: owns <
 JobApplication "n" -left-* "1" Company: manages <
 Candidate "n" -- "n" Company: follows >
 Candidate "1" *-- "n" JobApplication: applies >
