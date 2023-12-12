@@ -1,7 +1,6 @@
 @startuml QuanLyPhanTichThongKe
 left to right direction
 
-actor "Manager" as quanLy
 actor "Staff" as nhanVien
 
 rectangle "Quản lý phân tích thống kê" {
@@ -17,7 +16,5 @@ nhanVien -- xemThongKeCongTyTuyenDung
 nhanVien -- xemThongKeLuotTruyCapHeThong
 nhanVien -- xemPhanTichXuHuongNgheNghiep
 nhanVien -- xemThongKeTiLeXinViec
-
-quanLy --^ nhanVien
 
 @enduml

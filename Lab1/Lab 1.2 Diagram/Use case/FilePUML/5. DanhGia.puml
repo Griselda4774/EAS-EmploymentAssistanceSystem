@@ -4,7 +4,7 @@ actor nguoiUngTuyen as "Candidate"
 actor congTy as "Company"
 rectangle "Đánh giá"{
     usecase danhGiaCongTyTuyenDung as "Đánh giá công ty tuyển dụng"
-    usecase danhGiaNguoiTuyenDung as "Đánh giá người tuyển dụng"
+    usecase danhGiaNguoiTuyenDung as "Đánh giá người ứng tuyển"
 }
 nguoiUngTuyen -- danhGiaCongTyTuyenDung
 
