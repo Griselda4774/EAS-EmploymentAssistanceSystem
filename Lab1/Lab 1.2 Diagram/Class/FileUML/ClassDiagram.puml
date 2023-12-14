@@ -4,7 +4,7 @@ hide circle
 skin rose
 
 class Account {
-    -name
+    -username
     -type
     -password
     -isLocked
@@ -37,8 +37,8 @@ class Candidate {
     -lastName
     -dateOfBirth
     -gender
+    -email
     -phoneNumber
-    -address
     -description
     -dateCreated
     -cvID

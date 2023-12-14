@@ -4,7 +4,7 @@ left to right direction
 
 actor "Manager" as quanLy
 
-rectangle "Quản lý tài khoản" {
+rectangle "Quản lý tài khoản trong hệ thống" {
     usecase "Tạo tài khoản" as taoTaiKhoan
     usecase "Xem thông tin tài khoản" as xemThongTinTaiKhoan
     usecase "Cập nhật thông tin tài khoản" as capNhatThongTinTaiKhoan
