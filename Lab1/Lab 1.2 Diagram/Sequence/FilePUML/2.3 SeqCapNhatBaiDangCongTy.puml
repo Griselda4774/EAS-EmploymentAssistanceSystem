@@ -1,6 +1,7 @@
 @startuml SeqCapNhatBaiDang
 skin rose
-hide footbox
+hide footbox 
+scale 5
 
 actor company as "Company"
 boundary companyInterface as ": Company Interface\nClass"

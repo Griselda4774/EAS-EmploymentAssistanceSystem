@@ -1,6 +1,7 @@
 @startuml SeqTruyCapBaiDang
 skin rose
-hide footbox
+hide footbox 
+scale 5
 
 actor user
 boundary userInterface as ": User Interface\nClass"

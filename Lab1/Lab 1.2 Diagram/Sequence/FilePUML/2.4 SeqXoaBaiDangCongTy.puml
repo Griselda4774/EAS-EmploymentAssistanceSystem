@@ -1,6 +1,7 @@
 @startuml SeqXoaBaiDang
 skin rose
-hide footbox
+hide footbox 
+scale 5
 actor company as "Company"
 boundary companyInterface as ": Company Interface\nClass"
 control postController as ": Post Controller\nClass"
@@ -14,7 +15,7 @@ Post -> Post: Kiểm tra bài đăng trong dữ liệu
 alt Post not exist
     Post--> postController: Thông báo không có\n bài đăng đó
     postController --> companyInterface: Hiển thị trang \nbài đăng không tồn tại 
-    companyInterface --> company: Thông báo không có bài đăng này
+    companyInterface --> company: Thông báo bài đăng không tồn tại này
 else Post existed
     Post--> postController: Gửi toàn bộ thông tin bài đăng
     postController --> companyInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được

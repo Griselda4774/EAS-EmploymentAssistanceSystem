@@ -1,6 +1,6 @@
 @startuml SeqTheoDoiCongTyTuyenDung
 skin rose 
-hide footbox
+hide footbox 
 actor candidate as "Candidate"
 boundary userInterface as ": User Interface\nClass"
 control userController as ": User Controller\nClass"

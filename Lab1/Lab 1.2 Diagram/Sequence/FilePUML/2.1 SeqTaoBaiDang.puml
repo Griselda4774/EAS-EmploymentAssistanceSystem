@@ -1,6 +1,7 @@
 @startuml seqTaoBaiDang
 skin rose
-hide footbox
+hide footbox 
+scale 5
 actor company as "Company"
 boundary companyInterface as ": Company Interface\nClass"
 control postController as ": Post Controller\nClass"
