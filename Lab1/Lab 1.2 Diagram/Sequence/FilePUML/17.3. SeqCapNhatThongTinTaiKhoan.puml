@@ -13,22 +13,22 @@ entity ": Account\nClass" as account
 autonumber
 quanLy++
 quanLy->managerInterface++ : Truy cập giao diện thông tin tài khoản
-managerInterface->quanLy : Hiển thị giao diện thông tin tài khoản
+managerInterface-->quanLy : Hiển thị giao diện thông tin tài khoản
 quanLy->managerInterface : Nhấn nút "Sửa thông tin"
-managerInterface->quanLy : Hiển thị giao diện sửa thông tin tài khoản
+managerInterface-->quanLy : Hiển thị giao diện sửa thông tin tài khoản
 quanLy->managerInterface : Nhấn nút "Lưu"
-managerInterface->quanLy : Yêu cầu xác nhận cập nhật thông tin tài khoản
+managerInterface-->quanLy : Yêu cầu xác nhận cập nhật thông tin tài khoản
 alt Không xác nhận
 quanLy->managerInterface : Nhấn nút "Hủy"
-managerInterface->quanLy : Hiển thị giao diện thông tin tài khoản cũ
+managerInterface-->quanLy : Hiển thị giao diện thông tin tài khoản cũ
 else Xác nhận
 autonumber 7
 quanLy->managerInterface : Nhấn nút "Xác nhận"
 managerInterface->accountController++ : Gửi yêu cầu cập nhật thông tin tài khoản
 accountController->account++ : Cập nhật thông tin tài khoản
-account->accountController-- : Trả về kết quả cập nhật thông tin tài khoản
-accountController->managerInterface-- : Trả về kết quả cập nhật thông tin tài khoản
-managerInterface->quanLy : Hiển thị kết quả cập nhật thông tin tài khoản\nvà giao diện thông tin tài khoản mới
+account-->accountController-- : Trả về kết quả cập nhật thông tin tài khoản
+accountController-->managerInterface-- : Trả về kết quả cập nhật thông tin tài khoản
+managerInterface-->quanLy : Hiển thị kết quả cập nhật thông tin tài khoản\nvà giao diện thông tin tài khoản mới
 end
 
 @enduml

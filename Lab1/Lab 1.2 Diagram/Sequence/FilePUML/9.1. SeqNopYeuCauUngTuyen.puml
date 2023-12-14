@@ -14,10 +14,10 @@ entity ": Post\nClass" as postClass
 autonumber
 candidate++
 candidate -> candidateInterface++: Ấn vào nút ứng tuyển\n[đã truy cập vào giao diện bài đăng]
-candidateInterface -> candidate: Yêu cầu xác nhận ứng tuyển
+candidateInterface --> candidate: Yêu cầu xác nhận ứng tuyển
 alt Không xác nhận ứng tuyển
     candidate -> candidateInterface: Ấn vào nút không xác nhận
-    candidateInterface -> candidate: Hiển thị giao diện bài đăng
+    candidateInterface --> candidate: Hiển thị giao diện bài đăng
 else Xác nhận ứng tuyển
     autonumber 3
     candidate -> candidateInterface: Ấn vào nút xác nhận
@@ -25,18 +25,18 @@ else Xác nhận ứng tuyển
     jobApplicationController -> postController++: Yêu cầu kiểm tra bài đăng có tồn tại
     postController -> postClass++: Kiểm tra bài đăng có tồn tại
     alt Không tồn tại bài đăng
-        postClass -> postController: Trả về thông báo\nkhông tồn tại bài đăng
-        postController -> jobApplicationController: Trả về thông báo\nkhông tồn tại bài đăng
-        jobApplicationController -> candidateInterface: Trả về thông báo\nkhông tồn tại bài đăng
-        candidateInterface -> candidate: Hiển thị thông báo\nkhông tồn tại bài đăng
+        postClass --> postController: Trả về thông báo\nkhông tồn tại bài đăng
+        postController --> jobApplicationController: Trả về thông báo\nkhông tồn tại bài đăng
+        jobApplicationController --> candidateInterface: Trả về thông báo\nkhông tồn tại bài đăng
+        candidateInterface --> candidate: Hiển thị thông báo\nkhông tồn tại bài đăng
     else Tồn tại bài đăng
         autonumber 7
-        postClass -> postController: Trả về thông báo tồn tại bài đăng
-        postController -> jobApplicationController: Trả về thông báo tồn tại bài đăng
+        postClass --> postController: Trả về thông báo tồn tại bài đăng
+        postController --> jobApplicationController: Trả về thông báo tồn tại bài đăng
         jobApplicationController -> jobApplicationClass++: Tạo ứng tuyển
-        jobApplicationClass -> jobApplicationController--: Trả về thông báo\nứng tuyển thành công
-        jobApplicationController -> candidateInterface--: Trả về thông báo\nứng tuyển thành công
-        candidateInterface -> candidate--: Hiển thị thông báo\nứng tuyển thành công
+        jobApplicationClass --> jobApplicationController--: Trả về thông báo\nứng tuyển thành công
+        jobApplicationController --> candidateInterface--: Trả về thông báo\nứng tuyển thành công
+        candidateInterface --> candidate--: Hiển thị thông báo\nứng tuyển thành công
         end
 end
 candidate--

@@ -10,7 +10,7 @@ autonumber
 company -> companyInterface++: Truy cập vào hồ sơ công ty tuyển dụng
 companyInterface -> userController++: Gửi yêu cầu truy cập hồ sơ công ty tuyển dụng
 userController -> User++: Đưa thông tin tài khoản công ty tuyển dụng
-User -> userController: Toàn bộ thông tin tài khoản công ty tuyển dụng 
-userController -> companyInterface: Hiển thị toàn bộ thông tin người dùng company
-companyInterface -> company: Hiển thị thông tin công ty tuyển dụng
+User --> userController: Toàn bộ thông tin tài khoản công ty tuyển dụng 
+userController --> companyInterface: Hiển thị toàn bộ thông tin người dùng company
+companyInterface --> company: Hiển thị thông tin công ty tuyển dụng
 @enduml

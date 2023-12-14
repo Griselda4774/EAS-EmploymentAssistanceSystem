@@ -13,12 +13,12 @@ userInterface-> postController++: Yêu cầu truy cập bài đăng
 postController -> Post++:Gửi thông tin bài đăng cần truy cập
 Post -> Post: Kiểm tra bài đăng trong dữ liệu
 alt Post not exist
-    Post-> postController: Thông báo không có\n bài đăng đó
-    postController -> userInterface: Hiển thị trang \nbài đăng không tồn tại 
-    userInterface -> user: Thông báo không có bài đăng này
+    Post--> postController: Thông báo không có\n bài đăng đó
+    postController --> userInterface: Hiển thị trang \nbài đăng không tồn tại 
+    userInterface --> user: Thông báo không có bài đăng này
 else Post existed
-    Post-> postController: Gửi toàn bộ thông tin bài đăng
-    postController -> userInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
-    userInterface -> user: Hiển thị trang web cho người dùng
+    Post--> postController: Gửi toàn bộ thông tin bài đăng
+    postController --> userInterface: Hiển thị trang bài đăng tuyển dụng với \ncác thông tin nhận được
+    userInterface --> user: Hiển thị trang web cho người dùng
 end
 @enduml

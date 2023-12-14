@@ -15,24 +15,24 @@ autonumber
 user++
 user2++
 user -> userInterface++: Nhấn nút thu hồi tin nhắn\n[đã truy cập giao diện nhắn tin]
-userInterface -> user: Gửi yêu cầu xác nhận
+userInterface --> user: Gửi yêu cầu xác nhận
 alt Không xác nhận thu hồi tin nhắn
     user -> userInterface : Nhấn nút hủy
-    userInterface -> user : Hiển thị cuộc trò chuyện cũ
+    userInterface --> user : Hiển thị cuộc trò chuyện cũ
 else Xác nhận thu hồi tin nhắn
     autonumber 3
     user -> userInterface : Nhấn nút xác nhận
     userInterface -> chatController++: Gửi yêu cầu thu hồi tin nhắn
     chatController -> chat++: Cập nhật cuộc trò chuyện
-    chat -> chatController--: Trả về cuộc trò chuyện mới
+    chat --> chatController--: Trả về cuộc trò chuyện mới
     par
-        chatController -> userInterface : Trả về cuộc trò chuyện mới
-        userInterface -> user-- : Hiển thị cuộc trò chuyện mới
+        chatController --> userInterface : Trả về cuộc trò chuyện mới
+        userInterface --> user-- : Hiển thị cuộc trò chuyện mới
     else
         autonumber 7
-        chatController -> userInterface2-- : Trả về cuộc trò chuyện mới
+        chatController --> userInterface2-- : Trả về cuộc trò chuyện mới
         userInterface2++
-        userInterface2 -> user2-- : Hiển thị cuộc trò chuyện mới
+        userInterface2 --> user2-- : Hiển thị cuộc trò chuyện mới
     end
 end
 user--

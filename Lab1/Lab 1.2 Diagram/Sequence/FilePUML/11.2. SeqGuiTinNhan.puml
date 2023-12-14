@@ -17,15 +17,15 @@ user2++
 user -> userInterface++ : Soạn tin nhắn và gửi\n[đã truy cập giao diện nhắn tin]
 userInterface -> chatController++ : Truyền dữ liệu
 chatController -> Chat++ : Cập nhật cuộc trò chuyện
-Chat -> chatController-- : Trả về cuộc trò chuyện mới
+Chat --> chatController-- : Trả về cuộc trò chuyện mới
 par
-    chatController -> userInterface : Trả về cuộc trò chuyện mới
-    userInterface -> user-- : Hiển thị cuộc trò chuyện mới
+    chatController --> userInterface : Trả về cuộc trò chuyện mới
+    userInterface --> user-- : Hiển thị cuộc trò chuyện mới
 else
     autonumber 5
-    chatController -> userInterface2-- : Trả về cuộc trò chuyện mới
+    chatController --> userInterface2-- : Trả về cuộc trò chuyện mới
     userInterface2++
-    userInterface2 -> user2-- : Hiển thị cuộc trò chuyện mới
+    userInterface2 --> user2-- : Hiển thị cuộc trò chuyện mới
 end
 
 user--

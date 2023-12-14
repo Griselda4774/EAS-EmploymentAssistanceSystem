@@ -16,14 +16,14 @@ autonumber
 nguoiUngTuyen++
 candidateController++
 candidateController->candidate++ : Lấy thông tin CV người dùng
-candidate->candidateController-- : Trả về thông tin CV người dùng
+candidate-->candidateController-- : Trả về thông tin CV người dùng
 candidateController->postController--: Truyền thông tin CV người dùng
 postController++
 postController->post++: Lấy thông tin bài đăng phù hợp với CV người dùng
-post->postController--: Trả về thông tin bài đăng phù hợp với CV người dùng
-postController->candidateInterface--: Truyền thông tin bài đăng phù hợp với CV người dùng
+post-->postController--: Trả về thông tin bài đăng phù hợp với CV người dùng
+postController-->candidateInterface--: Truyền thông tin bài đăng phù hợp với CV người dùng
 candidateInterface++
-candidateInterface->nguoiUngTuyen--: Hiển thị thông tin bài đăng phù hợp với CV người dùng
+candidateInterface-->nguoiUngTuyen--: Hiển thị thông tin bài đăng phù hợp với CV người dùng
 nguoiUngTuyen--
 
 @enduml

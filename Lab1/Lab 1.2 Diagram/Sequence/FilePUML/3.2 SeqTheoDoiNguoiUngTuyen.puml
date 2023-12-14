@@ -12,23 +12,23 @@ userInterface -> userController++: Gửi yêu cầu truy cập \nhồ sơ Ngư�
 userController -> User++: Gửi thông tin Người ứng tuyển
 User -> User: Kiểm tra thông tin Người ứng tuyển 
 alt Invalid Data
-User -> userController: Thông báo sai thông tin
-userController-> userInterface: Thông báo không tìm thấy\nthông tin Người ứng tuyển
+User --> userController: Thông báo sai thông tin
+userController--> userInterface: Thông báo không tìm thấy\nthông tin Người ứng tuyển
 else Valid Data
-User -> userController: Gửi toàn bộ thông tin \nNgười ứng tuyển
-userController -> userInterface: Hiển thị trang với các \nthông tin Người ứng tuyển được gửi về
+User --> userController: Gửi toàn bộ thông tin \nNgười ứng tuyển
+userController --> userInterface: Hiển thị trang với các \nthông tin Người ứng tuyển được gửi về
 candidate -> userInterface: Nhấn nút follow Người ứng tuyển
 userInterface -> userController: Gửi yêu cầu follow Người ứng tuyển
 userController -> User: Gửi thông tin follow Người ứng tuyển
     alt Follow User
-        User -> userController: Thông báo đã follow\n Người ứng tuyển
-        userController->userInterface: Hiển thị đã follow \nNgười ứng tuyển 
-        userInterface->candidate: Hiển thị đã follow \nNgười ứng tuyển 
+        User --> userController: Thông báo đã follow\n Người ứng tuyển
+        userController-->userInterface: Hiển thị đã follow \nNgười ứng tuyển 
+        userInterface-->candidate: Hiển thị đã follow \nNgười ứng tuyển 
 
     else unFollow User
-        User -> userController: Thông báo đã huỷ follow\n Người ứng tuyển 
-        userController->userInterface: Hiển thị không follow \nNgười ứng tuyển
-        userInterface->candidate: Hiển thị đã huỷ follow \nNgười ứng tuyển 
+        User --> userController: Thông báo đã huỷ follow\n Người ứng tuyển 
+        userController-->userInterface: Hiển thị không follow \nNgười ứng tuyển
+        userInterface-->candidate: Hiển thị đã huỷ follow \nNgười ứng tuyển 
     end
 end
 @enduml

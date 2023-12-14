@@ -15,26 +15,26 @@ companyInterface-> postController: Yêu cầu truy cập bài đăng
 postController -> Post++:Gửi thông tin bài đăng cần truy cập
 Post -> Post: Kiểm tra bài đăng trong dữ liệu
 alt Post not exist
-    Post-> postController: Thông báo không có\n bài đăng đó
-    postController -> companyInterface: Hiển thị trang \nbài đăng không tồn tại 
-    companyInterface -> company: Thông báo không có bài đăng này
+    Post--> postController: Thông báo không có\n bài đăng đó
+    postController --> companyInterface: Hiển thị trang \nbài đăng không tồn tại 
+    companyInterface --> company: Thông báo không có bài đăng này
 else Post existed
-    Post-> postController: Gửi toàn bộ thông tin bài đăng
-    postController -> companyInterface: Hiển thị trang cập nhật bài đăng\n tuyển dụng với các thông tin nhận được
-    companyInterface -> company: Hiển thị trang web cho công ty
+    Post--> postController: Gửi toàn bộ thông tin bài đăng
+    postController --> companyInterface: Hiển thị trang cập nhật bài đăng\n tuyển dụng với các thông tin nhận được
+    companyInterface --> company: Hiển thị trang web cho công ty
     company-> companyInterface: Nhập thông tin mới\n của bài đăng
     company-> companyInterface: Nhập lựa chọn
     opt Accept Button
     companyInterface->postController: Gửi thông tin mới của bài đăng
     postController->postController: Kiểm tra thông tin mới của bài đăng
     alt Invalid data
-    postController -> companyInterface: Thông báo bài đăng không hợp lệ
-    companyInterface -> company: Hiển thị thông báo \n"Thông tin bài đăng không hợp lệ"
+    postController --> companyInterface: Thông báo bài đăng không hợp lệ
+    companyInterface --> company: Hiển thị thông báo \n"Thông tin bài đăng không hợp lệ"
     else Valid data
     postController -> Post: Gửi thông tin bài đăng mới cập nhật
-    Post -> postController: Thông báo đã cập nhật thông tin bài đăng
-    postController -> companyInterface: Hiển thị thông báo\n"Cập nhật thông tin thành công"
-    companyInterface -> company: Thông báo cho công ty đã cập nhật\n thành công bài đăng tuyển dụng
+    Post --> postController: Thông báo đã cập nhật thông tin bài đăng
+    postController --> companyInterface: Hiển thị thông báo\n"Cập nhật thông tin thành công"
+    companyInterface --> company: Thông báo cho công ty đã cập nhật\n thành công bài đăng tuyển dụng
     end
     end
     opt Cancel Button
