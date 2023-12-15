@@ -108,8 +108,8 @@ class JobApplication {
     -description
     -isAccepted
     -isCompleted
-    -candidateID
-    -companyID
+    -candidateCVID
+    -postID
     +createJobApplication()
     +getJobApplicationInformation()
     +updateJobApplication()
@@ -154,12 +154,12 @@ Staff --|> Admin
 Manager --|> Admin
 AnalyticsAndStatistics "n" -- "1" Admin: manages <
 Manager "1" -- "n" Account: manages >
-Post "n" -right-* "1" Company: manages <
+Post "n" -left-* "1" Company: manages <
 Chat "n" -right-* "2" User: manages <
 Message "n" -right-* "1" Chat: haves <
 CandidateCV "1" -left-* "1" Candidate: owns <
-JobApplication "n" -left-* "1" Company: manages <
+JobApplication "n" -left-* "1" Post: contains <
 Candidate "n" -- "n" Company: follows >
-Candidate "1" *-- "n" JobApplication: applies >
+CandidateCV "1" *-- "n" JobApplication: applies >
 
 @enduml
