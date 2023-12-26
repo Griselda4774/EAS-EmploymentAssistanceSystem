@@ -10,13 +10,13 @@ entity User as ": User\nClass"
 candidate++
 autonumber
 candidate-> userInterface++: Truy cập vào trang người dùng tuyển dụng
-userInterface-> candidate: Hiển thị người dùng
+userInterface--> candidate: Hiển thị người dùng
 candidate-> userInterface: Chọn nút báo cáo\n người dùng
 candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
 userInterface-> userController++: Gửi yêu cầu báo cáo\n người dùng
 userController -> User: Gửi thông tin người dùng bị báo cáo
-User -> userController: Gửi thông tin người dùng bị báo cáo về admin
-userController-> adminInterface++: Hiển thị thông tin người dùng bị báo cáo
+User --> userController: Gửi thông tin người dùng bị báo cáo về admin
+userController--> adminInterface++: Hiển thị thông tin người dùng bị báo cáo
 admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin người dùng
 alt Cancel Report
 adminInterface -> userController: Gửi yêu cầu huỷ báo cáo người dùng
@@ -27,17 +27,17 @@ adminInterface -> adminInterface: Hiển thị biện pháp cảnh cáo
 opt Ban User activity
 adminInterface -> userController: Gửi yêu cầu khoá tài khoản người dùng
 userController -> User: Gửi thông tin người dùng muốn khoá tài khoản 
-User -> userController: Thông báo tài khoản người dùng đã bị khoá
-userController -> userInterface: Thông báo tài khoản người dùng đã bị khoá
-userInterface -> candidate: Thông báo tài khoản người dùng đã bị khoá
+User --> userController: Thông báo tài khoản người dùng đã bị khoá
+userController --> userInterface: Thông báo tài khoản người dùng đã bị khoá
+userInterface --> candidate: Thông báo tài khoản người dùng đã bị khoá
 
 end
 opt Send report to User
 adminInterface->userController: Gửi yêu cầu cảnh báo người dùng
 userController -> User++: Gửi thông tin cảnh cáo đến người dùng
-User -> userController: Gửi cảnh cáo đến người dùng 
-userController -> userInterface: Hiển thị thông báo \n"Cảnh cáo người dùng vi phạm tiêu chuẩn"
-userInterface -> candidate: Hiển thị thông báo \n"Cảnh cáo người dùng vi phạm tiêu chuẩn"
+User --> userController: Gửi cảnh cáo đến người dùng 
+userController --> userInterface: Hiển thị thông báo \n"Cảnh cáo người dùng vi phạm tiêu chuẩn"
+userInterface --> candidate: Hiển thị thông báo \n"Cảnh cáo người dùng vi phạm tiêu chuẩn"
 
 end
 end

@@ -14,9 +14,9 @@ user++
 user -> userInterface++ : Truy nhập giao diện nhắn tin
 userInterface -> chatController++ : Yêu cầu thông tin cuộc trò chuyện
 chatController -> Chat++ : Lấy thông tin cuộc trò chuyện
-Chat -> chatController-- : Trả về thông tin cuộc trò chuyện
-chatController -> userInterface-- : Trả về thông tin cuộc trò chuyện
-userInterface -> user--: Hiển thị thông tin cuộc trò chuyện
+Chat --> chatController-- : Trả về thông tin cuộc trò chuyện
+chatController --> userInterface-- : Trả về thông tin cuộc trò chuyện
+userInterface --> user--: Hiển thị thông tin cuộc trò chuyện
 user--
 
 @enduml

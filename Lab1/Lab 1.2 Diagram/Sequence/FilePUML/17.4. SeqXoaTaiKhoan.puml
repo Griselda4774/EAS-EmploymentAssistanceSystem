@@ -13,20 +13,20 @@ entity ": Account\nClass" as account
 autonumber
 quanLy++
 quanLy->managerInterface++ : Truy cập giao diện quản lý tài khoản
-managerInterface->quanLy : Hiển thị giao diện quản lý tài khoản
+managerInterface-->quanLy : Hiển thị giao diện quản lý tài khoản
 quanLy->managerInterface : Chọn tài khoản cần xóa và ấn nút "Xóa"
-managerInterface->quanLy : Yêu cầu xác nhận xóa tài khoản
+managerInterface-->quanLy : Yêu cầu xác nhận xóa tài khoản
 alt Không xác nhận 
 quanLy->managerInterface : Ấn nút "Không"
-managerInterface->quanLy : Hiển thị giao diện quản lý tài khoản cũ
+managerInterface-->quanLy : Hiển thị giao diện quản lý tài khoản cũ
 else Xác nhận
 autonumber 5
 quanLy->managerInterface : Ấn nút "Xác nhận"
 managerInterface->accountController++ : Gửi yêu cầu xóa tài khoản
 accountController->account++ : Xóa tài khoản
-account->accountController-- : Trả về kết quả xóa tài khoản
-accountController->managerInterface-- : Trả về kết quả xóa tài khoản
-managerInterface->quanLy-- : Hiển thị thông báo xóa tài khoản thành công\nvà giao diện quản lý tài khoản mới
+account-->accountController-- : Trả về kết quả xóa tài khoản
+accountController-->managerInterface-- : Trả về kết quả xóa tài khoản
+managerInterface-->quanLy-- : Hiển thị thông báo xóa tài khoản thành công\nvà giao diện quản lý tài khoản mới
 end
 
 quanLy--

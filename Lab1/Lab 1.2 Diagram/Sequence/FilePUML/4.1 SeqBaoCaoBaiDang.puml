@@ -12,13 +12,13 @@ entity Post as ": Post\nClass"
 candidate++
 autonumber
 candidate-> userInterface++: Truy cập vào trang bài đăng tuyển dụng
-userInterface-> candidate: Hiển thị bài đăng tuyển dụng
+userInterface--> candidate: Hiển thị bài đăng tuyển dụng
 candidate-> userInterface: Chọn nút báo cáo\n bài đăng tuyển dụng
 candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
 userInterface-> postController++: Gửi yêu cầu báo cáo\n bài đăng tuyển dụng
 postController-> Post++: Gửi thông tin bài đăng tuyển dụng cần báo cáo
-Post -> postController: Gửi thông tin bài đăng tuyển dụng bị báo cáo
-postController-> adminInterface++: Hiển thị thông tin bài đăng tuyển dụng bị báo cáo
+Post --> postController: Gửi thông tin bài đăng tuyển dụng bị báo cáo
+postController--> adminInterface++: Hiển thị thông tin bài đăng tuyển dụng bị báo cáo
 admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin bài đăng tuyển dụng
 alt Cancel Report
 adminInterface -> postController: Gửi yêu cầu huỷ báo cáo bài đăng tuyển dụng
@@ -29,14 +29,14 @@ opt Cancel Post
 adminInterface -> postController: Gửi yêu cầu huỷ\n bài đăng tuyển dụng
 postController -> Post: Gửi thông tin bài đăng tuyển dụng\n bị huỷ
 Post->Post: Huỷ bài đăng bị báo cáo 
-Post->postController: Thông báo đã huỷ bài đăng
-postController-> companyInterface++: Hiển thị thông báo cho công ty đã huỷ bài đăng tuyển dụng
-companyInterface -> company: Cảnh báo công ty đã đăng bài vi phạm nội dung
+Post-->postController: Thông báo đã huỷ bài đăng
+postController--> companyInterface++: Hiển thị thông báo cho công ty đã huỷ bài đăng tuyển dụng
+companyInterface --> company: Cảnh báo công ty đã đăng bài vi phạm nội dung
 end
 opt Send report to Company 
-Post -> postController: Gửi cảnh cáo đến công ty đăng bài đăng tuyển dụng
-postController -> companyInterface: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
-companyInterface -> company: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+Post --> postController: Gửi cảnh cáo đến công ty đăng bài đăng tuyển dụng
+postController --> companyInterface: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
+companyInterface --> company: Hiển thị thông báo \n"Cảnh cáo bài đăng vi phạm tiêu chuẩn"
 
 end
 end

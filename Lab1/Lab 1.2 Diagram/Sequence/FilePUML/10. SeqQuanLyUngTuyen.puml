@@ -14,24 +14,24 @@ company++
 company -> userInterface++: Truy cập giao diện thông tin ứng tuyển
 userInterface -> jobApplicationController++: Yêu cầu thông tin ứng tuyển
 jobApplicationController -> jobApplication++: Lấy thông tin ứng tuyển
-jobApplication -> jobApplicationController--: Trả về thông tin ứng tuyển
-jobApplicationController -> userInterface--: Trả về thông tin ứng tuyển
-userInterface -> company--: Hiển thị thông tin ứng tuyển
+jobApplication --> jobApplicationController--: Trả về thông tin ứng tuyển
+jobApplicationController --> userInterface--: Trả về thông tin ứng tuyển
+userInterface --> company--: Hiển thị thông tin ứng tuyển
 alt Actor choice: Duyệt ứng tuyển
     company -> userInterface++: Duyệt ứng tuyển
     userInterface -> jobApplicationController++: Yêu cầu cập nhật ứng tuyển
     jobApplicationController -> jobApplication++: Cập nhật ứng tuyển
-    jobApplication -> jobApplicationController--: Trả về thông tin ứng tuyển đã cập nhật
-    jobApplicationController -> userInterface--: Trả về thông tin ứng tuyển đã cập nhật
-    userInterface -> company--: Hiển thị thông báo cập nhập thành công\nvà thông tin ứng tuyển đã cập nhật
+    jobApplication --> jobApplicationController--: Trả về thông tin ứng tuyển đã cập nhật
+    jobApplicationController --> userInterface--: Trả về thông tin ứng tuyển đã cập nhật
+    userInterface --> company--: Hiển thị thông báo cập nhập thành công\nvà thông tin ứng tuyển đã cập nhật
 else Actor choice: Không duyệt ứng tuyển
     autonumber 7
     company -> userInterface++: Không duyệt ứng tuyển
     userInterface -> jobApplicationController++: Yêu cập nhật ứng tuyển
     jobApplicationController -> jobApplication++: Cập nhật ứng tuyển
-    jobApplication -> jobApplicationController--: Trả về thông báo cập nhật
-    jobApplicationController -> userInterface--: Trả về thông báo cập nhật
-    userInterface -> company--: Hiển thị thông báo cập nhật thành công\nvà ẩn thông tin ứng tuyển
+    jobApplication --> jobApplicationController--: Trả về thông báo cập nhật
+    jobApplicationController --> userInterface--: Trả về thông báo cập nhật
+    userInterface --> company--: Hiển thị thông báo cập nhật thành công\nvà ẩn thông tin ứng tuyển
 end
 company--
 
