@@ -3,45 +3,45 @@ skin rose
 title Quên mật khẩu
 |User|
 start
-: Ấn vào nút quên mật khâut\n;
+: 1. Ấn vào nút quên mật khâut\n;
 |System|
-: Hiển thị trang nhập username;
+: 2.Hiển thị trang nhập username;
 |User|
-repeat : Nhập thông tin tài khoản\n lấy lại mật khẩu;
-: Ấn nút gửi mã xác thực;
+repeat : 3.Nhập thông tin tài khoản\n lấy lại mật khẩu;
+: 4. Ấn nút gửi mã xác thực;
 |System|
-: Kiểm tra format thông tin đăng nhập;
-backward :Hiển thị thông báo lỗi thông tin username;
+: 5. Kiểm tra format thông tin đăng nhập;
+backward :6.1. Hiển thị thông báo lỗi thông tin username;
 repeat while () is (Invalid data) not (Valid data) 
 |Database|
-:Kiểm tra thông tin tài khoản;
+:6.2. Kiểm tra thông tin tài khoản;
 if () then (Invalid data)
     |System|
-    : Hiển thị thông báo sai thông tin tài khoản;
+    : 7.1. Hiển thị thông báo sai thông tin tài khoản;
     stop
 else (Valid data)
     |System|
-    : Thông báo kiểm tra tài khoản thành công\n và gửi mã OTP về email;
+    : 7.2. Thông báo kiểm tra tài khoản thành công\n và gửi mã OTP về email;
     |User|
-    repeat : Nhập mã OTP nhận được;
-    : Ấn nút xác thực OTP;
+    repeat : 8. Nhập mã OTP nhận được;
+    : 9. Ấn nút xác thực OTP;
     |System|
-    : Kiểm tra mã OTP
-    backward: Thông báo sai mã OTP;
+    : 10. Kiểm tra mã OTP;
+    backward: 11.1. Thông báo sai mã OTP;
     repeat while () is (Invalid OTP) not (Valid OTP)
     |System|
-    : Hiển thị trang cập nhật mật khẩu mới;
+    : 11.2. Hiển thị trang cập nhật mật khẩu mới;
     |User|
-    repeat: Nhập mật khẩu mới của tài khoản;;
-    : Ấn nút cập nhật mật khẩu;
+    repeat: 12. Nhập mật khẩu mới của tài khoản;
+    : 13. Ấn nút cập nhật mật khẩu;
     |System|
-    : Kiểm tra mật khẩu đã nhập;
-    backward :Hiển thị thông báo lỗi \nthông tin mật khẩu mới;
+    : 14. Kiểm tra mật khẩu đã nhập;
+    backward :15.1. Hiển thị thông báo lỗi \nthông tin mật khẩu mới;
     repeat while () is (Invalid password) not (Valid password) 
     |Database|
-    : Cập nhật mật khẩu mới cho tài khoản;
+    : 15.2. Cập nhật mật khẩu mới cho tài khoản;
     |System|
-    : Thông báo cập nhật mật khẩu thành công;
+    : 16.Thông báo cập nhật mật khẩu thành công;
     stop
 
 

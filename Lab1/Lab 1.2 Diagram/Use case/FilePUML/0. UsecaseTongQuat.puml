@@ -10,7 +10,7 @@ actor "EA System" as heThong
 rectangle "Employment assistance system" {
     usecase "Đăng nhập" as dangNhap
     usecase "Đăng ký" as dangKy
-    usecase "Quản lý bài đăng tuyển dụng" as quanLyBaiDang <<crud>>
+    usecase "Quản lý bài đăng tuyển dụng" as quanLyBaiDang <<CRUD>>
     usecase "Theo dõi" as theoDoi
     usecase "Báo cáo" as baoCao
     usecase "Đánh giá công ty tuyển dụng" as danhGiaCongTyTuyenDung
@@ -26,7 +26,7 @@ rectangle "Employment assistance system" {
     usecase "Quản lý truy cập hệ thống" as quanLyTruyCap
     usecase "Quản lý tài khoản admin" as quanLyTaiKhoanAdmin
     usecase "Đánh giá người ứng tuyển" as danhGiaNguoiUngTuyen
-    usecase "Quản lý tài khoản trong hệ thống" as quanLyTaiKhoan <<crud>>
+    usecase "Quản lý tài khoản trong hệ thống" as quanLyTaiKhoan <<CRUD>>
     usecase "Gợi ý việc làm" as goiYViecLam
 }
 

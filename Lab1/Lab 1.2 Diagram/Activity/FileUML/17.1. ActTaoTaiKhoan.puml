@@ -9,26 +9,26 @@ title Tạo tài khoản
 
 |Manager|
 start
-: Truy cập giao diện quản lý tài khoản;
+: 1. Truy cập giao diện quản lý tài khoản;
 |System|
-: Hiển thị giao diện quản lý tài khoản;
+: 2. Hiển thị giao diện quản lý tài khoản;
 |Manager|
-: Ấn nút tạo tài khoản và nhập thông tin tài khản;
+: 3. Ấn nút tạo tài khoản và nhập thông tin tài khản;
 |System|
-: Yêu cầu xác nhận tạo tài khoản;
+: 4. Yêu cầu xác nhận tạo tài khoản;
 |Manager|
 if () then (Không xác nhận)
-: Không xác nhận;
+: 5.1. Không xác nhận;
 stop
 else (Xác nhận)
-: Xác nhận;
+: 5.2. Xác nhận;
 |System|
-: Yêu cầu tạo tài khoản;
+: 6. Yêu cầu tạo tài khoản;
 |Database|
-: Tạo tài khoản;
-: Trả về kết quả tạo tài khoản;
+: 7. Tạo tài khoản;
+: 8. Trả về kết quả tạo tài khoản;
 |System|
-: Hiển thị thông báo tạo tài khoản thành công;
+: 9. Hiển thị thông báo tạo tài khoản thành công;
 stop
 
 @enduml

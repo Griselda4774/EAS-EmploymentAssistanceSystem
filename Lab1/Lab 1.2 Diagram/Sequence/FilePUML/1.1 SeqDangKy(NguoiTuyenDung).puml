@@ -19,7 +19,7 @@ alt Invalid Data
     userController -->candidateInterface: Thông báo dữ liệu không hợp lệ người dùng
     candidateInterface -->candidate: Thông báo dữ liệu không hợp lệ người dùng
 else
-    userController --> candidateInterface: Gửi mã xác thực về cho người dùng
+    userController -> candidateInterface: Gửi mã xác thực về cho người dùng
     candidate -> candidateInterface: Nhập mã xác thực 
     candidateInterface -> userController: Gửi mã xác thực
     userController -> userController: Kiểm tra mã xác thực
@@ -30,6 +30,6 @@ else
         userController -> User++: Tạo tài khoản người tuyển dụng
         User --> userController: Thông báo tạo tài khoản thành công
         userController --> candidateInterface: Thông báo tạo tài khoản thành công
-        candidateInterface--> candidate: Thông báo đăng ký tài khoản thành công
+        candidateInterface --> candidate: Thông báo đăng ký tài khoản thành công
     end
 end

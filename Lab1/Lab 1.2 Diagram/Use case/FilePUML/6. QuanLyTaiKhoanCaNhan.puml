@@ -5,8 +5,20 @@ rectangle "Quản lý tài khoản cá nhân"{
     usecase quanLyHoSoCaNhan as "Quản lý hồ sơ cá nhân"
     usecase quanLyHoSoXinViecCRUD as "Quản lý hồ sơ xin việc (CRUD)"
     usecase doiMatKhau as "Đổi mật khẩu"
+    usecase chinhSuaHoSoCaNhan as "Chỉnh sửa hồ sơ cá nhân"
+    usecase xemHoSoCaNhan as "Xem hồ sơ cá nhân"
+    usecase taoHoSoXinViec as "Tạo hồ sơ xin việc"
+    usecase xemHoSoXinViec as "Xem hồ sơ xin việc"
+    usecase suaHoSoXinViec as "Sửa hồ sơ xin việc"
+    usecase xoaHoSoXinViec as "Xóa hồ sơ xin việc"
 }
 nguoiUngTuyen -- quanLyHoSoCaNhan
 nguoiUngTuyen -- quanLyHoSoXinViecCRUD
-nguoiUngTuyen -- doiMatKhau
+nguoiUngTuyen -right- doiMatKhau
+quanLyHoSoCaNhan <.. chinhSuaHoSoCaNhan : <<extend>>
+quanLyHoSoCaNhan <.. xemHoSoCaNhan : <<extend>>
+quanLyHoSoXinViecCRUD <.. taoHoSoXinViec : <<extend>>
+quanLyHoSoXinViecCRUD <.. xemHoSoXinViec : <<extend>>
+quanLyHoSoXinViecCRUD <.. suaHoSoXinViec : <<extend>>
+quanLyHoSoXinViecCRUD <.. xoaHoSoXinViec : <<extend>>
 @enduml

@@ -5,13 +5,13 @@ title Truy cập bài đăng công ty
 
 |Company|
 start
-: Truy cập giao diện bài đăng;
+: 1. Truy cập giao diện bài đăng;
 |System|
-: Lấy thông tin bài đăng;
+: 2. Lấy thông tin bài đăng;
 |Database|
-: Truy vấn thông tin bài đăng;
-: Trả về thông tin bài đăng;
+: 3. Truy vấn thông tin bài đăng;
+: 4. Trả về thông tin bài đăng;
 |System|
-: Hiển thị thông tin bài đăng;
+: 5. Hiển thị thông tin bài đăng;
 stop
 @enduml

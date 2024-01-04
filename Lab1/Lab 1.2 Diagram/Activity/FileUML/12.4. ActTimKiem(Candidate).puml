@@ -5,21 +5,21 @@ title Tìm kiếm (Người ứng tuyển)
 
 |Candidate|
 start
-: Nhập từ khóa;
-: Nhấn nút tìm kiếm;
+: 1. Nhập từ khóa;
+: 2. Nhấn nút tìm kiếm;
 |System|
-: Tìm kiếm;
+: 3. Tìm kiếm;
 |Database|
 split
-: Truy vấn dữ liệu\ncông ty liên quan;
+: 4.1. Truy vấn dữ liệu\ncông ty liên quan;
 split again
-: Truy vấn dữ liệu\nngười ứng tuyển liên quan;
+: 4.2. Truy vấn dữ liệu\nngười ứng tuyển liên quan;
 split again
-: Truy vấn dữ liệu\nbài viết liên quan;
+: 4.3. Truy vấn dữ liệu\nbài viết liên quan;
 end split
-: Trả về kết quả tìm kiếm;
+: 5. Trả về kết quả tìm kiếm;
 |System|
-: Hiển thị kết quả tìm kiếm;
+: 6. Hiển thị kết quả tìm kiếm;
 stop
 
 @enduml

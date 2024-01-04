@@ -5,14 +5,14 @@ title Truy cập hồ sơ admin
 
 |Admin|
 start
-: Truy cập giao diện\n thông tin admin;
+: 1. Truy cập giao diện\n thông tin admin;
 |System|
-: Lấy thông tin admin;
+: 2. Lấy thông tin admin;
 |Database|
-: Truy vấn dữ liệu;
-: Trả về thông tin admin;
+: 3. Truy vấn dữ liệu;
+: 4. Trả về thông tin admin;
 |System|
-: Hiển thị thông tin admin;
+: 5. Hiển thị thông tin admin;
 stop
 @enduml
 ```

@@ -5,14 +5,14 @@ title Truy cập hồ sơ công ty tuyển dụng
 
 |User|
 start
-: Truy cập giao diện\nhồ sơ công ty tuyển dụng;
+: 1. Truy cập giao diện\nhồ sơ công ty tuyển dụng;
 |System|
-: Lấy thông tin hồ sơ\ncông ty tuyển dụng;
+: 2. Lấy thông tin hồ sơ\ncông ty tuyển dụng;
 |Database|
-: Truy vấn dữ liệu;
-: Trả về thông tin hồ sơ\ncông ty tuyển dụng;
+: 3. Truy vấn dữ liệu;
+: 4. Trả về thông tin hồ sơ\ncông ty tuyển dụng;
 |System|
-: Hiển thị thông tin\nhồ sơ công ty tuyển dụng;
+: 5. Hiển thị thông tin\nhồ sơ công ty tuyển dụng;
 stop
 
 @enduml

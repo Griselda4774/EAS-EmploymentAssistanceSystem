@@ -1,7 +1,6 @@
 @startuml KiemDuyet
 left to right direction
 
-actor "Manager" as quanLy
 actor "Staff" as nhanVien
 
 rectangle "Kiểm duyệt" {
@@ -13,7 +12,5 @@ rectangle "Kiểm duyệt" {
 nhanVien -- kiemDuyetHoSoNguoiUngTuyen
 nhanVien -- kiemDuyetHoSoCongTyTuyenDung
 nhanVien -- kiemDuyetBaiDangTuyenDung
-
-quanLy --^ nhanVien
 
 @enduml

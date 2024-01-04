@@ -5,22 +5,22 @@ title Xóa tin nhắn
 
 |User|
 start 
-: Chọn tin nhắn;
-: Nhấn nút xóa tin nhắn;
+: 1. Chọn tin nhắn;
+: 2. Nhấn nút xóa tin nhắn;
 |System|
-: Yêu cầu xác nhận xóa tin nhắn;
+: 3. Yêu cầu xác nhận xóa tin nhắn;
 |User|
 if () then (Không xác nhận)
-: Không xác nhận;
+: 4.1 Không xác nhận;
 stop
 else (Xác nhận)
-: Xác nhận;
+: 4.2 Xác nhận;
 |System|
-: Cập nhật cuộc trò chuyện;
+: 5. Cập nhật cuộc trò chuyện;
 |Database|
-: Xóa tin nhắn;
-: Trả về cuộc trò chuyện mới;
+: 6. Xóa tin nhắn;
+: 7. Trả về cuộc trò chuyện mới;
 |System|
-: Hiển thị cuộc trò chuyện mới;
+: 8. Hiển thị cuộc trò chuyện mới;
 stop
 @enduml

@@ -3,39 +3,39 @@ skin rose
 title Báo cáo bài đăng
 |Admin/User|
 start
-: User truy cập trang bài đăng;
+: 1. User truy cập trang bài đăng;
 |System|
-: Hiển thị trang bài đăng;
+: 2. Hiển thị trang bài đăng;
 |Admin/User|
-: Ấn nút báo cáo bài đăng;
-: Nhập thông tin báo cáo bài đăng;
+: 3. Ấn nút báo cáo bài đăng;
+: 4. Nhập thông tin báo cáo bài đăng;
 |System|
-: Gửi thông tin báo cáo bài đăng;
+: 5. Gửi thông tin báo cáo bài đăng;
 |Database|
-: Gửi thông tin bài đăng bị báo cáo;
+: 6. Gửi thông tin bài đăng bị báo cáo;
 |System|
-: Hiển thị thông tin bài \nđăng bị báo cáo về phía admin;
+: 7. Hiển thị thông tin bài \nđăng bị báo cáo về phía admin;
 |Admin/User|
-: Kiểm duyệt bản báo cáo bài đăng;
-: Chọn biện pháp xử lý bản báo cáo;
+: 8. Kiểm duyệt bản báo cáo bài đăng;
+: 9. Chọn biện pháp xử lý bản báo cáo;
 if () then (Cancel Report)
-: Chọn huỷ báo cáo bài đăng đó;
+: 9.1. Chọn huỷ báo cáo bài đăng đó;
 stop
 else (Accept Report)
-: Chọn nút xác nhận báo cáo đúng thông tin;
+: 9.2. Chọn nút xác nhận báo cáo đúng thông tin;
 |System|
-: Hiển thị phương pháp cảnh báo bài đăng;
+: 10. Hiển thị phương pháp cảnh báo bài đăng;
 if () then (Remove Post)
 |Database|
-: Cập nhật thông tin bài đăng đã bị xoá bởi admin;
+: 11.1. Cập nhật thông tin bài đăng đã bị xoá bởi admin;
 |System|
-: Hiển thị bài đăng không còn truy cập được;
+: 12.1. Hiển thị bài đăng không còn truy cập được;
 stop
 else (Warning Post)
 |Database|
-: Gửi thông tin cảnh báo\nbài đăng từ admin;
+: 11.2. Gửi thông tin cảnh báo\nbài đăng từ admin;
 |System|
-: Hiển thị cảnh báo bài đăng ở phía công ty tuyển dụng;
+: 12.2. Hiển thị cảnh báo bài đăng ở phía công ty tuyển dụng;
 stop
 
 @enduml
