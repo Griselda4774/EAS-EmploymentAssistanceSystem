@@ -3,39 +3,39 @@ skin rose
 title Báo cáo công ty tuyển dụng
 |Admin/User|
 start
-: User truy cập trang công ty tuyển dụng;
+: 1. User truy cập trang công ty tuyển dụng;
 |System|
-: Hiển thị trang công ty tuyển dụng;
+: 2. Hiển thị trang công ty tuyển dụng;
 |Admin/User|
-: Ấn nút báo cáo công ty tuyển dụng;
-: Nhập thông tin báo cáo công ty tuyển dụng;
+: 3. Ấn nút báo cáo công ty tuyển dụng;
+: 4. Nhập thông tin báo cáo công ty tuyển dụng;
 |System|
-: Gửi thông tin báo cáo công ty tuyển dụng;
+: 5. Gửi thông tin báo cáo công ty tuyển dụng;
 |Database|
-: Gửi thông tin công ty tuyển dụng bị báo cáo;
+: 6. Gửi thông tin công ty tuyển dụng bị báo cáo;
 |System|
-: Hiển thị thông tin công ty \n tuyển dụng bị báo cáo về phía admin;
+: 7. Hiển thị thông tin công ty \n tuyển dụng bị báo cáo về phía admin;
 |Admin/User|
-: Kiểm duyệt bản báo cáo công ty tuyển dụng;
-: Chọn biện pháp xử lý bản báo cáo;
+: 8. Kiểm duyệt bản báo cáo công ty tuyển dụng;
+: 9. Chọn biện pháp xử lý bản báo cáo;
 if () then (Cancel Report)
-: Chọn huỷ báo cáo công ty tuyển dụng đó;
+: 10.1. Chọn huỷ báo cáo công ty tuyển dụng đó;
 stop
 else (Accept Report)
-: Chọn nút xác nhận báo cáo đúng thông tin;
+: 10.2. Chọn nút xác nhận báo cáo đúng thông tin;
 |System|
-: Hiển thị phương pháp cảnh báo công ty tuyển dụng;
+: 11. Hiển thị phương pháp cảnh báo công ty tuyển dụng;
 if () then (Ban Company Account)
 |Database|
-: Cập nhật thông tin công ty \ntuyển dụng đã bị khoá hoạt động bởi admin;
+: 12.1. Cập nhật thông tin công ty \ntuyển dụng đã bị khoá hoạt động bởi admin;
 |System|
-: Hiển thị công ty \ntuyển dụng đã bị khoá;
+: 13.1 Hiển thị công ty \ntuyển dụng đã bị khoá;
 stop
 else (Warning Company Account)
 |Database|
-: Gửi thông tin cảnh báo\n công ty tuyển dụng\ntừ admin;
+: 12.2. Gửi thông tin cảnh báo\n công ty tuyển dụng\ntừ admin;
 |System|
-: Hiển thị cảnh báo công ty\n tuyển dụng ở phía công ty tuyển dụng;
+: 13.2. Hiển thị cảnh báo công ty\n tuyển dụng ở phía công ty tuyển dụng;
 stop
 
 @enduml

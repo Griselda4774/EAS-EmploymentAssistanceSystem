@@ -5,14 +5,14 @@ title Truy cập bài đăng
 
 |User|
 start
-: Truy cập giao diện\nbài đăng;
+: 1. Truy cập giao diện\nbài đăng;
 |System|
-: Lấy thông tin bài đăng;
+: 2. Lấy thông tin bài đăng;
 |Database|
-: Truy vấn dữ liệu;
-: Trả về thông tin bài đăng;
+: 3. Truy vấn dữ liệu;
+: 4. Trả về thông tin bài đăng;
 |System|
-: Hiển thị thông tin bài đăng;
+: 5. Hiển thị thông tin bài đăng;
 stop
 
 @enduml

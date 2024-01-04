@@ -2,24 +2,24 @@
 title Đổi mật khẩu
 skin rose
 |User|
-: Truy cập giao diện đổi mật khẩu;
+: 1. Truy cập giao diện đổi mật khẩu;
 |System|
-: Hiển thị giao diện đổi mật khẩu;
+: 2. Hiển thị giao diện đổi mật khẩu;
 |User|
-repeat : Nhập mật khẩu cũ và mật khẩu mới;
-: Ấn nút đổi mật khẩu;
+repeat : 3. Nhập mật khẩu cũ và mật khẩu mới;
+: 4. Ấn nút đổi mật khẩu;
 |System|
-: Kiểm tra format mật khẩu nhập vô;
-backward :Thông báo mật khẩu\n nhập vào không hợp lệ;
+: 5. Kiểm tra format mật khẩu nhập vô;
+backward :6.1. Thông báo mật khẩu\n nhập vào không hợp lệ;
 repeat while () is (Invalid password format) not (Valid password format) 
 |Database|
-: Kiểm tra thông tin mật khẩu cũ;
+: 6.2. Kiểm tra thông tin mật khẩu cũ;
 if () then (Invalid old password)
 |System|
-: Thông báo mật khẩu cũ bị sai;
+: 7.1. Thông báo mật khẩu cũ bị sai;
 stop
 else (Valid old password)
 |System|
-: Thông báo cập nhật mật\n khẩu mới thành công\n và thoát trang đổi mật khẩu;
+: 7.2. Thông báo cập nhật mật\n khẩu mới thành công\n và thoát trang đổi mật khẩu;
 stop
 @enduml

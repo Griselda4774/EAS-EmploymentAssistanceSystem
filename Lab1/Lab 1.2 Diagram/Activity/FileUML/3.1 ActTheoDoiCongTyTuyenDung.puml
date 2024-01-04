@@ -5,26 +5,26 @@ title Theo dõi công ty tuyển dụng
 
 |Candidate|
 start
-: Truy cập giao diện công ty tuyển dụng;
+: 1. Truy cập giao diện công ty tuyển dụng;
 |System|
-: Hiển thị trang công ty tuyển dụng;
+: 2. Hiển thị trang công ty tuyển dụng;
 |Candidate|
 if () then (Unfollow button)
-: Chọn nútunfollow công ty;
+: 3.1 Chọn nútunfollow công ty;
 |System|
-: Gửi thông báo\nunfollow công ty đó;
+: 4.1 Gửi thông báo\nunfollow công ty đó;
 |Database|
-: Cập nhật người dùng đã unfollow công ty;
+: 5.1 Cập nhật người dùng đã unfollow công ty;
 |System|
-: Hiển thị người dùng chưa follow công ty đó; 
+: 6.1 Hiển thị người dùng chưa follow công ty đó; 
 stop
 else (Follow button)
-: Chọn nút follow công ty;
+: 3.2 Chọn nút follow công ty;
 |System|
-: Gửi thông báo follow công ty đó;
+: 4.2 Gửi thông báo follow công ty đó;
 |Database|
-: Cập nhật\nngười dùng\nđã follow công ty;
+: 5.2 Cập nhật\nngười dùng\nđã follow công ty;
 |System|
-: Hiển thị người dùng đã follow công ty đó; 
+: 6.2 Hiển thị người dùng đã follow công ty đó; 
 stop
 @enduml

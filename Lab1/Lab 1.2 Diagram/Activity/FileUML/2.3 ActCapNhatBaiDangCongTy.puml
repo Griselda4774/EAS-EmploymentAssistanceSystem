@@ -5,31 +5,31 @@ title Cập nhật bài đăng công ty
 
 |Company|
 start
-: Truy cập trang cập nhật thông tin bài đăng;
+: 1. Truy cập trang cập nhật thông tin bài đăng;
 |System|
-: Lấy thông tin bài đăng;
+: 2. Lấy thông tin bài đăng;
 |Database|
-: Truy vấn thông tin bài đăng;
-: Trả về thông tin bài đăng;
+: 3. Truy vấn thông tin bài đăng;
+: 4. Trả về thông tin bài đăng;
 |System|
-: Hiển thị thông tin bài đăng;
+: 5. Hiển thị thông tin bài đăng;
 |Company|
-repeat: Nhập thông tin mới của bài đăng;
-: Nhập nút cần lựa chọn;
+repeat: 6. Nhập thông tin mới của bài đăng;
+: 7. Nhập nút cần lựa chọn;
 if () then (Cancle Button)
-: Nhập nút huỷ cập nhật;
+: 7.1. Nhập nút huỷ cập nhật;
 |Company|
 stop
 else (Update Button)
-: Nhập nút Cập nhật bài đăng;
+: 7.2. Nhập nút Cập nhật bài đăng;
 |System|
-: Kiểm tra thông tin bài đăng vừa cập nhật;
+: 8. Kiểm tra thông tin bài đăng vừa cập nhật;
 endif
-backward :Thông báo thông tin mới\n cập nhật của bài đăng bị lỗi;
+backward :9.1. Thông báo thông tin mới\n cập nhật của bài đăng bị lỗi;
 repeat while() is (Invalid data) not (Valid data)
 |Database|
-: Cập nhật thông tin bài đăng mới;
+: 9.2. Cập nhật thông tin bài đăng mới;
 |System|
-: Thông báo cập nhật thông tin bài\n đăng mới thành công;
+: 10. Thông báo cập nhật thông tin bài\n đăng mới thành công;
 stop
 @enduml
