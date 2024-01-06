@@ -14,12 +14,14 @@ entity ": Post\nClass" as postClass
 autonumber
 candidate++
 candidate -> candidateInterface++: Ấn vào nút ứng tuyển\n[đã truy cập vào giao diện bài đăng]
-candidateInterface --> candidate: Yêu cầu xác nhận ứng tuyển
+candidateInterface -> candidate: Yêu cầu chọn hồ sơ ứng tuyển
+candidate -> candidateInterface: Chọn hồ sơ ứng tuyển
+candidateInterface -> candidate: Yêu cầu xác nhận ứng tuyển
 alt Không xác nhận ứng tuyển
     candidate -> candidateInterface: Ấn vào nút không xác nhận
     candidateInterface --> candidate: Hiển thị giao diện bài đăng
 else Xác nhận ứng tuyển
-    autonumber 3
+    autonumber 5
     candidate -> candidateInterface: Ấn vào nút xác nhận
     candidateInterface -> jobApplicationController++: Yêu cầu tạo ứng tuyển
     jobApplicationController -> postController++: Yêu cầu kiểm tra bài đăng có tồn tại
