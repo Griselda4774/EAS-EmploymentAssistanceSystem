@@ -21,7 +21,7 @@ opt Actor choice: Truy cập bài đăng
     ui -> postController++: Yêu cầu lấy thông tin bài đăng
     postController -> postClass++: Lấy thông tin bài đăng
     postClass --> postController--: Trả về thông tin bài đăng
-    postController --> ui--: Trả về thông tin bài đăng
+    postController --> ui--: Trả về t hông tin bài đăng
     ui --> user--: Hiển thị thông tin bài đăng
 end
 
