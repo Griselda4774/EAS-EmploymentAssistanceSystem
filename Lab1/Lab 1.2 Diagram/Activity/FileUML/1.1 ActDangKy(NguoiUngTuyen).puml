@@ -19,10 +19,21 @@ repeat while () is (Invalid data) not (Valid data)
 if () then (Invalid data)
     |System|
     : 7.1. Hiển thị thông báo lỗi đăng ký;
+    stop;
 else (Valid data)
     |System|
-    :7.2. Hiển thị thông báo đăng ký thành công\n và chuyển sang trang chính;
+    :7.2. Gửi mã OTP về mail cho người dùng;
+    |Candidate|
+    repeat :8. Người dùng nhập mã OTP vào;
+    :9. Người dùng ấn nút xác nhận OTP;
+    |System|
+    :10. Kiểm tra thông tin mã OTP nhập vào;
+    backward :11.1: Thông báo sai mã OTP;
+    repeat while () is (Invalid data) not (Valid data) 
+    |Database|
+    : 11: Lưu thông tin vào database;
+    |System|
+    : 12: Thông báo tạo tài khoản thành công;
     endif
-|Database|
 stop
 
