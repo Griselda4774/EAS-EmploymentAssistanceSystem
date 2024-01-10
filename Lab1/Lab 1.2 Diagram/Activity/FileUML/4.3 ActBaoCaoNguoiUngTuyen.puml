@@ -1,12 +1,12 @@
 @startuml ActBaoCaoBaiDang
 skin rose
 title Báo cáo người ứng tuyển
-|Admin/User|
+|User|
 start
 : User truy cập trang người ứng tuyển;
 |System|
 : Hiển thị trang người ứng tuyển;
-|Admin/User|
+|User|
 : Ấn nút báo cáo người ứng tuyển;
 : Nhập thông tin báo cáo người ứng tuyển;
 |System|
@@ -14,29 +14,10 @@ start
 |Database|
 : Gửi thông tin người ứng tuyển bị báo cáo;
 |System|
-: Hiển thị thông tin người \n ứng tuyển bị báo cáo về phía admin;
-|Admin/User|
-: Kiểm duyệt bản báo cáo người ứng tuyển;
-: Chọn biện pháp xử lý bản báo cáo;
-if () then (Cancel Report)
-: Chọn huỷ báo cáo người ứng tuyển đó;
-stop
-else (Accept Report)
-: Chọn nút xác nhận báo cáo đúng thông tin;
-|System|
-: Hiển thị phương pháp cảnh báo người ứng tuyển;
-if () then (Ban Candidate Account)
-|Database|
-: Cập nhật thông tin người \n ứng tuyển đã bị khoá hoạt động bởi admin;
-|System|
-: Hiển thị người ứng tuyển đã bị khoá;
-stop
-else (Warning Candidate Account)
-|Database|
-: Gửi thông tin cảnh báo\n người ứng tuyển\ntừ admin;
-|System|
-: Hiển thị cảnh báo người \n ứng tuyển ở phía người ứng tuyển;
+: Trả về thông tin đã tố cáo người ứng tuyển thành công;
+|User|
+: Hiển thị thông tin \n"Chúng tôi đã nhận được báo cáo của bạn" ;
+
 stop
 
 @enduml
-```

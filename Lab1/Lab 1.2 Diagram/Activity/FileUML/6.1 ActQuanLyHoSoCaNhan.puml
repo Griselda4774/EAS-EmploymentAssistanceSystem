@@ -1,5 +1,5 @@
 @startuml ActQuanLyHoSoCaNhan
-title Quản lý hồ sơ cá nhân
+title Cập nhật hồ sơ cá nhân
 skin rose
 |Candidate|
 start

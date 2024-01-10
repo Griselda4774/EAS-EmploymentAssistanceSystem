@@ -1,12 +1,12 @@
 @startuml ActBaoCaoBaiDang
 skin rose
 title Báo cáo bài đăng
-|Admin/User|
+|User|
 start
 : User truy cập trang bài đăng;
 |System|
 : Hiển thị trang bài đăng;
-|Admin/User|
+|User|
 : Ấn nút báo cáo bài đăng;
 : Nhập thông tin báo cáo bài đăng;
 |System|
@@ -14,28 +14,10 @@ start
 |Database|
 : Gửi thông tin bài đăng bị báo cáo;
 |System|
-: Hiển thị thông tin bài \nđăng bị báo cáo về phía admin;
-|Admin/User|
-: Kiểm duyệt bản báo cáo bài đăng;
-: Chọn biện pháp xử lý bản báo cáo;
-if () then (Cancel Report)
-: Chọn huỷ báo cáo bài đăng đó;
-stop
-else (Accept Report)
-: Chọn nút xác nhận báo cáo đúng thông tin;
-|System|
-: Hiển thị phương pháp cảnh báo bài đăng;
-if () then (Remove Post)
-|Database|
-: Cập nhật thông tin bài đăng đã bị xoá bởi admin;
-|System|
-: Hiển thị bài đăng không còn truy cập được;
-stop
-else (Warning Post)
-|Database|
-: Gửi thông tin cảnh báo\nbài đăng từ admin;
-|System|
-: Hiển thị cảnh báo bài đăng ở phía công ty tuyển dụng;
+: Trả về thông tin đã tố cáo bài đăng thành công;
+|User|
+: Hiển thị thông tin \n"Chúng tôi đã nhận được báo cáo của bạn" ;
+
 stop
 
 @enduml

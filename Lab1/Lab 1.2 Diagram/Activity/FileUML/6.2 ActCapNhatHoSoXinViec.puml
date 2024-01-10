@@ -1,4 +1,4 @@
-    @startuml ActQuanLyHoSoXinViec
+@startuml ActQuanLyHoSoXinViec
 title Quản lý hồ sơ xin việc
 skin rose
 |Candidate|

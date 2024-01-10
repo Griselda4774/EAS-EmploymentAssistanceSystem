@@ -1,0 +1,37 @@
+@startuml ActQuanLyHoSoXinViec
+title Cập nhật hồ sơ công ty
+skin rose
+|Company|
+start
+: Truy cập giao diện thông tin hồ sơ công ty;
+|System|
+: Lấy thông tin hồ sơ công ty;
+|Database|
+: Truy vấn thông tin hồ sơ công ty;
+: Trả về thông tin hồ sơ công ty;
+|System|
+: Hiển thị thông tin hồ sơ công ty;
+|Company|
+: Chọn nút ở thông tin hồ sơ;
+if () then (Back button)
+|Company|
+: Chọn chỉnh sửa thông tin hồ sơ công ty;
+|System|
+: Hiển thị trang chỉnh sửa thông tin hồ sơ công ty;
+|Company|
+repeat: Nhập thông tin hồ sơ công ty mới cần chỉnh sửa;
+: Ân nút cập nhât thông tin;
+|System|
+backward :Thông báo sai thông tin nhập vào;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+:Cập nhật thông tin hồ sơ công ty vừa nhập;
+|System|
+:Thông báo cập nhật thông tin hồ sơ công ty thành công;
+stop
+else
+: Chọn nút quay về;
+|System|
+: Tắt trang thông tin hồ sơ công ty;
+stop
+@enduml
