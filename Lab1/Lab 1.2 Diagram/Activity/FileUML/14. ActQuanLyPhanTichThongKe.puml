@@ -5,14 +5,14 @@ title Quản lý phân tích thống kê
 
 |Admin|
 start
-: Truy cập giao diện quản lý phân tích thống kê;
+: 1. Truy cập giao diện quản lý phân tích thống kê;
 |System|
-: Lấy dữ liệu từ cơ sở dữ liệu;
+: 2. Lấy dữ liệu từ cơ sở dữ liệu;
 |Database|
-: Truy vấn dữ liệu;
-: Trả về dữ liệu;
+: 3. Truy vấn dữ liệu;
+: 4. Trả về dữ liệu;
 |System|
-: Hiển thị giao diện quản lý phân tích thống kê;
+: 5. Hiển thị giao diện quản lý phân tích thống kê;
 stop
 
 @enduml

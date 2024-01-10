@@ -2,19 +2,25 @@
 skin rose
 title Tạo bài đăng
 |Company|
-: Truy cập vào trang đăng tải bài đăng;
+: 1. Truy cập vào trang đăng tải bài đăng;
 |System|
-: Hiển thị trang bài đăng trống;
+: 2. Hiển thị trang bài đăng trống;
 |Company|
-repeat : Nhập toàn bộ thông tin bài đăng;
-: Ấn nút đăng tải bài đăng;
+repeat : 3. Nhập toàn bộ thông tin bài đăng;
+: 4. Ấn nút đăng tải bài đăng;
 |System|
-: Kiểm tra thông tin bài đăng;
-backward :Thông báo sai thông tin bài đăng;
-repeat while() is (Invalid data) not (Valid data)
+: 5. Kiểm tra thông tin bài đăng;
+backward :6.1. Thông báo sai thông tin bài đăng;
+repeat while () is (Invalid data) not (Valid data)
 |Database|
-: Cập nhật bài đăng vừa đăng tải;
+: 6.2. Cập nhật bài đăng vừa đăng tải;
 |System|
-: Thông báo đăng tải bài đăng thành công\n và thoát trang Đăng tải bài đăng;
+: 7. Thông báo đăng tải bài đăng thành công\n và thoát trang Đăng tải bài đăng;
 stop
+
+
+
+
+
+
 @enduml

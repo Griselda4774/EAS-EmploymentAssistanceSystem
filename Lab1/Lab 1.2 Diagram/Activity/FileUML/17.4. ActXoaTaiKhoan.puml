@@ -5,24 +5,24 @@ title Xóa tài khoản
 
 |Manager|
 start
-: Truy cập giao diện quản lý tài khoản;
-: Chọn tài khoản cần xóa;
-: Ấn nút "Xóa";
+: 1. Truy cập giao diện quản lý tài khoản;
+: 2. Chọn tài khoản cần xóa;
+: 3. Ấn nút "Xóa";
 |System|
-: Yêu cầu xác nhận xóa tài khoản;
+: 4. Yêu cầu xác nhận xóa tài khoản;
 |Manager|
 if () then (Không xác nhận)
-: Ấn nút "Hủy";
+: 5.1. Ấn nút "Hủy";
 stop
 else (Xác nhận)
-: Ấn nút "Xác nhận";
+: 5.2. Ấn nút "Xác nhận";
 |System|
-: Gửi yêu cầu xóa tài khoản;
+: 6. Gửi yêu cầu xóa tài khoản;
 |Database|
-: Xóa tài khoản;
-: Trả về kết quả xóa tài khoản;
+: 7. Xóa tài khoản;
+: 8. Trả về kết quả xóa tài khoản;
 |System|
-: Hiển thị thông báo xóa tài khoản thành công;
+: 9. Hiển thị thông báo xóa tài khoản thành công;
 stop
 
 @enduml

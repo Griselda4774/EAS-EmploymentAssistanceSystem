@@ -5,7 +5,6 @@ actor "User" as nguoiDung
 actor "Candidate" as nguoiUngTuyen
 actor "Company" as congTyTuyenDung
 actor "Staff" as nhanVien
-actor "Manager" as quanLy
 
 rectangle "Truy cập" {
     usecase "Truy cập bài đăng" as truyCapBaiDang
@@ -22,7 +21,5 @@ nguoiUngTuyen --^ nguoiDung
 congTyTuyenDung --^ nguoiDung
 
 nhanVien --^ nguoiDung
-
-quanLy --^ nhanVien
 
 @enduml

@@ -5,21 +5,21 @@ title Bỏ chặn tin nhắn
 
 |User|
 start 
-: Chọn cuộc trò chuyện;
-: Nhấn nút bỏ chặn tin nhắn;
+: 1. Chọn cuộc trò chuyện;
+: 2. Nhấn nút bỏ chặn tin nhắn;
 |System|
-: Yêu cầu xác nhận bỏ chặn tin nhắn;
+: 3. Yêu cầu xác nhận bỏ chặn tin nhắn;
 |User|
 if () then (Không xác nhận)
-: Không xác nhận;
+: 4.1 Không xác nhận;
 stop
 else (Xác nhận)
-: Xác nhận;
+: 4.2 Xác nhận;
 |System|
-: Cập nhật cuộc trò chuyện;
+: 5. Cập nhật cuộc trò chuyện;
 |Database|
-: Trả về cuộc trò chuyện mới;
+: 6. Trả về cuộc trò chuyện mới;
 |System|
-: Hiển thị giao diện nhắn tin mới;
+: 7. Hiển thị giao diện nhắn tin mới;
 stop
 @enduml

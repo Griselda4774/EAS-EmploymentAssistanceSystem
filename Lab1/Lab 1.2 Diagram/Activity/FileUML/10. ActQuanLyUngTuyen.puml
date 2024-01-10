@@ -5,35 +5,35 @@ title Quản lý ứng tuyển
 
 |Company|
 start
-: Truy cập giao diện thông tin ứng tuyển;
+: 1. Truy cập giao diện thông tin ứng tuyển;
 |System|
-: Lấy thông tin ứng tuyển;
+: 2. Lấy thông tin ứng tuyển;
 |Database|
-: Truy vấn thông tin ứng tuyển;
-: Trả về thông tin ứng tuyển;
+: 3. Truy vấn thông tin ứng tuyển;
+: 4. Trả về thông tin ứng tuyển;
 |System|
-: Hiển thị thông tin ứng tuyển;
+: 5. Hiển thị thông tin ứng tuyển;
 |Company|
 if () then (Duyệt ứng tuyển)
-: Không duyệt\nứng tuyển;
+: 6.1. Không duyệt\nứng tuyển;
 |System|
-: Không duyệt ứng tuyển;
+: 7.1. Không duyệt ứng tuyển;
 |Database|
-: Cập nhật trạng thái ứng tuyển;
-: Trả về thông báo không duyệt ứng tuyển;
+: 8.1. Cập nhật trạng thái ứng tuyển;
+: 9.1. Trả về thông báo không duyệt ứng tuyển;
 |System|
-: Hiển thị thông báo\nkhông duyệt ứng tuyển;
+: 10.1. Hiển thị thông báo\nkhông duyệt ứng tuyển;
 stop
 else (Không duyệt ứng tuyển)
 |Company|
-: Duyệt ứng tuyển;
+: 6.2. Duyệt ứng tuyển;
 |System|
-: Duyệt ứng tuyển;
+: 7.2. Duyệt ứng tuyển;
 |Database|
-: Cập nhật trạng\nthái ứng tuyển;
-: Trả về thông báo\nduyệt ứng tuyển;
+: 8.2. Cập nhật trạng\nthái ứng tuyển;
+: 9.2. Trả về thông báo\nduyệt ứng tuyển;
 |System|
-: Hiển thị thông báo\nduyệt ứng tuyển;
+: 10.2. Hiển thị thông báo\nduyệt ứng tuyển;
 stop
 
 @enduml

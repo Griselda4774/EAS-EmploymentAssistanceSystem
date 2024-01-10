@@ -1,8 +1,7 @@
 @startuml QuanLyTaiKhoanAdmin
 left to right direction
 actor nhanVien as "Staff"
-actor quanLy as "Manager"
-quanLy --^ nhanVien
+
 rectangle "Quản lý tài khoản admin"{
     usecase truyCapHoSoCaNhanAdmin as "Truy cập hồ sơ admin"
     usecase doiMatKhau as "Đổi mật khẩu"

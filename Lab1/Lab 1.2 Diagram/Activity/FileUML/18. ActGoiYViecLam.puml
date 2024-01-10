@@ -9,19 +9,19 @@ title Gợi ý việc làm
 
 |Candidate|
 start
-: Đăng nhập vào hệ thống;
+: 1. Đăng nhập vào hệ thống;
 |System|
-: Yêu cầu lấy thông tin hồ sơ xin việc;
+: 2. Yêu cầu lấy thông tin hồ sơ xin việc;
 |Database|
-: Truy vấn thông tin hồ sơ xin việc;
-: Trả về thông tin hồ sơ xin việc;
+: 3. Truy vấn thông tin hồ sơ xin việc;
+: 4. Trả về thông tin hồ sơ xin việc;
 |System|
-: Yêu cầu lấy thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+: 5. Yêu cầu lấy thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
 |Database|
-: Truy vấn thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
-: Trả về thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+: 6. Truy vấn thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+: 7. Trả về thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
 |System|
-: Hiển thị thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
+: 8. Hiển thị thông tin những bài đăng\ncó liên quan hồ sơ xin việc;
 stop
 
 @enduml

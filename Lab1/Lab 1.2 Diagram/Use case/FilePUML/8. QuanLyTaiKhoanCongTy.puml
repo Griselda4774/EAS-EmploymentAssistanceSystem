@@ -4,6 +4,10 @@ actor congTy as "Company"
 rectangle "Quản lý tài khoản công ty"{
     usecase quanLyHoSoCongTy as "Quản lý hồ sơ công ty"
     usecase doiMatKhau as "Đổi mật khẩu"
+    usecase xemHoSoCongTy as "Xem hồ sơ công ty"
+    usecase chinhSuHoSoCongTy as "Chỉnh sửa hồ sơ công ty"
 }
 congTy -- quanLyHoSoCongTy
 congTy -- doiMatKhau
+quanLyHoSoCongTy <.. xemHoSoCongTy: <<extend>>
+quanLyHoSoCongTy <.. chinhSuHoSoCongTy: <<extend>>

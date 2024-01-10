@@ -3,30 +3,30 @@ skin rose
 title Xoá bài đăng công ty
 |Company|
 start
-: Truy cập giao diện bài đăng;
+: 1. Truy cập giao diện bài đăng;
 |System|
-: Lấy thông tin bài đăng;
+: 2. Lấy thông tin bài đăng;
 |Database|
-: Truy vấn thông tin bài đăng;
-: Trả về thông tin bài đăng;
+: 3. Truy vấn thông tin bài đăng;
+: 4. Trả về thông tin bài đăng;
 |System|
-: Hiển thị thông tin bài đăng;
+: 5. Hiển thị thông tin bài đăng;
 |Company|
-: Chọn nút xoá bài đăng;
+: 6. Chọn nút xoá bài đăng;
 |System|
-: Hiển thị thông báo \n"Bạn có muốn xoá bài đăng hay không";
+: 7. Hiển thị thông báo \n"Bạn có muốn xoá bài đăng hay không";
 if () then (No button)
 |Company|
-: Chọn nút "No";
+: 8.1. Chọn nút "No";
 stop
 else (Yes button)
 |Company|
-: Chọn nút "Yes";
+: 8.2. Chọn nút "Yes";
 |System|
-: Đưa thông tin bài đăng cần xoá;
+: 9. Đưa thông tin bài đăng cần xoá;
 |Database|
-: Xoá bài đăng đó;
+: 10. Xoá bài đăng đó;
 |System|
-: Thông báo xoá thành công bài đăng;
+: 11. Thông báo xoá thành công bài đăng;
 stop
 @enduml

@@ -5,14 +5,14 @@ title Gửi tin nhắn
 
 |User|
 start 
-: Nhập nội dung tin nhắn;
-: Nhấn nút gửi;
+: 1. Nhập nội dung tin nhắn;
+: 2. Nhấn nút gửi;
 |System|
-: Cập nhật cuộc trò chuyện;
+: 3. Cập nhật cuộc trò chuyện;
 |Database|
-: Lưu tin nhắn;
-: Trả về cuộc trò chuyện mới;
+: 4. Lưu tin nhắn;
+: 5. Trả về cuộc trò chuyện mới;
 |System|
-: Hiển thị cuộc trò chuyện mới;
+: 6. Hiển thị cuộc trò chuyện mới;
 stop
 @enduml
