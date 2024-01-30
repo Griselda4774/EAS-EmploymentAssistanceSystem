@@ -1,0 +1,25 @@
+@startuml ActDoiMatKhau
+title Đổi mật khẩu
+skin rose
+|User|
+: 1. Truy cập giao diện đổi mật khẩu;
+|System|
+: 2. Hiển thị giao diện đổi mật khẩu;
+|User|
+repeat : 3. Nhập mật khẩu cũ và mật khẩu mới;
+: 4. Ấn nút đổi mật khẩu;
+|System|
+: 5. Kiểm tra format mật khẩu nhập vô;
+backward :6.1. Thông báo mật khẩu\n nhập vào không hợp lệ;
+repeat while () is (Invalid password format) not (Valid password format) 
+|Database|
+: 6.2. Kiểm tra thông tin mật khẩu cũ;
+if () then (Invalid old password)
+|System|
+: 7.1. Thông báo mật khẩu cũ bị sai;
+stop
+else (Valid old password)
+|System|
+: 7.2. Thông báo cập nhật mật\n khẩu mới thành công\n và thoát trang đổi mật khẩu;
+stop
+@enduml

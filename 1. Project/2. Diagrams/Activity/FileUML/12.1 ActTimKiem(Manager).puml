@@ -1,0 +1,19 @@
+@startuml ActTimKiem(Manager)
+
+skin rose
+title Tìm kiếm (Quản lý)
+
+|Manager|
+start
+: 1. Nhập từ khóa;
+: 2. Nhấn nút tìm kiếm;
+|System|
+: 3. Tìm kiếm;
+|Database|
+: 4. Truy vấn dữ liệu\nngười dùng liên quan;
+: 5. Trả về kết quả tìm kiếm;
+|System|
+: 6. Hiển thị kết quả tìm kiếm;
+stop
+
+@enduml

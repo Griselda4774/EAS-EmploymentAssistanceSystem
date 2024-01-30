@@ -1,0 +1,18 @@
+@startuml ActTruyCapHoSoCongTyTuyenDung
+
+skin rose
+title Truy cập hồ sơ công ty tuyển dụng
+
+|User|
+start
+: 1. Truy cập giao diện\nhồ sơ công ty tuyển dụng;
+|System|
+: 2. Lấy thông tin hồ sơ\ncông ty tuyển dụng;
+|Database|
+: 3. Truy vấn dữ liệu;
+: 4. Trả về thông tin hồ sơ\ncông ty tuyển dụng;
+|System|
+: 5. Hiển thị thông tin\nhồ sơ công ty tuyển dụng;
+stop
+
+@enduml

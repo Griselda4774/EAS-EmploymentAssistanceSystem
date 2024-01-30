@@ -1,0 +1,30 @@
+@startuml ActTheoDoiCongTyTuyenDung
+
+skin rose
+title Theo dõi công ty tuyển dụng
+
+|Candidate|
+start
+: 1. Truy cập giao diện công ty tuyển dụng;
+|System|
+: 2. Hiển thị trang công ty tuyển dụng;
+|Candidate|
+if () then (Unfollow button)
+: 3.1 Chọn nútunfollow công ty;
+|System|
+: 4.1 Gửi thông báo\nunfollow công ty đó;
+|Database|
+: 5.1 Cập nhật người dùng đã unfollow công ty;
+|System|
+: 6.1 Hiển thị người dùng chưa follow công ty đó; 
+stop
+else (Follow button)
+: 3.2 Chọn nút follow công ty;
+|System|
+: 4.2 Gửi thông báo follow công ty đó;
+|Database|
+: 5.2 Cập nhật\nngười dùng\nđã follow công ty;
+|System|
+: 6.2 Hiển thị người dùng đã follow công ty đó; 
+stop
+@enduml

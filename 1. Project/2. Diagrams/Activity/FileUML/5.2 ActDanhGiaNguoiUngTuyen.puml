@@ -1,0 +1,20 @@
+@startuml ActDanhGiaNguoiUngTuyen
+title Đánh giá người ứng tuyển
+skin rose 
+|Company|
+: 1. Chọn người ứng tuyển mà công ty đó đã phỏng vấn tuyển dụng;
+|System|
+: 2. Hiển thị bảng đánh giá người ứng tuyển đó;
+|Company|
+repeat: 3. Nhập thông tin đánh giá người ứng tuyển;
+: 4. Chọn nút "Đánh giá";
+|System|
+: 5. Kiểm tra thông tin đánh giá;
+backward :6.1. Thông báo lỗi thông tin đánh giá;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+: 6.2. Lưu thông tin đánh giá người ứng tuyển;
+|System|
+: 7. Thông báo lưu thông tin đánh giá người ứng tuyển thành công \nvà hiển thị đánh giá đó ở phía người ứng tuyển;
+stop
+@enduml

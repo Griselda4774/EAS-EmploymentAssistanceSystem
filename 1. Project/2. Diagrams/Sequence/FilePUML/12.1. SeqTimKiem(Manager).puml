@@ -1,0 +1,27 @@
+@startuml SeqTimKiem(Manager)
+
+skin rose
+hide footbox
+
+title Tìm kiếm (Quản lý)
+
+actor Manager as Manager
+boundary ": Manager Interface\nClass" as ManagerInterface
+control ": Search Controller\nClass" as searchController
+control ": User Controller\nClass" as userController
+control ": Post Controller\nClass" as postController
+entity ": User\nClass" as userClass
+entity ": Post\nClass" as postClass
+
+autonumber
+Manager++
+Manager -> ManagerInterface++: Nhập từ khóa
+ManagerInterface -> searchController++: Truyền từ khóa
+    searchController -> userController++: Tìm kiếm người dùng có từ khóa
+    userController -> userClass++: Lấy thông tin người dùng có từ khóa
+    userClass --> userController--: Trả về thông tin người dùng có từ khóa
+    userController --> searchController--: Trả về thông tin người dùng có từ khóa
+searchController --> ManagerInterface--: Trả về kết quả tìm kiếm
+ManagerInterface --> Manager--: Hiển thị kết quả tìm kiếm
+Manager--
+@enduml

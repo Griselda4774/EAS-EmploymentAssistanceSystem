@@ -1,0 +1,21 @@
+@startuml ActDanhGiaCongTyTuyenDUng
+title Đánh giá công ty tuyển dụng
+skin rose 
+|Candidate|
+start
+: 1. Chọn công ty mà người ứng tuyển đó đã tham gia tuyển dụng;
+|System|
+: 2. Hiển thị bảng đánh giá công ty tuyển dụng đó;
+|Candidate|
+repeat: 3. Nhập thông tin đánh giá công ty tuyển dụng;
+: 4. Chọn nút "Đánh giá";
+|System|
+: 5. Kiểm tra thông tin đánh giá;
+backward :6.1. Thông báo lỗi thông tin đánh giá;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+: 6.2. Lưu thông tin đánh giá công ty tuyển dụng;
+|System|
+: 7. Thông báo lưu thông tin đánh giá công ty thành công \nvà hiển thị đánh giá đó ở phía công ty tuyển dụng;
+stop
+@enduml

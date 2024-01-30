@@ -1,0 +1,50 @@
+@startuml SeqTruyCap
+
+skin rose
+hide footbox
+
+title Truy cập
+
+actor User as user
+boundary ": User Interface\nClass" as ui
+control ": User Controller\nClass" as userController
+control ": Post Controller\nClass" as postController
+entity ": User\nClass" as userClass
+entity ": Post\nClass" as postClass
+
+autonumber
+user++
+
+opt Actor choice: Truy cập bài đăng
+    autonumber 1
+    user -> ui++: Truy cập giao diện bài đăng
+    ui -> postController++: Yêu cầu lấy thông tin bài đăng
+    postController -> postClass++: Lấy thông tin bài đăng
+    postClass --> postController--: Trả về thông tin bài đăng
+    postController --> ui--: Trả về t hông tin bài đăng
+    ui --> user--: Hiển thị thông tin bài đăng
+end
+
+opt Actor choice: Truy cập hồ sơ người ứng tuyển
+    autonumber 1
+    user -> ui++: Truy cập giao diện hồ sơ người ứng tuyển
+    ui -> userController++: Yêu cầu lấy thông tin hồ sơ người ứng tuyển
+    userController -> userClass++: Lấy thông tin hồ sơ người ứng tuyển
+    userClass --> userController--: Trả về thông tin hồ sơ người ứng tuyển
+    userController --> ui--: Trả về thông tin hồ sơ người ứng tuyển
+    ui --> user--: Hiển thị thông tin hồ sơ người ứng tuyển
+end
+
+opt Actor choice: Truy cập hồ sơ công ty tuyển dụng
+    autonumber 1
+    user -> ui++: Truy cập giao diện hồ sơ công ty tuyển dụng
+    ui -> userController++: Yêu cầu lấy thông tin hồ sơ công ty tuyển dụng
+    userController -> userClass++: Lấy thông tin hồ sơ công ty tuyển dụng
+    userClass --> userController--: Trả về thông tin hồ sơ công ty tuyển dụng
+    userController --> ui--: Trả về thông tin hồ sơ công ty tuyển dụng
+    ui --> user--: Hiển thị thông tin hồ sơ công ty tuyển dụng
+end
+
+user--
+
+@enduml

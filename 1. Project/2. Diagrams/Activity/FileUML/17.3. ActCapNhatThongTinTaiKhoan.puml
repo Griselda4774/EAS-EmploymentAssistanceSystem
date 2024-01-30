@@ -1,0 +1,30 @@
+@startuml ActCapNhatThongTinTaiKhoan
+
+skin rose
+title Cập nhật thông tin tài khoản
+
+|Manager|
+start
+: 1. Truy cập giao diện thông tin tài khoản;
+|System|
+: 2. Hiển thị giao diện thông tin tài khoản;
+|Manager|
+: 3. Ấn nút "Cập nhật"\nvà nhập thông tin cần cập nhật;
+|System|
+: 4. Yêu cầu xác nhận cập nhật thông tin;
+|Manager|
+if () then (Không xác nhận)
+: 5.1. Không xác nhận;
+stop
+else(Xác nhận)
+: 5.2. Ấn nút "Xác nhận";
+|System|
+: 6. Gửi yêu cầu cập nhật thông tin tài khoản;
+|Database|
+: 7. Cập nhật thông tin tài khoản;
+: 8. Trả về kết quả cập nhật;
+|System|
+: 9. Hiển thị kết quả cập nhật;
+stop
+
+@enduml 

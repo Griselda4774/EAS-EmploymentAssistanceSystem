@@ -1,0 +1,44 @@
+@startuml SeqBaoCaoBaiDang
+hide footbox
+skin rose 
+actor candidate as "Candidate"
+actor admin as "Admin"
+actor company as "Company"
+boundary adminInterface as ": Admin Interface\nClass"
+boundary userInterface as ": User Interface\nClass"
+boundary companyInterface as ": Company Interface\nClass"
+control userController as ": User Controller\nClass"
+entity User as ": User\nClass"
+candidate++
+admin++
+company++
+autonumber
+candidate-> userInterface++: Truy cập vào trang công ty tuyển dụng
+userInterface--> candidate: Hiển thị công ty
+candidate-> userInterface: Chọn nút báo cáo\n công ty
+candidate-> userInterface: Nhập nội dung và loại yêu cầu báo cáo
+userInterface-> userController++: Gửi yêu cầu báo cáo\n công ty
+User --> userController: Gửi thông tin công ty bị báo cáo
+userController--> adminInterface++: Hiển thị thông tin công ty bị báo cáo
+admin -> adminInterface: Kiểm duyệt nội dung báo cáo thông tin công ty
+alt Cancel Report
+adminInterface -> userController: Gửi yêu cầu huỷ báo cáo công ty
+userController -> User: Gửi thông tin công ty đó đã huỷ trạng thái báo cáo
+else Accept Report
+admin -> adminInterface: Chọn biện pháp cảnh cáo 
+adminInterface -> adminInterface: Hiển thị biện pháp cảnh cáo
+opt Ban Company activity
+adminInterface -> userController: Gửi yêu cầu khoá tài khoản công ty
+userController -> User: Gửi thông tin công ty muốn khoá tài khoản 
+User --> userController: Thông báo tài khoản công ty đã bị khoá 
+userController --> companyInterface++: Thông báo tài khoản công ty đã bị khoá 
+companyInterface --> company: Thông báo tài khoản đã bị khoá
+end
+opt Send report to Company
+adminInterface->userController: Gửi yêu cầu cảnh báo công ty
+userController -> User++: Gửi thông tin cảnh cáo đến công ty
+User --> userController: Gửi cảnh cáo đến công ty 
+userController --> companyInterface: Hiển thị thông báo \n"Cảnh cáo công ty vi phạm tiêu chuẩn"
+companyInterface --> company: Thông báo tài khoản đã bị khoá
+end
+end

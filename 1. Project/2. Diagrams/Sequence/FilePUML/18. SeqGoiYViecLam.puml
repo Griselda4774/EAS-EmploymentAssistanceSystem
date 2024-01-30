@@ -1,0 +1,29 @@
+@startuml GoiYViecLam
+
+skin rose
+hide footbox
+
+title Gợi ý việc làm
+
+actor "Candidate" as nguoiUngTuyen
+boundary ": Candidate Interface\nClass" as candidateInterface
+control ": Candidate Controller\nClass" as candidateController
+control ": Post Controller\nClass" as postController
+entity ": Candidate\nClass" as candidate
+entity ": Post\nClass" as post
+
+autonumber
+nguoiUngTuyen++
+nguoiUngTuyen->candidateInterface++: Đăng nhập
+candidateInterface->candidateController++: Yêu cầu thông tin bài đăng phù hợp
+candidateController->candidate++ : Lấy thông tin CV người dùng
+candidate-->candidateController-- : Trả về thông tin CV người dùng
+candidateController->postController--: Truyền thông tin CV người dùng
+postController++
+postController->post++: Lấy thông tin bài đăng\nphù hợp với CV người dùng
+post-->postController--: Trả về thông tin bài đăng\nphù hợp với CV người dùng
+postController-->candidateInterface--: Truyền thông tin bài đăng\nphù hợp với CV người dùng
+candidateInterface-->nguoiUngTuyen--: Hiển thị thông tin bài đăng\nphù hợp với CV người dùng
+nguoiUngTuyen--
+
+@enduml

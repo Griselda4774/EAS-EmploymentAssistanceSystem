@@ -1,0 +1,12 @@
+@startuml BaoCao
+left to right direction
+actor nguoiUngTuyen as "Candidate"
+rectangle "Báo cáo"{
+    usecase baoCaoBaiDang as "Báo cáo bài đăng"
+    usecase baoCaoNguoiDung as "Báo cáo người dùng"
+    usecase baoCaoCongTyTuyenDung as "Báo cáo công ty tuyển dụng"
+}
+
+nguoiUngTuyen -- baoCaoBaiDang
+nguoiUngTuyen -- baoCaoCongTyTuyenDung
+nguoiUngTuyen -- baoCaoNguoiDung

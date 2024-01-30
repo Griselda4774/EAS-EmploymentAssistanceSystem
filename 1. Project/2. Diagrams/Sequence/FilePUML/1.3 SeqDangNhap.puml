@@ -1,0 +1,33 @@
+@startuml SeqDangNhap
+skin rose
+hide footbox 
+scale 5
+
+actor user as "User"
+boundary userInterface as ":User Interface\nClass"
+control userController as ":User controller\nClass"
+entity User as ": User\nClass"
+autonumber
+user++
+user -> userInterface++: Truy cập vào trang đăng nhập
+userInterface --> user: Hiển thị trang đăng nhập
+user -> userInterface: Nhập thông tin đăng nhập
+userInterface -> userController++: Gửi thông tin đăng nhập
+userController -> userController: Kiểm tra thông tin format\n thông tin đăng nhập
+alt Invalid data
+    userController --> userInterface: Gửi thông báo thông tin không hợp lệ
+    userInterface --> user: Gửi thông báo thông tin không hợp lệ
+else Valid data
+    userController -> User++: Gửi thông tin đăng nhập
+    User --> userController : Gửi thông tin tài khoản đã đăng nhập
+    userController -> userController: Kiểm tra thông\n tin tài khoản
+    alt Invalid data
+        userController --> userInterface: Hiển thị thông báo \n"thông tin đăng nhập không hợp lệ"
+        userInterface --> user: Hiển thị thông báo \n"thông tin đăng nhập không hợp lệ"
+    else Valid data
+        User --> userController: Thông báo đúng\n thông tin đăng nhập
+        userController --> userInterface: Hiển thị thông báo\n"Đăng nhập thành công"
+        userInterface --> user: Thông báo đăng nhập thành công
+    end
+end
+@enduml

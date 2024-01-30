@@ -1,0 +1,27 @@
+@startuml ActDangNhap
+skin rose
+title Đăng nhập
+|User|
+start
+:1.  Ấn vào nút đăng nhập người dùng\n;
+|System|
+: 2. Hiển thị trang đăng nhập;
+|User|
+repeat : 3. Nhập thông tin đăng nhập;
+: 4. Ấn nút đăng nhập;
+|System|
+: 5. Kiểm tra format thông tin đăng nhập;
+backward :6.1. Hiển thị thông báo lỗi thông tin đăng nhập;
+repeat while () is (Invalid data) not (Valid data) 
+|Database|
+:6.2. Kiểm tra thông tin \ntài khoản đăng nhập;
+if () then (Invalid data)
+    |System|
+    : 7.1. Hiển thị thông báo sai thông tin đăng nhập;
+else (Valid data)
+    |System|
+    : 7.2. Hiển thị thông báo đăng nhập thành công;
+    endif
+|Database|
+stop
+

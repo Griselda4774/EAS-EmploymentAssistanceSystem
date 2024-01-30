@@ -1,0 +1,26 @@
+@startuml SeqQuanLyHoSoCaNhan
+skin rose
+hide footbox
+actor candidate as "Candidate"
+boundary candidateInterface as ": Candidate Interface\nClass"
+control userController as ": User Controller\nClass"
+entity User as ": User\nClass"
+autonumber
+candidate++
+candidate-> candidateInterface++: Truy cập trang cá nhân
+candidateInterface-->candidate: Trả về trang cá nhân người dùng
+candidate-> candidateInterface: Chọn chỉnh sửa thông tin
+candidateInterface--> candidate: Hiển thị trang chỉnh sửa\nthông tin cá nhân
+candidate -> candidateInterface: Nhập thông tin cá nhân
+candidateInterface->userController: Gửi thông tin cá nhân đã nhập
+userController->userController: Kiểm tra thông tin đã nhập
+alt Invalid Data
+userController --> candidateInterface: Thông báo sai thông tin 
+candidateInterface --> candidate: Thông báo nhập lại thông tin
+else Valid Data
+userController -> User++: Gửi thông tin cá nhân \nngười dùng mới cập nhật
+User --> userController: Thông báo dữ liệu cập nhật thành công
+userController --> candidateInterface: Hiển thị thông báo cập nhật\n thông tin người dùng thành công
+candidateInterface --> candidate: Thông báo cập nhật thông tin thành công
+end
+@enduml

@@ -1,0 +1,26 @@
+@startuml ActTaoBaiDang.puml
+skin rose
+title Tạo bài đăng
+|Company|
+: 1. Truy cập vào trang đăng tải bài đăng;
+|System|
+: 2. Hiển thị trang bài đăng trống;
+|Company|
+repeat : 3. Nhập toàn bộ thông tin bài đăng;
+: 4. Ấn nút đăng tải bài đăng;
+|System|
+: 5. Kiểm tra thông tin bài đăng;
+backward :6.1. Thông báo sai thông tin bài đăng;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+: 6.2. Cập nhật bài đăng vừa đăng tải;
+|System|
+: 7. Thông báo đăng tải bài đăng thành công\n và thoát trang Đăng tải bài đăng;
+stop
+
+
+
+
+
+
+@enduml

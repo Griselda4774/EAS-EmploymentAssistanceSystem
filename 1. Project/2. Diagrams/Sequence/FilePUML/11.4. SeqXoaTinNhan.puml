@@ -1,0 +1,30 @@
+@startuml SeqXoaTinNhan
+
+skin rose
+hide footbox
+title Xóa tin nhắn
+
+actor User as user
+boundary ": User Interface\nClass" as userInterface
+control ": Chat Controller\nClass" as chatController
+entity ": Chat\nClass" as chat
+
+autonumber
+user++
+user -> userInterface++: Nhấn nút xóa tin nhắn\n[đã truy cập giao diện nhắn tin]
+userInterface --> user: Gửi yêu cầu xác nhận
+alt Không xác nhận xóa tin nhắn
+    user -> userInterface: Nhấn nút hủy
+    userInterface --> user: Hiển thị cuộc trò chuyện cũ
+else Xác nhận xóa tin nhắn
+    autonumber 3
+    user -> userInterface: Nhấn nút xác nhận
+    userInterface -> chatController++: Gửi yêu cầu xóa tin nhắn
+    chatController -> chat++: Xóa tin nhắn
+    chat --> chatController--: Trả về thông báo\nvà cuộc trò chuyện mới
+    chatController --> userInterface--: Trả về thông báo\nvà cuộc trò chuyện mới
+    userInterface --> user--: Hiển thị thông báo\nvà cuộc trò chuyện mới
+end
+user--
+
+@enduml

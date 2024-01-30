@@ -1,0 +1,52 @@
+@startuml SeqQuenMatKhau
+skin rose
+hide footbox 
+scale 5
+autonumber
+actor user as "User"
+boundary userInterface as ": User Interface\n Class"
+control userController as ": User controller\nClass"
+entity User as ": User\nClass"
+user++
+user -> userInterface++: Truy cập vào trang quên mật khẩu
+userInterface --> user: Hiển thị trang quên mật khẩu
+user -> userInterface: Nhập username 
+userInterface -> userController++: Gửi thông tin email
+userController -> userController: Kiểm tra format email
+alt Invalid Data
+    userController --> userInterface: Thông báo thông tin không hợp lệ
+    userInterface --> user: Hiển thị thông báo\n"Thông tin không hợp lệ"
+else Valid Data
+    userController -> User++: Gửi thông tin email
+    User --> userController: Gửi thông tin tài khoản
+    userController --> userInterface: Kiểm tra thông tin tài khoản
+    alt Invalid Data
+        userController --> userInterface: Hiển thị thông báo\n"Không tồn tại người dùng này trong hệ thống"
+    else Valid Data
+        User-->userController: Thông báo đúng thông tin người dùng
+        userController --> userInterface: Hiển thị xác thực người dùng
+        user -> userInterface: Nhập mã OTP
+        userInterface -> userController: Gửi mã OTP đã nhập
+        userController -> userController: Kiểm tra mã OTP
+        alt Invalid OTP
+        userController --> userInterface: Thông báo mã OTP không hợp lệ
+        userInterface --> user: Hiển thị thông báo\n"Mã OTP không hợp lệ"
+        else Valid OTP
+        userController --> userInterface: Thông báo đúng mã OTP
+        userInterface -> userInterface: Hiển thị trang đổi mật khẩu
+        user -> userInterface: Nhập mật khẩu mới
+        userInterface -> userController: Gửi mật khẩu mới
+        userController -> userController: Kiểm tra mật khẩu mới
+        alt Valid password
+        userController -> User: Đổi mật khẩu
+        User --> userController: Đổi mật khẩu thành công
+        userController --> userInterface: Hiển thị thông báo \n"đổi mật khẩu thành công"
+        userInterface --> user: Thông báo đổi mật khẩu thành công
+        else Invalid password 
+        userController --> userInterface: Thông báo mật khẩu không hợp lệ
+        userInterface --> user: Thông báo mật khẩu không hợp lệ
+        end
+        end
+    end 
+end
+@enduml

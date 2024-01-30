@@ -1,0 +1,22 @@
+@startuml SeqXemThongTinUngTuyen
+
+skin rose
+hide footbox
+title Xem thông tin ứng tuyển
+
+actor Candidate as candidate
+boundary ": Candidate Interface\nClass" as candidateInterface
+control ": Job Application Controller\nClass" as jobApplicationController
+entity ": Job Application\nClass" as jobApplication
+
+autonumber
+candidate++
+candidate -> candidateInterface++: Truy cập giao diện thông tin ứng tuyển
+candidateInterface -> jobApplicationController++: Yêu cầu thông tin ứng tuyển
+jobApplicationController -> jobApplication++: Lấy thông tin ứng tuyển
+jobApplication --> jobApplicationController--: Trả về thông tin ứng tuyển
+jobApplicationController --> candidateInterface--: Trả về thông tin ứng tuyển
+candidateInterface --> candidate--: Hiển thị thông tin ứng tuyển
+candidate--
+
+@enduml

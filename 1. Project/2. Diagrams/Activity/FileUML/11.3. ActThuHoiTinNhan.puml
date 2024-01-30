@@ -1,0 +1,27 @@
+@startuml ActThuHoiTinNhan
+
+skin rose
+title Thu hồi tin nhắn
+
+|User|
+start 
+: 1. Chọn tin nhắn;
+: 2. Nhấn nút thu hồi tin nhắn;
+|System|
+: 3. Yêu cầu xác nhận;
+|User|
+if () then (Không xác nhận)
+: 4.1. Không xác nhận;
+stop
+else (Xác nhận)
+|User|
+: 4.2. Xác nhận;
+|System|
+: 5. Cập nhật cuộc trò chuyện;
+|Database|
+: 6. Thay thế tin nhắn\nbằng tin nhắn thu hồi;
+: 7. Trả về cuộc trò chuyện mới;
+|System|
+: 8. Hiển thị cuộc trò chuyện mới;
+stop
+@enduml

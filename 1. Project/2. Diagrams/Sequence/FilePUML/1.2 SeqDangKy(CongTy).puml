@@ -1,0 +1,54 @@
+@startuml SeqDangKycompany
+skin rose
+hide footbox 
+scale 5
+actor admin as "Admin"
+actor company as "Company"
+boundary ":Company Interface\nClass" as companyInterface
+boundary ":Admin Interface\nClass" as adminInteface
+control ": User Controller\nClass" as userController
+entity User as ": User\nClass" 
+autonumber
+company++
+admin++
+company -> companyInterface++ : Người dùng chọn đăng ký dưới dạng người tuyển dụng 
+companyInterface --> company : Hiển thị trang đăng ký cho\n công ty tuyển dụng
+company -> companyInterface: Nhập thông tin người dùng
+companyInterface -> userController++: Gửi thông tin công ty
+userController -> userController: Kiểm tra format thông tin công ty
+
+alt Invalid Data
+    userController -->companyInterface: Thông báo thông tin không hợp lệ người dùng
+    companyInterface -->company: Thông báo thông tin không hợp lệ người dùng
+else Valid Data
+    userController --> companyInterface: Gửi mã xác thực về cho công ty
+    company -> companyInterface: Nhập mã xác thực 
+    companyInterface -> userController: Kiểm tra mã xác thực
+    alt Invalid OTP
+        userController --> companyInterface : Thông báo mã xác thực không hợp lệ  
+    else
+        userController -> User: Tạo tài khoản người tuyển dụng
+        User --> userController: Thông báo tạo tài khoản thành công
+        userController --> companyInterface: Thông báo tạo tài khoản thành công và đợi xác thực của admin 
+        userController --> adminInteface++: Gửi thông báo xác thực\n công ty đến admin
+        admin -> adminInteface: Xác thực công ty
+        alt Từ chối xác thực công ty
+        admin -> adminInteface: Từ chối duyệt cho\n công ty tuyển dụng
+        adminInteface -> userController: Gửi yêu cầu không duyệt công ty
+        userController -> User: Từ chối xác thực công ty
+        User --> userController: Gửi thông báo "Từ chối xác thực công ty"
+        userController --> companyInterface: Gửi thông báo về việc\n công ty bị từ chối duyệt
+        companyInterface --> company: Tài khoản không được xác thực
+
+        else
+        admin -> adminInteface: Duyệt thành công cho\n công ty tuyển dụng
+         adminInteface -> userController: Gửi yêu cầu đã duyệt công ty
+        userController -> User: Đã xác thực công ty
+        User --> userController: Gửi thông báo "Đã xác thực công ty"
+        userController --> companyInterface: Gửi thông báo về việc\n công ty đã được duyệt  
+        companyInterface --> company: Tài khoản xác thực thành công
+
+        end
+    end
+end
+@enduml

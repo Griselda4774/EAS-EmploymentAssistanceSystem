@@ -1,0 +1,14 @@
+@startuml QuanLyTruyCapHeThong
+left to right direction
+
+actor "Manager" as quanLy
+
+rectangle "Quản lý truy cập hệ thống" {
+    usecase "Khóa quyền truy cập hệ thống" as khoaQuyen
+    usecase "Mở khóa quyền truy cập hệ thống" as moKhoaQuyen
+}
+
+quanLy -- khoaQuyen
+quanLy -- moKhoaQuyen
+
+@enduml

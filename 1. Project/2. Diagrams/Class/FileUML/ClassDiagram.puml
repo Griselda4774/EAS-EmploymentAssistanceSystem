@@ -1,0 +1,165 @@
+@startuml ClassDiagram
+
+hide circle
+skin rose
+
+class Account {
+    -username
+    -type
+    -password
+    -isLocked
+    -dateCreated
+    -dateUpdated
+    +createAccount()
+    +getAccountInformation()
+    +updateAccount()
+    +deleteAccount()
+}
+
+class User {
+    #accountID
+    #avatar
+    #listChat
+    +createUser()
+    +getUserInformation()
+    +updateUserInformation()
+}
+
+class Admin {
+    #firstName
+    #lastName
+    +getUserInformation()
+    +updateUserInformation()
+}
+
+class Candidate {
+    -firstName
+    -lastName
+    -dateOfBirth
+    -gender
+    -email
+    -phoneNumber
+    -description
+    -dateCreated
+    -cvID
+    -isReported
+    -listRating
+    -listJobApplication
+    -listFollowing
+    +getUserInformation()
+    +updateUserInformation()
+}
+
+class Company {
+    -name
+    -incoporationDate
+    -address
+    -description
+    -logo
+    -website
+    -email
+    -phoneNumber
+    -followerNumber
+    -isReported
+    -listRating
+    -listPost
+    -listJobApplication
+    +getUserInformation()
+    +updateUserInformation()
+}
+
+class Staff {
+
+}
+
+class Manager {
+
+}
+
+class Post {
+    -title
+    -description
+    -dateCreated
+    -dateUpdated
+    -author
+    -views
+    -likes
+    -dislikes
+    -image
+    -jobTag
+    +createPost()
+    +getPostInformation()
+    +updatePost()
+    +deletePost()
+}
+
+class CandidateCV {
+    -title
+    -description
+    -author
+    +createCV()
+    +getCVInformation()
+    +updateCV()
+    +deleteCV()
+}
+
+class JobApplication {
+    -title
+    -description
+    -isAccepted
+    -isCompleted
+    -candidateCVID
+    -postID
+    +createJobApplication()
+    +getJobApplicationInformation()
+    +updateJobApplication()
+    +deleteJobApplication()
+}
+
+class Chat {
+    -userID
+    -isBlocked
+    -listMessage
+    +createChat()
+    +getChatInformation()
+    +updateChat()
+    +deleteChat()
+}
+
+class Message {
+    -content
+    -timestamp
+    -author
+    -isRecalled
+    +createMessage()
+    +getMessageInformation()
+    +updateMessage()
+    +deleteMessage()
+}
+
+class AnalyticsAndStatistics {
+    -title
+    -description
+    +createAnalyticsAndStatistics()
+    +getAnalyticsAndStatisticsInformation()
+    +updateAnalyticsAndStatistics()
+    +deleteAnalyticsAndStatistics()
+}
+
+Account "1" --* "1" User: owns <
+Admin --|> User
+User <|-right- Candidate
+User <|-- Company
+Staff --|> Admin
+Manager --|> Admin
+AnalyticsAndStatistics "n" -- "1" Admin: manages <
+Manager "1" -- "n" Account: manages >
+Post "n" -left-* "1" Company: manages <
+Chat "n" -right-* "2" User: manages <
+Message "n" -right-* "1" Chat: haves <
+CandidateCV "1" -left-* "1" Candidate: owns <
+JobApplication "n" -left-* "1" Post: contains <
+Candidate "n" -- "n" Company: follows >
+CandidateCV "1" *-- "n" JobApplication: applies >
+
+@enduml

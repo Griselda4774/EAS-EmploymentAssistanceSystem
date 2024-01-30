@@ -1,0 +1,37 @@
+@startuml ActQuanLyHoSoCaNhan
+title Quản lý hồ sơ cá nhân
+skin rose
+|Candidate|
+start
+: 1. Truy cập giao diện thông tin hồ sơ cá nhân;
+|System|
+: 2. Lấy thông tin hồ sơ cá nhân;
+|Database|
+: 3. Truy vấn thông tin hồ sơ cá nhân;
+: 4. Trả về thông tin hồ sơ cá nhân;
+|System|
+: 5. Hiển thị thông tin hồ sơ cá nhân;
+|Candidate|
+: 6. Chọn nút ở thông tin hồ sơ;
+if () then (Back button)
+|Candidate|
+: 7.1. Chọn chỉnh sửa thông tin cá nhân;
+|System|
+: 8.1. Hiển thị trang chỉnh sửa thông tin cá nhân;
+|Candidate|
+repeat: 9. Nhập thông tin cá nhân mới cần chỉnh sửa;
+: 10. Ân nút cập nhât thông tin;
+|System|
+backward :11.1. Thông báo sai thông tin nhập vào;
+repeat while () is (Invalid data) not (Valid data)
+|Database|
+:11.2. Cập nhật thông tin cá nhân vừa nhập;
+|System|
+:12. Thông báo cập nhật thông tin cá nhân thành công;
+stop
+else
+: 7.2. Chọn nút quay về;
+|System|
+: 8.2. Tắt trang thông tin cá nhân;
+stop
+@enduml

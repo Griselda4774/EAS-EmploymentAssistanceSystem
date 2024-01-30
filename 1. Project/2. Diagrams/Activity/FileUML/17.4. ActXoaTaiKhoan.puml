@@ -1,0 +1,28 @@
+@startuml ActXoaTaiKhoan
+
+skin rose
+title Xóa tài khoản
+
+|Manager|
+start
+: 1. Truy cập giao diện quản lý tài khoản;
+: 2. Chọn tài khoản cần xóa;
+: 3. Ấn nút "Xóa";
+|System|
+: 4. Yêu cầu xác nhận xóa tài khoản;
+|Manager|
+if () then (Không xác nhận)
+: 5.1. Ấn nút "Hủy";
+stop
+else (Xác nhận)
+: 5.2. Ấn nút "Xác nhận";
+|System|
+: 6. Gửi yêu cầu xóa tài khoản;
+|Database|
+: 7. Xóa tài khoản;
+: 8. Trả về kết quả xóa tài khoản;
+|System|
+: 9. Hiển thị thông báo xóa tài khoản thành công;
+stop
+
+@enduml

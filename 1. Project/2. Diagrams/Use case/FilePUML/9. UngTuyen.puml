@@ -1,0 +1,14 @@
+@startuml UngTuyen
+left to right direction
+
+actor "Candidate" as nguoiUngTuyen
+
+rectangle "Ứng tuyển" {
+    usecase "Gửi yêu cầu ứng tuyển" as nopYeuCauUngTuyen
+    usecase "Xem thông tin ứng tuyển" as xemTrangThaiYeuCauUngTuyen
+}
+
+nguoiUngTuyen -- nopYeuCauUngTuyen
+nguoiUngTuyen -- xemTrangThaiYeuCauUngTuyen
+
+@enduml

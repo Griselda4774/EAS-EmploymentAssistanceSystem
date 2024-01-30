@@ -1,0 +1,22 @@
+@startuml ActXemThongTinTaiKhoan
+
+skin rose
+title Xem thông tin tài khoản
+
+|Manager|
+|System|
+|Database|
+
+|Manager|
+start
+: 1. Truy cập giao diện thông tin tài khoản;
+|System|
+: 2. Yêu cầu thông tin tài khoản;
+|Database|
+: 3. Truy vấn thông tin tài khoản;
+: 4. Trả về thông tin tài khoản;
+|System|
+: 5. Hiển thị thông tin tài khoản;
+stop
+
+@enduml

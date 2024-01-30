@@ -1,0 +1,22 @@
+@startuml SeqQuanLyPhanTichThongKe
+
+skin rose
+hide footbox
+title Quản lí phân tích thống kê
+
+actor Admin as admin
+boundary ": Admin Interface\nClass" as adminInterface
+control ": Analysis Controller\nClass" as analysisController
+entity ": Analysis\nClass" as analysis
+
+autonumber
+admin++
+admin -> adminInterface++: Truy cập giao diện quản lí phân tích thống kê
+adminInterface -> analysisController++: Yêu cầu dữ liệu phân tích thống kê
+analysisController -> analysis++: Lấy dữ liệu phân tích thống kê
+analysis --> analysisController--: Trả về dữ liệu phân tích thống kê
+analysisController --> adminInterface--: Trả về dữ liệu phân tích thống kê
+adminInterface --> admin--: Hiển thị dữ liệu phân tích thống kê
+admin--
+
+@enduml

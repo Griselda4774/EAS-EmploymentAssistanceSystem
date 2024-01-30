@@ -1,0 +1,35 @@
+@startuml ActCapNhatBaiDangCongTy
+
+skin rose
+title Cập nhật bài đăng công ty
+
+|Company|
+start
+: 1. Truy cập trang cập nhật thông tin bài đăng;
+|System|
+: 2. Lấy thông tin bài đăng;
+|Database|
+: 3. Truy vấn thông tin bài đăng;
+: 4. Trả về thông tin bài đăng;
+|System|
+: 5. Hiển thị thông tin bài đăng;
+|Company|
+repeat: 6. Nhập thông tin mới của bài đăng;
+: 7. Nhập nút cần lựa chọn;
+if () then (Cancle Button)
+: 7.1. Nhập nút huỷ cập nhật;
+|Company|
+stop
+else (Update Button)
+: 7.2. Nhập nút Cập nhật bài đăng;
+|System|
+: 8. Kiểm tra thông tin bài đăng vừa cập nhật;
+endif
+backward :9.1. Thông báo thông tin mới\n cập nhật của bài đăng bị lỗi;
+repeat while() is (Invalid data) not (Valid data)
+|Database|
+: 9.2. Cập nhật thông tin bài đăng mới;
+|System|
+: 10. Thông báo cập nhật thông tin bài\n đăng mới thành công;
+stop
+@enduml

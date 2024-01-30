@@ -1,0 +1,33 @@
+@startuml seqTaoBaiDang
+skin rose
+hide footbox 
+scale 5
+actor company as "Company"
+boundary companyInterface as ": Company Interface\nClass"
+control postController as ": Post Controller\nClass"
+entity Post as ": Post\nClass"
+
+autonumber
+company++
+company -> companyInterface++: Truy cập trang tạo bài đăng
+companyInterface --> company: Hiển thị trang tạo bài đăng\nvới thông tin rỗng
+company -> companyInterface: Nhập thông tin bài bài đăng
+companyInterface -> postController++: Gửi thông tin\n bài đăng nhập vào
+postController -> postController: Kiểm tra thông tin\n bài đăng nhập vào
+alt Invalid data
+    postController--> companyInterface: Thông báo bài đăng không hợp lệ   
+    companyInterface --> company: Hiển thị thông báo "Bài đăng không hợp lệ"   
+else Valid data
+    postController-> Post++: Gửi thông tin bài đăng
+    Post --> postController: Gửi thông tin đăng tải bài đăng
+    postController->postController: Kiểm tra thông tin\n đăng tải bài đăng
+    alt Invalid data
+        postController --> companyInterface: Hiển thị thông báo\nlỗi ra cho người dùng
+        companyInterface -->company: Thông báo cho công ty tạo bài đăng thất bại
+
+    else
+        postController-->companyInterface: Hiển thị thông báo\n"Tạo bài đăng thành công"
+        companyInterface-->company: Thông báo cho công ty tạo bài đăng thành công
+    end
+end
+@enduml

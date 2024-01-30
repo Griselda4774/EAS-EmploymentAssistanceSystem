@@ -1,0 +1,20 @@
+@startuml QuanLyPhanTichThongKe
+left to right direction
+
+actor "Staff" as nhanVien
+
+rectangle "Quản lý phân tích thống kê" {
+    usecase "Xem thống kê người ứng tuyển" as xemThongKeNguoiUngTuyen
+    usecase "Xem thống kê công ty tuyển dụng" as xemThongKeCongTyTuyenDung
+    usecase "Xem thống kê lượt truy cập hệ thống" as xemThongKeLuotTruyCapHeThong
+    usecase "Xem phân tích xu hướng nghề nghiệp" as xemPhanTichXuHuongNgheNghiep
+    usecase "Xem thống kê tỉ lệ xin việc" as xemThongKeTiLeXinViec
+}
+
+nhanVien -- xemThongKeNguoiUngTuyen
+nhanVien -- xemThongKeCongTyTuyenDung
+nhanVien -- xemThongKeLuotTruyCapHeThong
+nhanVien -- xemPhanTichXuHuongNgheNghiep
+nhanVien -- xemThongKeTiLeXinViec
+
+@enduml
